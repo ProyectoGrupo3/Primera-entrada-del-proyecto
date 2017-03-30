@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="yuyyu" directorySegmentName="seg_0" id="0A01E8FF-9753-E957-64B0-8B9320020438">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:57:49 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<sourcePk>4D48B10F-990E-04FB-6F5D-42137AA2BBA3</sourcePk>
+<targetPk>ECD28126-9360-88A7-B484-75E1406CC2B0</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>372445CE-C17E-F89D-2B59-8B8914F703BD</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>579D69C5-17F9-06B9-7B53-D089217D331A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

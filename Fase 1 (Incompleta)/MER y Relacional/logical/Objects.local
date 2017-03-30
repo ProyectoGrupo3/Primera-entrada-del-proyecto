@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="372445CE-C17E-F89D-2B59-8B8914F703BD" name="Avisos" seqName="seg_0"/>
+   <object objectType="Entity" objectID="CCBAF422-0BB9-77FE-3E01-755B8C3AB2AD" name="Centros de trabajo" seqName="seg_0"/>
+   <object objectType="Entity" objectID="CA175952-76CD-1632-A07A-9E94E76CD8BB" name="Empresa" seqName="seg_0"/>
+   <object objectType="Entity" objectID="C6F48A1B-A78C-3B4C-E52B-3B512954EA3E" name="Partes" seqName="seg_0"/>
+   <object objectType="Entity" objectID="579D69C5-17F9-06B9-7B53-D089217D331A" name="Trabajadores" seqName="seg_0"/>
+   <object objectType="Entity" objectID="4F6A3DC0-5EC5-37E1-E2C0-443FED51A0AC" name="VehÃ­culos" seqName="seg_0"/>
+   <object objectType="Relation" objectID="44722453-8BE1-EB45-E634-AEDE407C5188" name="Relation_1" seqName="seg_0"/>
+   <object objectType="Relation" objectID="0A34BAFE-2E5D-927C-92A8-2003AB7A739F" name="Relation_4" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A0F08199-A609-68BD-F600-78839486E4FA" name="Relation_5" seqName="seg_0"/>
+   <object objectType="Relation" objectID="8B6B7971-D0CE-24DF-F570-F74283D74188" name="Relation_7" seqName="seg_0"/>
+   <object objectType="Relation" objectID="0A01E8FF-9753-E957-64B0-8B9320020438" name="yuyyu" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>
