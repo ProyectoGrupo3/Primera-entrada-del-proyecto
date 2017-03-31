@@ -10,7 +10,7 @@
 <sourcePk>4BCAF612-F851-0E91-C8CB-E2D27E7F4A58</sourcePk>
 <dominantRole>6BEEBD8D-6B4E-59D0-E0ED-1E2AEC1BDEEE</dominantRole>
 <identifying>false</identifying>
-<optionalSource>true</optionalSource>
+<optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
 <sourceEntity>6BEEBD8D-6B4E-59D0-E0ED-1E2AEC1BDEEE</sourceEntity>
