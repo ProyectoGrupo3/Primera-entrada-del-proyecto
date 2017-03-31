@@ -6,4 +6,9 @@
 <ownerDesignName>MER y Relacional</ownerDesignName>
 <capitalNames>false</capitalNames>
 <designId>7BE013AA-4FAE-66F8-7EB3-CBB8F8E1323A</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="14FBC8C8-A132-0839-6E93-DDBB722A8CFF">
+<designStoragePath>C:\Scrip de las tablas SQL</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
 </OSDM_Design>

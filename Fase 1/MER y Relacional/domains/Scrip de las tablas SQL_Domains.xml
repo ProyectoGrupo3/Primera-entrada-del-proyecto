@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="Scrip de las tablas SQL_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="10774F16-8B2A-5FD1-79A5-94A495A5A25A">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>20</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_2" id="142D4B6E-5D93-D346-397E-9B9CA69345A3">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>2</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_9" id="1908214F-7A5B-BE66-F42E-4F235462C9E6">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>9</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_5" id="31169B61-7407-2B60-B472-EE8524E75976">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>5</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_10" id="593F7FAE-919D-3EF8-2D76-B5D4EC7636BB">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>10</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="A3093009-D151-5356-20CA-E51D73454561">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="CHAR_0_0_1" id="AC91F612-DE78-8A8F-2D5F-141682D25326">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>1</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_15" id="B0AE1B3C-C3AC-D845-8783-F1751F530CB8">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>15</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_240" id="CEA7A294-F405-C07F-1959-BEE6B9BF1FE8">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>240</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Integer_0_0_0" id="FA2FD430-28C3-7D50-610D-996D2793E704">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT011</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_30" id="FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>30</dataTypeSize>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_0_0_0" id="FE21DE50-06DD-B2EF-C45A-0AFEB84A3158">
+         <createdBy>7fprog12</createdBy>
+         <createdTime>2017-03-31 19:29:56 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>MER y Relacional</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>Scrip de las tablas SQL_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

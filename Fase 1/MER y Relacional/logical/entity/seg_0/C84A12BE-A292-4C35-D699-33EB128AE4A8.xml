@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C84A12BE-A292-4C35-D699-33EB128AE4A8" name="Aviso">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<commentInRDBMS>Solo el trabajador con la categoría de Administrador puede crear un aviso</commentInRDBMS>
+<generatorID>3F1A2BDB-29B8-ABA2-B19E-0C58A8187C89</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Fecha aviso" id="C59BB982-DD99-9313-FF9C-CE856A3A44EB">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>BD860BD1-D621-A05F-9658-94EF3AF78522</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>A3093009-D151-5356-20CA-E51D73454561</domain>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Texto" id="14CD99CC-A718-8409-0FA5-7B371A689D80">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>58FE13D0-01DB-2D0B-4F52-60403EAE970B</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CEA7A294-F405-C07F-1959-BEE6B9BF1FE8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Trabajador ID Trabajador" id="CFC2700B-3246-0E37-C80A-03FFF68A8EC8">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>A914A3EB-F186-B7C8-8119-EE398068EC9B</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>05669D4F-72D2-5409-EED5-186BC130877E</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CPARTE Fecha" id="F0A5994D-91A7-4CCD-07C3-F78F9A406217">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>77BE5CAC-0304-F4AF-0B7D-1BF1542A945B</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>4810BAB6-D182-4784-4D71-BFBBF18CB8CA</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>A3093009-D151-5356-20CA-E51D73454561</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CP Trabajador ID Trabajador" id="AA06B53F-C2C6-A095-13E4-DBFC56DB32CB">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>77BE5CAC-0304-F4AF-0B7D-1BF1542A945B</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>CA30BC10-D6A2-6D5F-824D-3C2D7F6B021F</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="84811E16-169A-6EB1-1291-083CB23CAE5D" name="Aviso PK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>98264D8C-F556-9CDD-4B9B-7F12EB31C95C</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F0A5994D-91A7-4CCD-07C3-F78F9A406217</attributeRef>
+<attributeRef>AA06B53F-C2C6-A095-13E4-DBFC56DB32CB</attributeRef>
+<attributeRef>CFC2700B-3246-0E37-C80A-03FFF68A8EC8</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

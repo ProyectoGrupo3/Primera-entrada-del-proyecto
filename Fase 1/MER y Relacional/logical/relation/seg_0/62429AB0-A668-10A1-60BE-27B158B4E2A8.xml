@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Cabecera_Parte_Vehiculo_FK" directorySegmentName="seg_0" id="62429AB0-A668-10A1-60BE-27B158B4E2A8">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>E493804A-FBAC-6078-B001-2541FC739D56</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<sourcePk>94D1A149-AD83-FB21-ADEB-82EF0BD817A1</sourcePk>
+<dominantRole>951D9BDE-F7F5-1F83-7C03-79E6A4D3AF5C</dominantRole>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>951D9BDE-F7F5-1F83-7C03-79E6A4D3AF5C</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>437D1A80-A89E-C88F-6FA2-F8EB82ED7956</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

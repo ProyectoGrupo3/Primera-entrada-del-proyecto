@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CE09E757-ED8A-A31A-02E5-C92AE56A018E" name="Vehiculo">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>329C0DA9-359A-3AAA-ED7C-9EA691CECC01</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Matricula" id="A02DA727-1F13-956A-BC86-CBA259ECEBD2">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>24A26C19-75CB-0987-A355-B92CB0DA4BB7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Marca" id="F41ABFB7-4683-8727-ACCF-6A937FAFAE2C">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>5D7AC881-7E36-C743-4F10-6842E9AF2A10</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10774F16-8B2A-5FD1-79A5-94A495A5A25A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Modelo" id="08B82ED8-271E-F41F-174D-8CF948015BBD">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>044E5587-452A-C1CC-56FE-1212074F68BB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10774F16-8B2A-5FD1-79A5-94A495A5A25A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Color" id="24C228FD-CE08-177E-7DFE-6727B66C324D">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>2E982232-6C3C-0B78-8ACA-A155A1E22CF6</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10774F16-8B2A-5FD1-79A5-94A495A5A25A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KM_totales" id="2C307817-F1E1-4A4A-5B8E-7370B8EF29E8">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>D376EADC-682E-F16F-A3CB-52AB3C8670AD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cabecera_Parte_Fecha" id="A1EE1CBF-301F-6E8C-602A-075A9075CC9C">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>8883289E-5967-4623-7C2C-8D629A66AF92</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>A3093009-D151-5356-20CA-E51D73454561</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C5003985-0FEE-F9FB-272E-8A9D87F1F439" referredColumn="D3F6FF9E-9553-231C-5B31-B6439859ED2C"/>
+</associations>
+</Column>
+<Column name="CP_Trabajador_ID_Trabajador" id="5864DC4E-1C87-4DFD-7528-F2D7F3532DBA">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>B87214F7-DDCE-89C3-A071-08A1DD277A79</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C5003985-0FEE-F9FB-272E-8A9D87F1F439" referredColumn="2D141B5D-A816-3FD0-0602-BD66844E3B29"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DD17F294-0DFD-9518-24E9-8913E339F7DD" name="Vehiculo_PK">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>2A608540-882E-9BC6-DFC8-E95B0FEF7EFE</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A02DA727-1F13-956A-BC86-CBA259ECEBD2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4EE90089-D98E-E1D2-545F-5CE026C96A08" name="Vehiculo__IDX">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>4E71F1D7-F021-E5CC-FE97-79315D738932</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1EE1CBF-301F-6E8C-602A-075A9075CC9C"/>
+<colUsage columnID="5864DC4E-1C87-4DFD-7528-F2D7F3532DBA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CBD7B5F7-7F8C-8CBD-A897-AD97233E54B7" name="Vehiculo_Cabecera_Parte_FK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1EE1CBF-301F-6E8C-602A-075A9075CC9C"/>
+<colUsage columnID="5864DC4E-1C87-4DFD-7528-F2D7F3532DBA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

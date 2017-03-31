@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Vehiculo" directorySegmentName="seg_0" id="CE09E757-ED8A-A31A-02E5-C92AE56A018E">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Modelo" id="08B82ED8-271E-F41F-174D-8CF948015BBD">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Color" id="24C228FD-CE08-177E-7DFE-6727B66C324D">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="KM_totales" id="2C307817-F1E1-4A4A-5B8E-7370B8EF29E8">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CP_Trabajador_ID_Trabajador" id="5864DC4E-1C87-4DFD-7528-F2D7F3532DBA">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Matricula" id="A02DA727-1F13-956A-BC86-CBA259ECEBD2">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Cabecera_Parte_Fecha" id="A1EE1CBF-301F-6E8C-602A-075A9075CC9C">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Marca" id="F41ABFB7-4683-8727-ACCF-6A937FAFAE2C">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="Vehiculo__IDX" id="4EE90089-D98E-E1D2-545F-5CE026C96A08">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Vehiculo_Cabecera_Parte_FK" id="CBD7B5F7-7F8C-8CBD-A897-AD97233E54B7">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Vehiculo_PK" id="DD17F294-0DFD-9518-24E9-8913E339F7DD">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

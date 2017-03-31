@@ -10,7 +10,7 @@
 <sourcePk>4D48B10F-990E-04FB-6F5D-42137AA2BBA3</sourcePk>
 <targetPk>ECD28126-9360-88A7-B484-75E1406CC2B0</targetPk>
 <identifying>false</identifying>
-<optionalSource>true</optionalSource>
+<optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
 <sourceEntity>372445CE-C17E-F89D-2B59-8B8914F703BD</sourceEntity>

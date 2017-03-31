@@ -186,6 +186,21 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Usuario1" id="CAF35245-424A-0321-87D2-0EF8C3826C55">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:28:52 UTC</createdTime>
+<generatorID>E70C3CB9-5555-C213-B869-950B7F28DDFC</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>05D7B25E-C52F-3F21-8F5B-001A38FF2D87</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="ECD28126-9360-88A7-B484-75E1406CC2B0" name="Trabajadores PK">

@@ -1,0 +1,143 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="284C12D4-D4CE-A7C4-D385-92AADC7E208A" name="Centro trabajo">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>43E3A790-5F8D-5D68-F2A0-599E08CBD245</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID centro" id="7C825EDB-C190-F58C-701F-31537FF66D67">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>DB1950E2-FED7-5040-0F45-38008697DB9C</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<checkConstraint>
+<implementationDef dbType="Oracle Database 11g" definition="ID_centro = 1"/>
+</checkConstraint>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="FE847CB2-BCC0-11DE-CFD0-15B8A7DE9F8D">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>330B1FCC-706D-4797-4792-69A76401076C</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Calle" id="E84F2168-7A0E-E029-E07C-22837FF5EFCB">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>A435E433-EAA8-33C1-6675-2E0AB07E3733</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Número" id="0959FC4C-B612-9ABF-5292-1152A5C28486">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>5801C921-69D2-149D-3416-48F9B84B0DE4</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Código postal" id="9DE44487-6794-70B0-F883-4FF59E0FE4A1">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>D79A3F4B-5A1A-D1F7-1C06-F4F471A57182</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>31169B61-7407-2B60-B472-EE8524E75976</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ciudad" id="968819D7-9355-A7E8-39DA-9E6A58D25772">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>BA374446-FD7A-4364-950F-97A08F8AB2EC</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Provincia" id="502A2D6D-B7D9-F679-C02F-6347E9A052F4">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>BB87773F-1D46-3FB4-D3F0-86C29B4FF61C</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Teléfono" id="56436B10-A3A8-C688-E8C3-EC9BE1EDCCE9">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>BEF10214-6B99-9166-3CC2-038C56C2951C</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="207CBDD7-E1B3-4D4F-8C93-6C28EAD91384" name="Centro trabajo PK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>33F7B4D7-AA39-016C-106E-AD0E6F6B7FDB</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7C825EDB-C190-F58C-701F-31537FF66D67</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -111,18 +111,6 @@
 <use>1</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre_Empresa" id="9020A081-AB64-5B18-8A61-3AC274A5881A">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:55:57 UTC</createdTime>
-<generatorID>0A34BAFE-2E5D-927C-92A8-2003AB7A739F</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<referedAttribute>00703167-39F5-32FD-33AE-2D429A8C31F2</referedAttribute>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="Empresa" id="E07D70EB-00F9-3114-8C31-D239B4C42FD3">
 <createdBy>7fprog12</createdBy>
 <createdTime>2017-03-28 19:16:42 UTC</createdTime>
