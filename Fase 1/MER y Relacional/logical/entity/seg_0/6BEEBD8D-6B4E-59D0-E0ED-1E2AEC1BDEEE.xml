@@ -42,20 +42,6 @@
 <domain>10774F16-8B2A-5FD1-79A5-94A495A5A25A</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Trabajador ID Trabajador" id="4F49EEAD-73CE-ACF3-24B9-8B2329668EF5">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-31 19:31:25 UTC</createdTime>
-<generatorID>3248E13A-C403-61D2-CAE1-94615A7FCCE5</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<referedAttribute>05669D4F-72D2-5409-EED5-186BC130877E</referedAttribute>
-<use>0</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="4BCAF612-F851-0E91-C8CB-E2D27E7F4A58" name="Clave PK">

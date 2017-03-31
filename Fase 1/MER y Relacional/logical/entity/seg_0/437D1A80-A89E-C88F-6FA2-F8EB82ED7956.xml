@@ -181,20 +181,6 @@
 <domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Vehiculo Matricula" id="9D24635E-BA30-C015-9F7C-F28BC6D4A826">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-31 19:31:25 UTC</createdTime>
-<generatorID>62429AB0-A668-10A1-60BE-27B158B4E2A8</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<referedAttribute>D96C66E8-774F-A344-3219-BEACF0CF9BAB</referedAttribute>
-<use>0</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="BE2E4D70-ACBC-0869-B115-33FAD8D8C87E" name="Cabecera Parte PK">
