@@ -16,18 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_Parte" id="BB9ADD65-3E7A-8274-F674-01943BBF2FEA">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:05:40 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Fecha del parte" id="0F4E983A-AF9A-1FE8-FB45-232D26A8A4E0">
+<Attribute name="Fecha" id="0F4E983A-AF9A-1FE8-FB45-232D26A8A4E0">
 <createdBy>7fprog12</createdBy>
 <createdTime>2017-03-28 18:05:49 UTC</createdTime>
 <generatorID>Generado por el Usuario</generatorID>
@@ -35,21 +24,12 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Trabajador " id="CAB4BC1A-BA69-621F-B53A-C059F7C82F14">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:06:14 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Hora inicio" id="C518D21E-568E-3E00-508A-49281B0D0226">
+<Attribute name="KM_inicio" id="C518D21E-568E-3E00-508A-49281B0D0226">
 <createdBy>7fprog12</createdBy>
 <createdTime>2017-03-28 18:06:26 UTC</createdTime>
 <generatorID>Generado por el Usuario</generatorID>
@@ -57,10 +37,12 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Hora de fin" id="89F021EC-942A-D6F2-4E55-78DB910BD1E2">
+<Attribute name="KM_fin" id="89F021EC-942A-D6F2-4E55-78DB910BD1E2">
 <createdBy>7fprog12</createdBy>
 <createdTime>2017-03-28 18:06:57 UTC</createdTime>
 <generatorID>Generado por el Usuario</generatorID>
@@ -68,51 +50,9 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Vehiculo" id="6EB3C191-5B95-8BEE-C93C-3192B8CF58F8">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:07:04 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Cerrar" id="EC96BCA2-3569-7BF5-23D3-D62CB9585650">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:07:14 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="KM inicio" id="FBFEA9ED-32CA-317D-3560-84A03F80A294">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:09:06 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="KM final" id="37C68048-14F2-C7B1-EFEF-574817220192">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:09:16 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Gasto en gasoil" id="53E3524F-D28F-0839-E2CA-1D9D70994E4D">
@@ -124,7 +64,9 @@
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Gasto en autopista" id="22739120-F01E-24FC-C961-B3083203632F">
@@ -136,7 +78,9 @@
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Gasto en dietas" id="E416F219-F550-CF97-88A5-DDCDC18D7141">
@@ -148,7 +92,9 @@
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Otros gastos" id="AB5CB9AD-412C-60CA-3454-B600C5E32877">
@@ -160,7 +106,9 @@
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Incidencias posibles" id="B70723C5-A28D-94A6-F8B0-68EF0781D5A7">
@@ -172,8 +120,39 @@
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240</dataTypeSize>
+<ownDataTypeParameters>240,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cerrar_logis" id="EC96BCA2-3569-7BF5-23D3-D62CB9585650">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:07:14 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Verificar_admin" id="9C73778E-7C4F-4313-FFB6-A53ED39A3A29">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:24:11 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ID_Trabajador" id="2ED6C51C-D372-67F0-A143-C304A3B23CB9">
 <createdBy>7fprog12</createdBy>
@@ -187,16 +166,29 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID_Vehiculo" id="0B77EF06-BA6A-76E5-B783-A9BBC7DCBEB8">
+<Attribute name="ID_Aviso" id="D1BD488C-3EA3-0FDC-D881-0C32CB1D54CD">
 <createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 18:57:26 UTC</createdTime>
+<createdTime>2017-03-31 19:26:24 UTC</createdTime>
+<generatorID>B74F4CAA-9BEE-314D-DC00-D73006F3D515</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>6AF73B86-BD03-72A9-7414-D5C7722D058D</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Matricula" id="329E48F5-84B5-2DA2-56BE-D225FBD0A21E">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:27:24 UTC</createdTime>
 <generatorID>8B6B7971-D0CE-24DF-F570-F74283D74188</generatorID>
 <ownerDesignName>MER y Relacional</ownerDesignName>
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<referedAttribute>96849F18-CBA1-6537-D414-8FF9218D9D3C</referedAttribute>
-<use>0</use>
+<referedAttribute>3C061218-38BC-128B-EB7E-FFDA4F03949E</referedAttribute>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
@@ -211,7 +203,7 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>BB9ADD65-3E7A-8274-F674-01943BBF2FEA</attributeRef>
+<attributeRef>0F4E983A-AF9A-1FE8-FB45-232D26A8A4E0</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

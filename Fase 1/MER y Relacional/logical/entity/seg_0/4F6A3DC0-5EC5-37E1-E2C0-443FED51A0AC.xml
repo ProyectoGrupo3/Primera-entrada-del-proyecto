@@ -16,17 +16,6 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_Vehiculo" id="96849F18-CBA1-6537-D414-8FF9218D9D3C">
-<createdBy>7fprog12</createdBy>
-<createdTime>2017-03-28 17:53:55 UTC</createdTime>
-<generatorID>Generado por el Usuario</generatorID>
-<ownerDesignName>MER y Relacional</ownerDesignName>
-<engineerTo>
-<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="Matricula" id="3C061218-38BC-128B-EB7E-FFDA4F03949E">
 <createdBy>7fprog12</createdBy>
 <createdTime>2017-03-28 17:54:51 UTC</createdTime>
@@ -35,8 +24,11 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Marca" id="85DD28C4-EF1B-A827-AFA4-B3BA54F243CC">
 <createdBy>7fprog12</createdBy>
@@ -46,8 +38,11 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Modelo" id="FC7E8FE9-E592-BDBE-6C73-35C8CDAEC5FC">
 <createdBy>7fprog12</createdBy>
@@ -57,8 +52,11 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Color" id="BFE28925-40E9-1EA0-BAAC-6070FCE626AE">
 <createdBy>7fprog12</createdBy>
@@ -68,8 +66,11 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="KM totales" id="CC8CC0FE-8E1B-8196-D6E5-7085AC6EDDF6">
 <createdBy>7fprog12</createdBy>
@@ -79,7 +80,23 @@
 <engineerTo>
 <item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha" id="17CFBC73-26F3-3956-1E3E-F1AE2CC898A4">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:28:13 UTC</createdTime>
+<generatorID>8B6B7971-D0CE-24DF-F570-F74283D74188</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>0F4E983A-AF9A-1FE8-FB45-232D26A8A4E0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
@@ -94,7 +111,7 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>96849F18-CBA1-6537-D414-8FF9218D9D3C</attributeRef>
+<attributeRef>3C061218-38BC-128B-EB7E-FFDA4F03949E</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Trabajador_Centro_trabajo_FK" directorySegmentName="seg_0" id="121B3286-E161-F72C-7A3C-0C0A8CAC5F0B">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>BA10D13C-DBD3-9ECD-F7EF-EC46AE38FA90</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<sourcePk>207CBDD7-E1B3-4D4F-8C93-6C28EAD91384</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>284C12D4-D4CE-A7C4-D385-92AADC7E208A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>39296B43-D290-7D41-BF1C-620A2BC4BB4D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

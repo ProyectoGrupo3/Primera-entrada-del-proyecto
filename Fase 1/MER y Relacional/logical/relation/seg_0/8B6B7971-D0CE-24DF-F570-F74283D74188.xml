@@ -11,8 +11,8 @@
 <targetPk>4FC7BC05-F376-5824-F7AE-A69216D4DDB8</targetPk>
 <identifying>false</identifying>
 <optionalSource>false</optionalSource>
-<optionalTarget>true</optionalTarget>
-<sourceCardinality>*</sourceCardinality>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
 <sourceEntity>C6F48A1B-A78C-3B4C-E52B-3B512954EA3E</sourceEntity>
 <targetCardinalityString>1</targetCardinalityString>
 <targetEntity>4F6A3DC0-5EC5-37E1-E2C0-443FED51A0AC</targetEntity>
