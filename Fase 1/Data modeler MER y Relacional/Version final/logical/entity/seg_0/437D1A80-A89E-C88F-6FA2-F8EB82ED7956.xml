@@ -1,0 +1,249 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="437D1A80-A89E-C88F-6FA2-F8EB82ED7956" name="CP">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>AECA8D51-84C0-29F5-D983-EF04C8D6EFB4</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Fecha" id="4810BAB6-D182-4784-4D71-BFBBF18CB8CA">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>D3F6FF9E-9553-231C-5B31-B6439859ED2C</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="KM inicio" id="32F7B085-E39F-FC43-7AB0-EAA5A5DA4737">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>9FA56DFC-B63A-E4FF-DE0D-8AB95E2671CD</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="KM final" id="2A102EEC-E339-0AA7-927C-71AB0716FA61">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>CF6EADE8-270B-D590-1A84-BFD5F550BAF2</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="Gasto gasoil" id="13A33C4A-6439-A5A5-39D8-F725CC6DB829">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>0F968BF7-9ECF-FFBC-9523-1AD913F72F86</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="Gasto autopista" id="AD92778E-9D0D-0977-1F49-E60965047EE4">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>D129A58D-8083-2A98-3296-77CE5A4B7179</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="Gasto dietas" id="D03FD506-92B1-FEA7-EC69-8EE47B22DFCE">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>5EADBD40-7C3D-A17D-0052-3D44A3758739</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="Otros gastos" id="4F992F3F-4BC6-399F-64C2-F71E161923BD">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>CEE4387C-A331-A2DC-3135-E541ACD80961</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="Incidencias posibles" id="B67ADB17-E3B8-40B8-624A-5372FC88AC01">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>DCDF3663-B703-53BF-6F1C-B0DC8EAAC089</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240</dataTypeSize>
+<ownDataTypeParameters>240,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Exceso Horas" id="7ED08F22-522B-F24C-C6BC-DB967CD7AE0A">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>569C561C-45B4-4D42-493A-9953BD0A2A94</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cerrar logis" id="C5DE634C-71B9-7D81-12A6-879C024FB52B">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>D9735021-2118-49CF-9A48-8FFFC05AB62D</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Verificación admin" id="163947A3-C8B3-DA92-C9DB-6DC9F27D11B8">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>A4EF7067-01E8-2009-B7E4-4D95FA5F7C01</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Trabajador ID Trabajador" id="CA30BC10-D6A2-6D5F-824D-3C2D7F6B021F">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>9896046E-EE9C-3F13-659F-E69B9803B43A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<referedAttribute>05669D4F-72D2-5409-EED5-186BC130877E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Vehiculo Matricula" id="9D24635E-BA30-C015-9F7C-F28BC6D4A826">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>62429AB0-A668-10A1-60BE-27B158B4E2A8</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<referedAttribute>D96C66E8-774F-A344-3219-BEACF0CF9BAB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BE2E4D70-ACBC-0869-B115-33FAD8D8C87E" name="Cabecera Parte PK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>2B167D86-E26C-78C0-F1E1-8EE9EF0F129D</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4810BAB6-D182-4784-4D71-BFBBF18CB8CA</attributeRef>
+<attributeRef>CA30BC10-D6A2-6D5F-824D-3C2D7F6B021F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="15E48B87-BDA9-4912-8031-BD8EABC08E0C" name="Clave" seqName="seg_0"/>
+   <object objectType="Entity" objectID="284C12D4-D4CE-A7C4-D385-92AADC7E208A" name="Centro trabajo" seqName="seg_0"/>
+   <object objectType="Entity" objectID="39296B43-D290-7D41-BF1C-620A2BC4BB4D" name="Trabajador" seqName="seg_0"/>
+   <object objectType="Entity" objectID="437D1A80-A89E-C88F-6FA2-F8EB82ED7956" name="CP" seqName="seg_0"/>
+   <object objectType="Entity" objectID="4CE21384-5667-CACF-DCFC-BA70371B2F7E" name="LP" seqName="seg_0"/>
+   <object objectType="Entity" objectID="951D9BDE-F7F5-1F83-7C03-79E6A4D3AF5C" name="Vehiculo" seqName="seg_0"/>
+   <object objectType="Entity" objectID="C84A12BE-A292-4C35-D699-33EB128AE4A8" name="Aviso" seqName="seg_0"/>
+   <object objectType="Relation" objectID="121B3286-E161-F72C-7A3C-0C0A8CAC5F0B" name="Trabajador_Centro_trabajo_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="553FE0C0-34DC-A8C7-096D-373D4E1E8E7A" name="" seqName="seg_0"/>
+   <object objectType="Relation" objectID="62429AB0-A668-10A1-60BE-27B158B4E2A8" name="Cabecera_Parte_Vehiculo_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="77BE5CAC-0304-F4AF-0B7D-1BF1542A945B" name="Aviso_Cabecera_Parte_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="9896046E-EE9C-3F13-659F-E69B9803B43A" name="Cabecera_Parte_Trabajador_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A914A3EB-F186-B7C8-8119-EE398068EC9B" name="Aviso_Trabajador_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="D3E967F9-ACA4-F1A3-BC08-B30815727421" name="Relation_8" seqName="seg_0"/>
+   <object objectType="Relation" objectID="FEB5EC7A-BCE4-24C9-F2B2-6C72A4032775" name="Linea_Parte_Cabecera_Parte_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

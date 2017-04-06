@@ -1,0 +1,264 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0368EFED-9B28-F780-193F-BCBE5F623206" name="CP">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>437D1A80-A89E-C88F-6FA2-F8EB82ED7956</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Fecha" id="B81154D4-86A6-2F00-F831-A8EA14C93472">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>4810BAB6-D182-4784-4D71-BFBBF18CB8CA</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KM_inicio" id="B752F3A3-CAA2-C56A-DE60-CAC5B0DC06AA">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>32F7B085-E39F-FC43-7AB0-EAA5A5DA4737</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="KM_final" id="158BBD37-4133-FEF9-21A0-DB80A0E2EEA7">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>2A102EEC-E339-0AA7-927C-71AB0716FA61</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="Gasto_gasoil" id="D0324D38-1955-FE09-A5A0-F064A0825CA4">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>13A33C4A-6439-A5A5-39D8-F725CC6DB829</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="Gasto_autopista" id="76B6E98F-3E16-8213-D73C-044FFA8AF546">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>AD92778E-9D0D-0977-1F49-E60965047EE4</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="Gasto_dietas" id="EB326611-D4CE-9B5F-1378-B107DA995DA6">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>D03FD506-92B1-FEA7-EC69-8EE47B22DFCE</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="Otros_gastos" id="A37B4FBF-D93B-7132-90D1-BC2B11687B37">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>4F992F3F-4BC6-399F-64C2-F71E161923BD</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="Incidencias_posibles" id="9FD2ADEF-973A-40A9-ACD4-4274FCC5FC6B">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>B67ADB17-E3B8-40B8-624A-5372FC88AC01</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>240</dataTypeSize>
+<ownDataTypeParameters>240,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Exceso_Horas" id="F0DF5C81-CA7A-3275-FC2C-BD9C567721BB">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>7ED08F22-522B-F24C-C6BC-DB967CD7AE0A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cerrar_logis" id="83E3D995-93FD-A27D-6F2F-45D33A1C230E">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>C5DE634C-71B9-7D81-12A6-879C024FB52B</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Verificación_admin" id="3DDDDC7B-E769-C3EC-DCD1-6B06F386C557">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>163947A3-C8B3-DA92-C9DB-6DC9F27D11B8</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<defaultValue>&apos;0&apos;</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Trabajador_ID_Trabajador" id="D0192A1F-D33D-2A02-8BE3-8D99B68822D9">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>CA30BC10-D6A2-6D5F-824D-3C2D7F6B021F</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A0EA9348-C26E-306E-A4E4-1BEB92C7C100" referredColumn="CE9B38E8-69C9-CC97-411C-11BBB4F2927B"/>
+</associations>
+</Column>
+<Column name="Vehiculo_Matricula" id="74A982E0-01C2-6743-7F58-18A6875B33C0">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>9D24635E-BA30-C015-9F7C-F28BC6D4A826</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8126E4AD-DAD2-2495-446F-6F6486769F70" referredColumn="4EEE3780-8160-CEF3-A8E4-CFCDDE64666C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D7BB1EC4-BD1D-758B-CE08-888923C360CD" name="CP_PK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>BE2E4D70-ACBC-0869-B115-33FAD8D8C87E</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B81154D4-86A6-2F00-F831-A8EA14C93472"/>
+<colUsage columnID="D0192A1F-D33D-2A02-8BE3-8D99B68822D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E55310C4-6789-2595-FD9F-30B92C9156DE" name="CP__IDX">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>9896046E-EE9C-3F13-659F-E69B9803B43A</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="D0192A1F-D33D-2A02-8BE3-8D99B68822D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AB369FA6-CD0C-A9EC-6A81-CBF95D18096E" name="CP__IDXv1">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>62429AB0-A668-10A1-60BE-27B158B4E2A8</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="74A982E0-01C2-6743-7F58-18A6875B33C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0D5A0618-F772-A57A-CA84-49F15BF909DF" name="CP_Trabajador_FK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>9896046E-EE9C-3F13-659F-E69B9803B43A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0192A1F-D33D-2A02-8BE3-8D99B68822D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="260A671A-08CA-F5E9-A6D2-BC84271848AF" name="CP_Vehiculo_FK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>62429AB0-A668-10A1-60BE-27B158B4E2A8</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74A982E0-01C2-6743-7F58-18A6875B33C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

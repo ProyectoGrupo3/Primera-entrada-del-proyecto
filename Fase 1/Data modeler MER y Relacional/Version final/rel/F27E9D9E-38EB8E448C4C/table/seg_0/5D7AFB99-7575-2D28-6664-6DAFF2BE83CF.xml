@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D7AFB99-7575-2D28-6664-6DAFF2BE83CF" name="Aviso">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<commentInRDBMS>Solo el trabajador con la categoría de Administrador puede crear un aviso</commentInRDBMS>
+<generatorID>C84A12BE-A292-4C35-D699-33EB128AE4A8</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Fecha_aviso" id="BC5BFDD5-1F85-84D4-799D-71C3E49EB88C">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>C59BB982-DD99-9313-FF9C-CE856A3A44EB</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Texto" id="6BA7CB39-12D8-A84C-2950-C4450B85B3F3">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>14CD99CC-A718-8409-0FA5-7B371A689D80</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CEA7A294-F405-C07F-1959-BEE6B9BF1FE8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Trabajador_ID_Trabajador" id="81D01AE3-6E47-E7F2-0526-D1A16101B58B">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>CFC2700B-3246-0E37-C80A-03FFF68A8EC8</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="88D3C967-F956-4D84-6017-9830F3B31613" referredColumn="CE9B38E8-69C9-CC97-411C-11BBB4F2927B"/>
+</associations>
+</Column>
+<Column name="CP_Fecha" id="78CC7D13-CCD2-9390-2E27-7A976E385AF1">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>F0A5994D-91A7-4CCD-07C3-F78F9A406217</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6BB926E0-03D5-1E03-44C8-60FBBE1D2707" referredColumn="B81154D4-86A6-2F00-F831-A8EA14C93472"/>
+</associations>
+</Column>
+<Column name="CP_Trabajador_ID_Trabajador" id="2517C48B-7516-DC04-A45A-D96B3BE3F34D">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>AA06B53F-C2C6-A095-13E4-DBFC56DB32CB</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6BB926E0-03D5-1E03-44C8-60FBBE1D2707" referredColumn="D0192A1F-D33D-2A02-8BE3-8D99B68822D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="70541C6C-2C70-D0FF-7A90-7F8CA912204B" name="Aviso_PK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>84811E16-169A-6EB1-1291-083CB23CAE5D</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78CC7D13-CCD2-9390-2E27-7A976E385AF1"/>
+<colUsage columnID="2517C48B-7516-DC04-A45A-D96B3BE3F34D"/>
+<colUsage columnID="81D01AE3-6E47-E7F2-0526-D1A16101B58B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43E0D36B-B764-29C8-3249-30348BEBFA4E" name="Aviso__IDX">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>77BE5CAC-0304-F4AF-0B7D-1BF1542A945B</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="78CC7D13-CCD2-9390-2E27-7A976E385AF1"/>
+<colUsage columnID="2517C48B-7516-DC04-A45A-D96B3BE3F34D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="13AC0B57-3808-0D87-22EA-F6C8D5273178" name="Aviso_CP_FK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>77BE5CAC-0304-F4AF-0B7D-1BF1542A945B</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78CC7D13-CCD2-9390-2E27-7A976E385AF1"/>
+<colUsage columnID="2517C48B-7516-DC04-A45A-D96B3BE3F34D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3EFDC78B-7C07-143F-6DCB-AE5D0E05B3C1" name="Aviso_Trabajador_FK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>A914A3EB-F186-B7C8-8119-EE398068EC9B</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81D01AE3-6E47-E7F2-0526-D1A16101B58B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

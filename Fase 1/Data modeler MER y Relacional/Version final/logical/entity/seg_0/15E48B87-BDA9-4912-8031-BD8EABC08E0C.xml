@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="15E48B87-BDA9-4912-8031-BD8EABC08E0C" name="Clave">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:19:28 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Clave" id="5C993D9B-04D2-EAD0-9CEC-6A3C22490694">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:05:55 UTC</createdTime>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario" id="05D7B25E-C52F-3F21-8F5B-001A38FF2D87">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:19:43 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Contraseña" id="0CA3C2CB-F634-D234-A119-1980A17FFAE5">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:20:00 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha" id="B7C311F7-29B5-EB96-CDB4-06372335B77A">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:06:33 UTC</createdTime>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID Trabajador" id="2EAB35D3-749E-E8C8-0B6F-5E0C2A64644A">
+<createdBy>7fbd12</createdBy>
+<createdTime>2017-04-06 17:40:28 UTC</createdTime>
+<generatorID>D3E967F9-ACA4-F1A3-BC08-B30815727421</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<referedAttribute>05669D4F-72D2-5409-EED5-186BC130877E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CB1A22FA-3EC9-5F1C-88D0-F7600B52ACDB" name="Clave PK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:20:21 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5C993D9B-04D2-EAD0-9CEC-6A3C22490694</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

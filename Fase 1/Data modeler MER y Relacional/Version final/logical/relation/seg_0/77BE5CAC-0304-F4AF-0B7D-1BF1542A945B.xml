@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Aviso_Cabecera_Parte_FK" directorySegmentName="seg_0" id="77BE5CAC-0304-F4AF-0B7D-1BF1542A945B">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>5A2649CC-E197-F7C4-51AD-879DA7CD224F</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<sourcePk>BE2E4D70-ACBC-0869-B115-33FAD8D8C87E</sourcePk>
+<dominantRole>437D1A80-A89E-C88F-6FA2-F8EB82ED7956</dominantRole>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>437D1A80-A89E-C88F-6FA2-F8EB82ED7956</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>C84A12BE-A292-4C35-D699-33EB128AE4A8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
