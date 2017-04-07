@@ -150,9 +150,9 @@ public class InicioSesion extends javax.swing.JFrame {
         //Crear conexion con el servidor oracle 12c
         try {
             Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/ejemplo", "ejemplo", "ejemplo");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102","clase","Jm12345");
             Statement sentencia = conexion.createStatement();
-            ResultSet resul = sentencia.executeQuery("SELECT * FROM departamentos");
+            ResultSet resul = sentencia.executeQuery("");
 
             while (resul.next()) {
                 System.out.println(resul.getInt(1) + " " + resul.getString(2) + " " + resul.getString(3));
