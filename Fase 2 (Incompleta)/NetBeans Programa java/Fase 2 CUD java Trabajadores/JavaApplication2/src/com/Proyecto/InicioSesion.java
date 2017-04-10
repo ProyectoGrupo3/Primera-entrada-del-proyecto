@@ -5,11 +5,15 @@
  */
 package com.Proyecto;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLType;
 import java.sql.Statement;
+import java.sql.Types;
+import oracle.jdbc.OracleTypes;
 
 /**
  *
@@ -150,12 +154,16 @@ public class InicioSesion extends javax.swing.JFrame {
         //Crear conexion con el servidor oracle 12c
         try {
             Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102","clase","Jm12345");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "clase", "Jm12345");
             Statement sentencia = conexion.createStatement();
-            ResultSet resul = sentencia.executeQuery("");
+            CallableStatement sql = conexion.prepareCall("{call buscar_alumno(?)}");
+
+            sql.registerOutParameter(1, OracleTypes.CURSOR);
+            sql.executeUpdate();
+            ResultSet resul =(ResultSet) sql.getObject(1);
 
             while (resul.next()) {
-                System.out.println(resul.getInt(1) + " " + resul.getString(2) + " " + resul.getString(3));
+                System.out.println(resul.getString(1) + " " + resul.getString(2) + " " + resul.getInt(3));
             }
             resul.close();
             sentencia.close();
