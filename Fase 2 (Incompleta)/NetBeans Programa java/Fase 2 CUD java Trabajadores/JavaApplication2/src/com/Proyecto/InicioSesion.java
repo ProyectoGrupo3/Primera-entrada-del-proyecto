@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.SQLType;
 import java.sql.Statement;
 import java.sql.Types;
+import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 /**
@@ -39,10 +40,10 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        nombreText = new javax.swing.JTextField();
+        passwordText = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        entrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,10 +51,10 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña");
 
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        entrar.setText("Entrar");
+        entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                entrarActionPerformed(evt);
             }
         });
 
@@ -70,11 +71,11 @@ public class InicioSesion extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(54, 54, 54)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(passwordText, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(nombreText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(jButton1)))
+                        .addComponent(entrar)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,13 +84,13 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(entrar))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,11 +113,58 @@ public class InicioSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
 
         //Cuando meta los datos de usuario compruebe el usuario en la tabla de BD y la clave de ese usuario
+        String nombre = nombreText.getText();
+        String password = passwordText.getText();
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //comprobar usuario y clave en tabla Clve
+        try {
+            Class.forName("java.sql.DriverManager");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+            Statement sentencia = conexion.createStatement();
+            CallableStatement comprobar = conexion.prepareCall("{call login(?,?,?)}");
+
+            comprobar.setString(1, String.format(nombre));
+            comprobar.setString(2, String.format(password));
+            comprobar.registerOutParameter(3, Types.NUMERIC);
+            comprobar.executeUpdate();
+            if (comprobar.getInt(3) == 1) {
+                JOptionPane.showMessageDialog(this, "Correcto");
+                Class.forName("java.sql.DriverManager");
+                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+                sentencia = conexion.createStatement();
+
+                CallableStatement s = conexion.prepareCall("{call CONSULTA_T(?)}");
+
+                s.registerOutParameter(1, OracleTypes.CURSOR);
+                s.executeUpdate();
+                ResultSet resul = (ResultSet) s.getObject(1);
+
+                while (resul.next()) {
+                    System.out.println(resul.getString(1) + " el resto me da pereza ponerlo");
+                }
+                resul.close();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "ERROR", "Resultado", JOptionPane.ERROR_MESSAGE);
+            }
+            System.out.println("usuario: " + comprobar.getInt(3));
+            /*while (resul.next()) {
+                System.out.println("usuario: " + resul.getInt(3));
+            }*/
+            comprobar.close();
+            sentencia.close();
+            conexion.close();
+        } catch (ClassNotFoundException cn) {
+            cn.printStackTrace();
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,36 +200,16 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
         //Crear conexion con el servidor oracle 12c
-        try {
-            Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "clase", "Jm12345");
-            Statement sentencia = conexion.createStatement();
-            CallableStatement sql = conexion.prepareCall("{call buscar_alumno(?)}");
 
-            sql.registerOutParameter(1, OracleTypes.CURSOR);
-            sql.executeUpdate();
-            ResultSet resul =(ResultSet) sql.getObject(1);
-
-            while (resul.next()) {
-                System.out.println(resul.getString(1) + " " + resul.getString(2) + " " + resul.getInt(3));
-            }
-            resul.close();
-            sentencia.close();
-            conexion.close();
-        } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nombreText;
+    private javax.swing.JPasswordField passwordText;
     // End of variables declaration//GEN-END:variables
 }

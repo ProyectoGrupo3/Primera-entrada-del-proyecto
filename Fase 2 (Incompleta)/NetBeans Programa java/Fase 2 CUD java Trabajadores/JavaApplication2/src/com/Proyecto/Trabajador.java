@@ -27,10 +27,21 @@ public class Trabajador {
     private double salario;
     private Date fecha_nac;
     private String categoría;
+    
+    private Clave clave;
 
     public Trabajador() {
     }
 
+    public Clave getClave() {
+        return clave;
+    }
+
+    public void setClave(Clave clave) {
+        this.clave = clave;
+    }
+
+    
     public int getID_trabajador() {
         return ID_trabajador;
     }

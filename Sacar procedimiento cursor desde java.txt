@@ -1,0 +1,22 @@
+try {
+            Class.forName("java.sql.DriverManager");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "clase", "Jm12345");
+            Statement sentencia = conexion.createStatement();
+            CallableStatement sql = conexion.prepareCall("{call PRUEBAS_CURSOR(?)}");
+
+            sql.registerOutParameter(1, OracleTypes.CURSOR);
+            sql.executeUpdate();
+            ResultSet resul =(ResultSet) sql.getObject(1);
+
+            while (resul.next()) {
+                System.out.println(resul.getString(1) + " " + resul.getString(2) );
+            }
+            resul.close();
+            sentencia.close();
+            conexion.close();
+        } catch (ClassNotFoundException cn) {
+            cn.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
