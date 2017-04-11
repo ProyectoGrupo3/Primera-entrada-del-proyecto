@@ -22,6 +22,10 @@ import oracle.jdbc.OracleTypes;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
+    private PantAdministrador pantallaAdministrador;
+    private PantLogistica1 pantallaLogistica1;
+    private PantLogistica2 pantallaLogistica2;
+
     /**
      * Creates new form InicioSesion
      */
@@ -128,24 +132,47 @@ public class InicioSesion extends javax.swing.JFrame {
 
             comprobar.setString(1, String.format(nombre));
             comprobar.setString(2, String.format(password));
+            // la id del trabajador
             comprobar.registerOutParameter(3, Types.NUMERIC);
             comprobar.executeUpdate();
-            if (comprobar.getInt(3) == 1) {
+            int id_t = comprobar.getInt(3);
+            System.out.println("id a sacar " + id_t);
+
+            if (comprobar.getInt(3) > 0) {
                 JOptionPane.showMessageDialog(this, "Correcto");
                 Class.forName("java.sql.DriverManager");
+                //Aqui pondria el usuario y contraseña del trabajador
                 conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
                 sentencia = conexion.createStatement();
 
-                CallableStatement s = conexion.prepareCall("{call CONSULTA_T(?)}");
-
-                s.registerOutParameter(1, OracleTypes.CURSOR);
+                //obtener la categoria del trabajador
+                CallableStatement s = conexion.prepareCall("{call CONSULTA_UN_T(?,?)}");
+                s.setInt(1, id_t);
+                s.registerOutParameter(2,//Poner parametros uno a uno en vez de rowtype);
                 s.executeUpdate();
-                ResultSet resul = (ResultSet) s.getObject(1);
+                ResultSet res = (ResultSet) s.getObject(2);
 
-                while (resul.next()) {
-                    System.out.println(resul.getString(1) + " el resto me da pereza ponerlo");
+                while (res.next()) {
+                    System.out.println(res.getInt(1) + " " + res.getString(2) + " " + res.getString(3));
                 }
-                resul.close();
+                String adm = "ADMINISTRADOR";
+                String logis = "LOGISTICA";
+                if (res.getString(14).equals(adm)) {
+                    //Abrir pantalla Administrador
+                    if (pantallaAdministrador == null) {
+                        pantallaAdministrador = new PantAdministrador();
+                        pantallaAdministrador.setInicioSesion(this);
+                    }
+                    pantallaAdministrador.setVisible(true);
+
+                } else if (res.getString(14).equals(logis)) {
+                    //Abrir pantalla Logistica
+                    if (pantallaLogistica1 == null){
+                        pantallaLogistica1 = new PantLogistica1();
+                        pantallaLogistica1.setInicioSesion(this);
+                    }
+                    pantallaLogistica1.setVisible(true);
+                }
 
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR", "Resultado", JOptionPane.ERROR_MESSAGE);

@@ -15,6 +15,36 @@ import java.util.List;
 public class PantLogistica2 extends javax.swing.JFrame {
 
     /**
+     * @return the inicioSesion
+     */
+    public InicioSesion getInicioSesion() {
+        return inicioSesion;
+    }
+
+    /**
+     * @param inicioSesion the inicioSesion to set
+     */
+    public void setInicioSesion(InicioSesion inicioSesion) {
+        this.inicioSesion = inicioSesion;
+    }
+
+    /**
+     * @return the pantallaLogistica1
+     */
+    public PantLogistica1 getPantallaLogistica1() {
+        return pantallaLogistica1;
+    }
+
+    /**
+     * @param pantallaLogistica1 the pantallaLogistica1 to set
+     */
+    public void setPantallaLogistica1(PantLogistica1 pantallaLogistica1) {
+        this.pantallaLogistica1 = pantallaLogistica1;
+    }
+
+    private InicioSesion inicioSesion;
+    private PantLogistica1 pantallaLogistica1;
+    /**
      * Creates new form PantLogistica2
      */
     public PantLogistica2() {

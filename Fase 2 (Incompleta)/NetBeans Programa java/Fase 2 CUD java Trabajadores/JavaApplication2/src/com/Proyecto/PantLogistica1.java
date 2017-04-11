@@ -12,6 +12,37 @@ package com.Proyecto;
 public class PantLogistica1 extends javax.swing.JFrame {
 
     /**
+     * @return the pantLogistica2
+     */
+    public PantLogistica2 getPantLogistica2() {
+        return pantallaLogistica2;
+    }
+
+    /**
+     * @param pantLogistica2 the pantLogistica2 to set
+     */
+    public void setPantLogistica2(PantLogistica2 pantLogistica2) {
+        this.pantallaLogistica2 = pantLogistica2;
+    }
+
+    /**
+     * @return the inicioSesion
+     */
+    public InicioSesion getInicioSesion() {
+        return inicioSesion;
+    }
+
+    /**
+     * @param inicioSesion the inicioSesion to set
+     */
+    public void setInicioSesion(InicioSesion inicioSesion) {
+        this.inicioSesion = inicioSesion;
+    }
+
+    private InicioSesion inicioSesion;
+    private PantLogistica2 pantallaLogistica2;
+
+    /**
      * Creates new form PantLogistica
      */
     public PantLogistica1() {
@@ -40,6 +71,11 @@ public class PantLogistica1 extends javax.swing.JFrame {
         jLabel2.setText("Se le creará uno nuevo.");
 
         jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,6 +107,14 @@ public class PantLogistica1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (pantallaLogistica2 == null) {
+            pantallaLogistica2 = new PantLogistica2();
+            pantallaLogistica2.setPantallaLogistica1(this);
+        }
+        pantallaLogistica2.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

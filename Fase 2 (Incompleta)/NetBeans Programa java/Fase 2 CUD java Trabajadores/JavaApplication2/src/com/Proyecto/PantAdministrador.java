@@ -12,6 +12,52 @@ package com.Proyecto;
 public class PantAdministrador extends javax.swing.JFrame {
 
     /**
+     * @return the gestionTrabajadores
+     */
+    public GestionTrabajadores getGestionTrabajadores() {
+        return gestionTrabajadores;
+    }
+
+    /**
+     * @param gestionTrabajadores the gestionTrabajadores to set
+     */
+    public void setGestionTrabajadores(GestionTrabajadores gestionTrabajadores) {
+        this.gestionTrabajadores = gestionTrabajadores;
+    }
+
+    /**
+     * @return the gestionCT
+     */
+    public GestionCT getGestionCT() {
+        return gestionCT;
+    }
+
+    /**
+     * @param gestionCT the gestionCT to set
+     */
+    public void setGestionCT(GestionCT gestionCT) {
+        this.gestionCT = gestionCT;
+    }
+
+    /**
+     * @return the inicioSesion
+     */
+    public InicioSesion getInicioSesion() {
+        return inicioSesion;
+    }
+
+    /**
+     * @param inicioSesion the inicioSesion to set
+     */
+    public void setInicioSesion(InicioSesion inicioSesion) {
+        this.inicioSesion = inicioSesion;
+    }
+    
+    private InicioSesion inicioSesion;
+    private GestionTrabajadores gestionTrabajadores;
+    private GestionCT gestionCT;
+
+    /**
      * Creates new form NewJFrame
      */
     public PantAdministrador() {
@@ -40,6 +86,11 @@ public class PantAdministrador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Gestión de Trabajadores");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Gestión de Centros de Trabajo");
 
@@ -103,6 +154,15 @@ public class PantAdministrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            if (gestionTrabajadores == null) {
+            gestionTrabajadores = new GestionTrabajadores();
+            gestionTrabajadores.setPantallaAdministrador(this);
+        }
+        gestionTrabajadores.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
