@@ -12,6 +12,21 @@ package com.Proyecto;
 public class AltaCT extends javax.swing.JFrame {
 
     /**
+     * @return the gestionCT
+     */
+    public GestionCT getGestionCT() {
+        return gestionCT;
+    }
+
+    /**
+     * @param gestionCT the gestionCT to set
+     */
+    public void setGestionCT(GestionCT gestionCT) {
+        this.gestionCT = gestionCT;
+    }
+
+    private GestionCT gestionCT;
+    /**
      * Creates new form AltaCT
      */
     public AltaCT() {

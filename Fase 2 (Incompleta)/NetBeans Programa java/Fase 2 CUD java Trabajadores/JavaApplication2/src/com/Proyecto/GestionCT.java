@@ -12,6 +12,82 @@ package com.Proyecto;
 public class GestionCT extends javax.swing.JFrame {
 
     /**
+     * @return the altaCT
+     */
+    public AltaCT getAltaCT() {
+        return altaCT;
+    }
+
+    /**
+     * @param altaCT the altaCT to set
+     */
+    public void setAltaCT(AltaCT altaCT) {
+        this.altaCT = altaCT;
+    }
+
+    /**
+     * @return the bajaCT
+     */
+    public BajaCT getBajaCT() {
+        return bajaCT;
+    }
+
+    /**
+     * @param bajaCT the bajaCT to set
+     */
+    public void setBajaCT(BajaCT bajaCT) {
+        this.bajaCT = bajaCT;
+    }
+
+    /**
+     * @return the consultarCT
+     */
+    public ConsultarCT getConsultarCT() {
+        return consultarCT;
+    }
+
+    /**
+     * @param consultarCT the consultarCT to set
+     */
+    public void setConsultarCT(ConsultarCT consultarCT) {
+        this.consultarCT = consultarCT;
+    }
+
+    /**
+     * @return the modificarCT
+     */
+    public ModificarCT getModificarCT() {
+        return modificarCT;
+    }
+
+    /**
+     * @param modificarCT the modificarCT to set
+     */
+    public void setModificarCT(ModificarCT modificarCT) {
+        this.modificarCT = modificarCT;
+    }
+
+    /**
+     * @return the pantallaAdministrador
+     */
+    public PantAdministrador getPantallaAdministrador() {
+        return pantallaAdministrador;
+    }
+
+    /**
+     * @param pantallaAdministrador the pantallaAdministrador to set
+     */
+    public void setPantallaAdministrador(PantAdministrador pantallaAdministrador) {
+        this.pantallaAdministrador = pantallaAdministrador;
+    }
+
+    private PantAdministrador pantallaAdministrador;
+    private AltaCT altaCT;
+    private BajaCT bajaCT;
+    private ConsultarCT consultarCT;
+    private ModificarCT modificarCT;
+
+    /**
      * Creates new form GestionTrabajadores
      */
     public GestionCT() {
@@ -28,20 +104,38 @@ public class GestionCT extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        alta = new javax.swing.JButton();
+        baja = new javax.swing.JButton();
+        consulta = new javax.swing.JButton();
+        modificacion = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        alta.setText("Alta");
+        alta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altaActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Alta");
+        baja.setText("Baja");
+        baja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bajaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Baja");
+        consulta.setText("Consulta");
+        consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Consulta");
-
-        jButton4.setText("Modificación");
+        modificacion.setText("Modificación");
+        modificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,24 +144,23 @@ public class GestionCT extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(alta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modificacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(consulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(baja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(85, 85, 85))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(alta)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(baja)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(consulta)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(modificacion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -90,6 +183,39 @@ public class GestionCT extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
+        if (altaCT == null) {
+            altaCT = new AltaCT();
+            altaCT.setGestionCT(this);
+        }
+        altaCT.setVisible(true);
+
+    }//GEN-LAST:event_altaActionPerformed
+
+    private void bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaActionPerformed
+       if (bajaCT == null) {
+            bajaCT = new BajaCT();
+            bajaCT.setGestionCT(this);
+        }
+        bajaCT.setVisible(true);
+    }//GEN-LAST:event_bajaActionPerformed
+
+    private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
+        if (consultarCT == null) {
+            consultarCT = new ConsultarCT();
+            consultarCT.setGestionCT(this);
+        }
+        consultarCT.setVisible(true);
+    }//GEN-LAST:event_consultaActionPerformed
+
+    private void modificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificacionActionPerformed
+        if (modificarCT == null) {
+            modificarCT = new ModificarCT();
+            modificarCT.setGestionCT(this);
+        }
+        modificarCT.setVisible(true);
+    }//GEN-LAST:event_modificacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,10 +254,10 @@ public class GestionCT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton alta;
+    private javax.swing.JButton baja;
+    private javax.swing.JButton consulta;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton modificacion;
     // End of variables declaration//GEN-END:variables
 }

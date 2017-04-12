@@ -12,6 +12,21 @@ package com.Proyecto;
 public class ModificarTrabajadorElegir extends javax.swing.JFrame {
 
     /**
+     * @return the modificarTrabajador
+     */
+    public ModificarTrabajador getModificarTrabajador() {
+        return modificarTrabajador;
+    }
+
+    /**
+     * @param modificarTrabajador the modificarTrabajador to set
+     */
+    public void setModificarTrabajador(ModificarTrabajador modificarTrabajador) {
+        this.modificarTrabajador = modificarTrabajador;
+    }
+
+    private ModificarTrabajador modificarTrabajador;
+    /**
      * Creates new form ModificarTrabajadorElegir
      */
     public ModificarTrabajadorElegir() {

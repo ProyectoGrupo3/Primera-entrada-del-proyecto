@@ -28,7 +28,7 @@ public class GestionTrabajadores extends javax.swing.JFrame {
     private PantAdministrador pantallaAdministrador;
     private AltaTrabaja altaTrabajador;
     private BajaTrabaja bajaTrabajador;
-    //private Consultar consultar;
+    private ConsultarTrabajadores consultar;
     private ModificarTrabajador modificarTrabajador;
     /**
      * Creates new form GestionTrabajadores
@@ -51,8 +51,6 @@ public class GestionTrabajadores extends javax.swing.JFrame {
         Baja = new javax.swing.JButton();
         Consulta = new javax.swing.JButton();
         Modificacion = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Alta.setText("Alta");
         Alta.addActionListener(new java.awt.event.ActionListener() {
@@ -130,19 +128,35 @@ public class GestionTrabajadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaActionPerformed
-        // TODO add your handling code here:
+       if (altaTrabajador == null) {
+            altaTrabajador = new AltaTrabaja();
+            altaTrabajador.setGestionTrabajadores(this);
+        }
+        altaTrabajador.setVisible(true);
     }//GEN-LAST:event_AltaActionPerformed
 
     private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
-        // TODO add your handling code here:
+        if (bajaTrabajador == null) {
+            bajaTrabajador = new BajaTrabaja();
+            bajaTrabajador.setGestionTrabajadores(this);
+        }
+        bajaTrabajador.setVisible(true);
     }//GEN-LAST:event_BajaActionPerformed
 
     private void ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaActionPerformed
-        // TODO add your handling code here:
+        if (consultar == null) {
+            consultar = new ConsultarTrabajadores();
+            consultar.setGestionTrabajadores(this);
+        }
+        consultar.setVisible(true);
     }//GEN-LAST:event_ConsultaActionPerformed
 
     private void ModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificacionActionPerformed
-        // TODO add your handling code here:
+       if (modificarTrabajador == null) {
+            modificarTrabajador = new ModificarTrabajador();
+            modificarTrabajador.setGestionTrabajadores(this);
+        }
+        modificarTrabajador.setVisible(true);
     }//GEN-LAST:event_ModificacionActionPerformed
 
     /**

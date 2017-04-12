@@ -20,3 +20,17 @@ try {
             e.printStackTrace();
         }
     }
+    
+    
+    -- USER SQL
+CREATE USER PEPE IDENTIFIED BY Jm12345 ;
+
+-- QUOTAS
+
+-- ROLES
+GRANT "DBA" TO PEPE ;
+GRANT "CONNECT" TO PEPE ;
+GRANT "RESOURCE" TO PEPE ;
+
+-- SYSTEM PRIVILEGES
+

@@ -26,6 +26,9 @@ public class InicioSesion extends javax.swing.JFrame {
     private PantLogistica1 pantallaLogistica1;
     private PantLogistica2 pantallaLogistica2;
 
+    //La conexion global para todo el programa
+    public static Connection conexion;
+
     /**
      * Creates new form InicioSesion
      */
@@ -78,7 +81,7 @@ public class InicioSesion extends javax.swing.JFrame {
                             .addComponent(passwordText, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(nombreText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
+                        .addGap(94, 94, 94)
                         .addComponent(entrar)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -126,7 +129,7 @@ public class InicioSesion extends javax.swing.JFrame {
         //comprobar usuario y clave en tabla Clve
         try {
             Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+            conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
             Statement sentencia = conexion.createStatement();
             CallableStatement comprobar = conexion.prepareCall("{call login(?,?,?)}");
 
@@ -140,24 +143,28 @@ public class InicioSesion extends javax.swing.JFrame {
 
             if (comprobar.getInt(3) > 0) {
                 JOptionPane.showMessageDialog(this, "Correcto");
+                //cerrar conexion del sistema y damos paso al trabajador con su usuario
+                conexion.close();
                 Class.forName("java.sql.DriverManager");
                 //Aqui pondria el usuario y contraseña del trabajador
-                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", nombre, password);
                 sentencia = conexion.createStatement();
 
                 //obtener la categoria del trabajador
                 CallableStatement s = conexion.prepareCall("{call CONSULTA_UN_T(?,?)}");
                 s.setInt(1, id_t);
-                s.registerOutParameter(2,//Poner parametros uno a uno en vez de rowtype);
+                s.registerOutParameter(2, OracleTypes.CURSOR);
                 s.executeUpdate();
                 ResultSet res = (ResultSet) s.getObject(2);
 
-                while (res.next()) {
-                    System.out.println(res.getInt(1) + " " + res.getString(2) + " " + res.getString(3));
-                }
+                res.next();
+                System.out.println(res.getInt(1) + " " + res.getString(2) + " " + res.getString(3) + " " + res.getString(14));
+
                 String adm = "ADMINISTRADOR";
                 String logis = "LOGISTICA";
-                if (res.getString(14).equals(adm)) {
+                String trab = res.getString(14);
+                res.close();
+                if (trab.equals(adm)) {
                     //Abrir pantalla Administrador
                     if (pantallaAdministrador == null) {
                         pantallaAdministrador = new PantAdministrador();
@@ -167,29 +174,31 @@ public class InicioSesion extends javax.swing.JFrame {
 
                 } else if (res.getString(14).equals(logis)) {
                     //Abrir pantalla Logistica
-                    if (pantallaLogistica1 == null){
+                    if (pantallaLogistica1 == null) {
                         pantallaLogistica1 = new PantLogistica1();
                         pantallaLogistica1.setInicioSesion(this);
                     }
                     pantallaLogistica1.setVisible(true);
                 }
+                //esconder ventana
+                this.setVisible(false);
 
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
-            System.out.println("usuario: " + comprobar.getInt(3));
+
             /*while (resul.next()) {
                 System.out.println("usuario: " + resul.getInt(3));
             }*/
             comprobar.close();
-            sentencia.close();
-            conexion.close();
+
+            //sentencia.close();
+            //conexion.close();
         } catch (ClassNotFoundException cn) {
             cn.printStackTrace();
         } catch (SQLException e) {
-
             e.printStackTrace();
-        }
+        } 
 
     }//GEN-LAST:event_entrarActionPerformed
 
