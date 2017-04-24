@@ -5,8 +5,6 @@
  */
 package com.Proyecto;
 
-import java.sql.Time;
-import java.util.Date;
 
 /**
  *
@@ -14,35 +12,28 @@ import java.util.Date;
  */
 public class LineaParte {
 
-    /**
-     * @return the hora_inicio
-     */
-    public Time getHora_inicio() {
+    private String hora_inicio;
+    private String hora_fin;
+
+    public LineaParte() {
+    }
+
+    public String getHora_inicio() {
         return hora_inicio;
     }
 
-    /**
-     * @param hora_inicio the hora_inicio to set
-     */
-    public void setHora_inicio(Time hora_inicio) {
+    public void setHora_inicio(String hora_inicio) {
         this.hora_inicio = hora_inicio;
     }
 
-    /**
-     * @return the hora_fin
-     */
-    public Time getHora_fin() {
+    public String getHora_fin() {
         return hora_fin;
     }
 
-    /**
-     * @param hora_fin the hora_fin to set
-     */
-    public void setHora_fin(Time hora_fin) {
+    public void setHora_fin(String hora_fin) {
         this.hora_fin = hora_fin;
     }
 
-    private Time hora_inicio;
-    private Time hora_fin;
+    
     
 }

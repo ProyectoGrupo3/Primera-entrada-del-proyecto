@@ -5,6 +5,7 @@
  */
 package com.Proyecto;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -378,16 +379,15 @@ public class AltaTrabaja extends javax.swing.JFrame {
 
         try {                                     
             
-            int numero = 0;
+            int numero = -1;
             try {
-                Statement sentencia = InicioSesion.conexion.createStatement();
-                ResultSet select = sentencia.executeQuery("SELECT ID_TRABAJADOR.NEXTVAL FROM DUAL");
-                
-                select.next();
-                
-                numero = select.getInt(1);
-                select.close();
-                sentencia.close();
+                String select = "SELECT ID_TRABAJADOR.NEXTVAL FROM DUAL";
+                PreparedStatement secuencia = InicioSesion.conexion.prepareStatement(select);
+                ResultSet ejecutar = secuencia.executeQuery();
+                //Guardar numero de la secuencia
+                numero = ejecutar.getInt(1);
+                ejecutar.close();
+                secuencia.close();
             } catch (SQLException ex) {
                 Logger.getLogger(AltaTrabaja.class.getName()).log(Level.SEVERE, null, ex);
             }

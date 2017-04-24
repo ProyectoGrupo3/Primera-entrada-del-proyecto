@@ -30,6 +30,11 @@ public class InicioSesion extends javax.swing.JFrame {
     public static Connection conexion;
     public static int id_T;
 
+    public void limpiarInicio() {
+        nombreText.setText("");
+        passwordText.setText("");
+    }
+
     /**
      * Creates new form InicioSesion
      */
@@ -134,13 +139,13 @@ public class InicioSesion extends javax.swing.JFrame {
             Statement sentencia = conexion.createStatement();
             CallableStatement comprobar = conexion.prepareCall("{call login(?,?,?)}");
 
+            //Los datos del usuario para iniciar sesion
             comprobar.setString(1, String.format(nombre));
             comprobar.setString(2, String.format(password));
             // la id del trabajador
             comprobar.registerOutParameter(3, Types.NUMERIC);
             comprobar.executeUpdate();
             id_T = comprobar.getInt(3);
-            System.out.println("id a sacar " + id_T);
 
             if (comprobar.getInt(3) > 0) {
                 JOptionPane.showMessageDialog(this, "Correcto");
@@ -159,7 +164,6 @@ public class InicioSesion extends javax.swing.JFrame {
                 ResultSet res = (ResultSet) s.getObject(2);
 
                 res.next();
-                System.out.println(res.getInt(1) + " " + res.getString(2) + " " + res.getString(3) + " " + res.getString(14));
 
                 String adm = "ADMINISTRADOR";
                 String logis = "LOGISTICA";
@@ -172,18 +176,20 @@ public class InicioSesion extends javax.swing.JFrame {
                         pantallaAdministrador.setInicioSesion(this);
                     }
                     pantallaAdministrador.setVisible(true);
-                    nombreText.setText(" ");
-                    passwordText.setText(" ");
+                    limpiarInicio();
 
-                } else if (res.getString(14).equals(logis)) {
+                } else {
                     //Abrir pantalla Logistica
-                    if (pantallaLogistica1 == null) {
-                        pantallaLogistica1 = new PantLogistica1();
-                        pantallaLogistica1.setInicioSesion(this);
+                    if (pantallaLogistica2 == null) {
+                        if (pantallaLogistica1 == null) {
+                            pantallaLogistica1 = new PantLogistica1();
+                            pantallaLogistica1.setInicioSesion(this);
+                        }
+                        pantallaLogistica1.setVisible(true);
+                    } else {
+                        pantallaLogistica2.setVisible(true);
                     }
-                    pantallaLogistica1.setVisible(true);
-                    nombreText.setText(" ");
-                    passwordText.setText(" ");
+                    limpiarInicio();
                 }
                 //esconder ventana
                 this.setVisible(false);
@@ -192,17 +198,12 @@ public class InicioSesion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "ERROR", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
 
-            /*while (resul.next()) {
-                System.out.println("usuario: " + resul.getInt(3));
-            }*/
             comprobar.close();
 
             //sentencia.close();
             //conexion.close();
-        } catch (ClassNotFoundException cn) {
+        } catch (ClassNotFoundException | SQLException cn) {
             cn.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
     }//GEN-LAST:event_entrarActionPerformed

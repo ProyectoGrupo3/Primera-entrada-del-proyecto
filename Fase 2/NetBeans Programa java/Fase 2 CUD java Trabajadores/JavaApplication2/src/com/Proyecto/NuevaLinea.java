@@ -5,17 +5,9 @@
  */
 package com.Proyecto;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -61,7 +53,8 @@ public class NuevaLinea extends javax.swing.JFrame {
         horaiText = new javax.swing.JTextField();
         horafText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        guardarLinea = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -69,38 +62,44 @@ public class NuevaLinea extends javax.swing.JFrame {
 
         jLabel2.setText("Hora Fin");
 
-        jButton1.setText("Guardar Linea");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        guardarLinea.setText("Guardar Linea");
+        guardarLinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                guardarLineaActionPerformed(evt);
             }
         });
+
+        jLabel4.setText("Formato :          00:00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(horaiText, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                            .addComponent(horafText))))
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(horaiText, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                    .addComponent(horafText)))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(guardarLinea)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addComponent(jLabel4)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(horaiText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -109,7 +108,7 @@ public class NuevaLinea extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(horafText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(guardarLinea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -120,14 +119,14 @@ public class NuevaLinea extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -135,38 +134,33 @@ public class NuevaLinea extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void guardarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarLineaActionPerformed
         String hora_i = horaiText.getText();//se guardara una hora
         String hora_f = horafText.getText();//se guardara una hora
+
+        String[] horaInicio = hora_i.split(":");
+        String[] horaFinal = hora_f.split(":");
+
+        LocalDateTime hInicio = LocalDateTime.of(2000, 1, 1, Integer.parseInt(horaInicio[0]), Integer.parseInt(horaInicio[1]), 0);
+        LocalDateTime hFinal = LocalDateTime.of(2000, 1, 1, Integer.parseInt(horaFinal[0]), Integer.parseInt(horaFinal[1]), 0);
+
+        long minutos = hInicio.until(hFinal, ChronoUnit.MINUTES);
+        long horas = hInicio.until(hFinal, ChronoUnit.HOURS);
+
+        System.out.println("Minutos: " + minutos);
+        //System.out.println("Horas: "+horas);
         LineaParte lp = new LineaParte();
+        lp.setHora_inicio(hora_i);
+        lp.setHora_fin(hora_f);
+        
+        pantallaLogistica2.meterLinea(lp);
+        
+        //Pasar la suma para el exceso de horas, si el total de horas calculadas en la cabecera supera las 8 horas laborales es malo
+        pantallaLogistica2.setHorasTrabajadas(minutos);
+        
 
-        DateFormat date = new SimpleDateFormat("hh:mm");
-        Date horai = null;
-        Date horaf = null;
-        try {
-            horai = date.parse(hora_i);
-            horaf = date.parse(hora_f);
-        } catch (ParseException ex) {
-            Logger.getLogger(NuevaLinea.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        lp.setHora_inicio((Time) horai);
-        lp.setHora_fin((Time) horaf);
 
-        Statement sentencia;
-        try {
-            String sql = "INSERT INTO TLINEA_PARTE VALUES ('" + lp.getHora_inicio()+ "','" + lp.getHora_fin()+ "',CabeceraParte fecha'," + InicioSesion.id_T + ")";
-            sentencia = InicioSesion.conexion.createStatement();
-            ResultSet linea = sentencia.executeQuery(sql);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(NuevaLinea.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        horafText.setText("");
-        horaiText.setText("");
-        this.setVisible(false);
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_guardarLineaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,12 +198,13 @@ public class NuevaLinea extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton guardarLinea;
     private javax.swing.JTextField horafText;
     private javax.swing.JTextField horaiText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
