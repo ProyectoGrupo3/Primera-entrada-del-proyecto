@@ -5,6 +5,7 @@
  */
 package com.Proyecto;
 
+import static com.Proyecto.InicioSesion.inisesion;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -35,17 +36,6 @@ public class PantLogistica2 extends javax.swing.JFrame {
     /**
      * @return the inicioSesion
      */
-    public InicioSesion getInicioSesion() {
-        return inicioSesion;
-    }
-
-    /**
-     * @param inicioSesion the inicioSesion to set
-     */
-    public void setInicioSesion(InicioSesion inicioSesion) {
-        this.inicioSesion = inicioSesion;
-    }
-
     /**
      * @return the pantallaLogistica1
      */
@@ -59,8 +49,7 @@ public class PantLogistica2 extends javax.swing.JFrame {
     public void setPantallaLogistica1(PantLogistica1 pantallaLogistica1) {
         this.pantallaLogistica1 = pantallaLogistica1;
     }
-    
-    private InicioSesion inicioSesion;
+
     private PantLogistica1 pantallaLogistica1;
     private CabeceraParte cabeceraParte;
     private NuevaLinea nuevaLinean;
@@ -76,13 +65,12 @@ public class PantLogistica2 extends javax.swing.JFrame {
         //prueba
         excesoHoras.setText(Long.toString(this.horasTrabajadas));
     }
-    
-    
+
     public void meterLinea(LineaParte l) {
         lineasParte.add(l);
-        
+
     }
-    
+
     public void poner_linea(LineaParte n) {
         lineasdelParte.setText(lineasdelParte.getText() + '\n' + "Hora inicio: " + n.getHora_fin() + ", Hora Fin: " + n.getHora_inicio());
     }
@@ -98,6 +86,7 @@ public class PantLogistica2 extends javax.swing.JFrame {
         java.sql.Date sqlDate = new java.sql.Date(lnMilisegundos);
         cabeceraParte.setFecha(sqlDate);
         fechaParte.setText(cabeceraParte.getFecha().toString());
+
     }
 
     /**
@@ -140,7 +129,9 @@ public class PantLogistica2 extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         nuevaLinea = new javax.swing.JButton();
         borrarLinea = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        cerrarSesion = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gastos"));
 
@@ -385,10 +376,15 @@ public class PantLogistica2 extends javax.swing.JFrame {
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Cerrar Sesión");
-        jButton1.setMaximumSize(new java.awt.Dimension(110, 23));
-        jButton1.setMinimumSize(new java.awt.Dimension(110, 23));
-        jButton1.setPreferredSize(new java.awt.Dimension(115, 23));
+        cerrarSesion.setText("Cerrar Sesión");
+        cerrarSesion.setMaximumSize(new java.awt.Dimension(110, 23));
+        cerrarSesion.setMinimumSize(new java.awt.Dimension(110, 23));
+        cerrarSesion.setPreferredSize(new java.awt.Dimension(115, 23));
+        cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -402,7 +398,7 @@ public class PantLogistica2 extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(guardarYCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +434,7 @@ public class PantLogistica2 extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(guardarYCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
@@ -450,7 +446,7 @@ public class PantLogistica2 extends javax.swing.JFrame {
     }//GEN-LAST:event_incidenciaActionPerformed
 
     private void nuevaLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaLineaActionPerformed
-        
+
         if (nuevaLinean == null) {
             nuevaLinean = new NuevaLinea();
             nuevaLinean.setPantallaLogistica2(this);
@@ -474,9 +470,18 @@ public class PantLogistica2 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(PantLogistica2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
 
     }//GEN-LAST:event_guardarYCerrarActionPerformed
+
+    private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
+
+        inisesion.setPantallaLogistica2(this);
+        inisesion.setVisible(true);
+        this.setVisible(false);
+
+
+    }//GEN-LAST:event_cerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -515,6 +520,7 @@ public class PantLogistica2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton borrarLinea;
+    private javax.swing.JButton cerrarSesion;
     private javax.swing.JLabel excesoHoras;
     private javax.swing.JLabel fechaParte;
     private javax.swing.JTextField gAutopista;
@@ -523,7 +529,6 @@ public class PantLogistica2 extends javax.swing.JFrame {
     private javax.swing.JTextField gOtros;
     private javax.swing.JButton guardarYCerrar;
     private javax.swing.JButton incidencia;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

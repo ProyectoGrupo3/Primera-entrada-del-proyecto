@@ -22,9 +22,40 @@ import oracle.jdbc.OracleTypes;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
+    /**
+     * @return the inisesion
+     */
+    
+
+    public PantAdministrador getPantallaAdministrador() {
+        return pantallaAdministrador;
+    }
+
+    public void setPantallaAdministrador(PantAdministrador pantallaAdministrador) {
+        this.pantallaAdministrador = pantallaAdministrador;
+    }
+
+    public PantLogistica1 getPantallaLogistica1() {
+        return pantallaLogistica1;
+    }
+
+    public void setPantallaLogistica1(PantLogistica1 pantallaLogistica1) {
+        this.pantallaLogistica1 = pantallaLogistica1;
+    }
+
+    public PantLogistica2 getPantallaLogistica2() {
+        return pantallaLogistica2;
+    }
+
+    public void setPantallaLogistica2(PantLogistica2 pantallaLogistica2) {
+        this.pantallaLogistica2 = pantallaLogistica2;
+    }
+
+    
     private PantAdministrador pantallaAdministrador;
     private PantLogistica1 pantallaLogistica1;
     private PantLogistica2 pantallaLogistica2;
+    public static InicioSesion inisesion;
 
     //La conexion global para todo el programa
     public static Connection conexion;
