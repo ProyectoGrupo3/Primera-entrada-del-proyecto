@@ -22,28 +22,15 @@ import oracle.jdbc.OracleTypes;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
-    /**
-     * @return the pantallaLogistica2
-     */
+    
     public PantLogistica2 getPantallaLogistica2() {
         return pantallaLogistica2;
     }
 
-    /**
-     * @param pantallaLogistica2 the pantallaLogistica2 to set
-     */
     public void setPantallaLogistica2(PantLogistica2 pantallaLogistica2) {
         this.pantallaLogistica2 = pantallaLogistica2;
     }
 
-    /**
-     * @return the pantallaLogistica2
-     */
-    /**
-     * @param pantallaLogistica2 the pantallaLogistica2 to set*/
-    /**
-     * @return the pantallaAdministrador
-     */
     public JF_Administrador getPantallaAdministrador() {
         return pantallaAdministrador;
     }

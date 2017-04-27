@@ -107,7 +107,6 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
         jText_8.setToolTipText("");
 
         jText_1.setEditable(false);
-        jText_1.setDragEnabled(false);
         jText_1.setEnabled(false);
         jText_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +186,7 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGap(26, 26, 26)
                                         .addComponent(jText_8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 33, Short.MAX_VALUE))))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
         );
@@ -238,7 +237,7 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
                 jB_LeerActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Leer, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 60, -1, -1));
+        getContentPane().add(jB_Leer, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, -1, -1));
 
         jB_Crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Create.png"))); // NOI18N
         jB_Crear.setText("C-Crear");
@@ -247,15 +246,15 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
                 jB_CrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 12, -1, -1));
+        getContentPane().add(jB_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
 
         jB_Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
         jB_Actualizar.setText("U - Actualizar");
-        getContentPane().add(jB_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 108, -1, -1));
+        getContentPane().add(jB_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 170, -1));
 
         jB_Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Borrar.png"))); // NOI18N
         jB_Borrar.setText("D - Borrar");
-        getContentPane().add(jB_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(744, 156, -1, -1));
+        getContentPane().add(jB_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, -1, -1));
 
         jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
         jB_Salir.setText("Salir");
@@ -264,7 +263,7 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
                 jB_SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 420, -1, -1));
+        getContentPane().add(jB_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, -1, -1));
 
         jB_Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
         jB_Volver.setText("Volver");
@@ -273,7 +272,7 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
                 jB_VolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 360, -1, -1));
+        getContentPane().add(jB_Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, -1, -1));
 
         jB_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
         jB_OK.setText("Ok");
@@ -282,7 +281,7 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
                 jB_OKActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 216, 72, -1));
+        getContentPane().add(jB_OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 110, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

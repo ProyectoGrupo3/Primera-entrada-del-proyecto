@@ -1,0 +1,220 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="579D69C5-17F9-06B9-7B53-D089217D331A" name="Trabajadores">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 18:59:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Trabajador" id="BB841A2D-6AB4-2FB9-7CDE-EEAC1B39FAE1">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:28:42 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DNI" id="8F9F0D1E-1500-74F5-E6BD-C81C43839A30">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:24:57 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="F0078B9B-4DD4-D34F-AE2B-1FC599B8A865">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:26:06 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Apellidos(1º y 2º)" id="DF0BFAA5-146E-88FA-F965-2AD2E10CF553">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:26:12 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Dirección(Calle, portal, piso y mano)" id="55FE21FC-EA40-D88A-0E86-0C7DA7EF2827">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:26:23 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono personal -opcional-" id="489F77DD-7265-9EAD-67AC-F0C4F24B5F37">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:26:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Móvil de empresa" id="4ED19A61-557B-3C3D-14E2-774494B023C5">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:27:16 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Salario" id="64AD3E79-D112-A5D7-EF70-2F04852C2B8B">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:27:32 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha nacimiento" id="9EC47E8F-4B1C-4776-5A83-58BC30C2C700">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:27:46 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario" id="21F07DA8-6995-AADC-78C3-75BA149D8AE0">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:29:09 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Contraseña" id="FD79F67A-7B0F-8F24-FE7A-ACFFF9C43714">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:29:19 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Centro de trabajo al que pertenece" id="2C70EFBE-3163-14C5-BE98-EA0DD2F64E51">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:29:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Categoría: Administración o logistica" id="065125D3-2B62-A451-241E-E72D86D13012">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:30:01 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_centro" id="57DB18F0-2B82-242A-AA39-31003572E787">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 19:40:30 UTC</createdTime>
+<generatorID>44722453-8BE1-EB45-E634-AEDE407C5188</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>90DD6E66-A29F-6134-FEEB-8C79A2E10398</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario1" id="CAF35245-424A-0321-87D2-0EF8C3826C55">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:28:52 UTC</createdTime>
+<generatorID>E70C3CB9-5555-C213-B869-950B7F28DDFC</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>05D7B25E-C52F-3F21-8F5B-001A38FF2D87</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="ECD28126-9360-88A7-B484-75E1406CC2B0" name="Trabajadores PK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:28:29 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BB841A2D-6AB4-2FB9-7CDE-EEAC1B39FAE1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

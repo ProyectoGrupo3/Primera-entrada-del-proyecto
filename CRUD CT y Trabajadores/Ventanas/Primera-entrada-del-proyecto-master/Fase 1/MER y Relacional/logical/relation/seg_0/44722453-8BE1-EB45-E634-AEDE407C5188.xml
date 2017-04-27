@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_1" directorySegmentName="seg_0" id="44722453-8BE1-EB45-E634-AEDE407C5188">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 19:40:09 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<sourcePk>ECD28126-9360-88A7-B484-75E1406CC2B0</sourcePk>
+<targetPk>5E6B4FB4-E735-18B2-C160-48A96844E22B</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>579D69C5-17F9-06B9-7B53-D089217D331A</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>CCBAF422-0BB9-77FE-3E01-755B8C3AB2AD</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

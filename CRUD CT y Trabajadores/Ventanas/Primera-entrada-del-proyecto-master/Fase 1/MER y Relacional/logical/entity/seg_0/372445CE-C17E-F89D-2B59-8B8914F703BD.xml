@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="372445CE-C17E-F89D-2B59-8B8914F703BD" name="Avisos">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 17:52:36 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Aviso" id="6AF73B86-BD03-72A9-7414-D5C7722D058D">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:00:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario de admin" id="CA866AB2-33C0-26B3-DC70-CC6BD5373F77">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:00:48 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario de logistica" id="9B890D30-4F91-B3FE-EC76-0DC813A71858">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:02:12 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="texto del aviso" id="161E00DE-509A-76B8-B4AB-15F03BF84553">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:02:36 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_parte" id="1E74B8C3-5F6E-CA16-331D-B2229DB3486D">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:03:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha del aviso" id="10B0982C-F264-0723-807A-2AC0DEECD4D4">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:03:36 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Trabajador" id="EAD7F730-6CFE-F082-2728-44B774FDF022">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 19:28:49 UTC</createdTime>
+<generatorID>0A01E8FF-9753-E957-64B0-8B9320020438</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>BB841A2D-6AB4-2FB9-7CDE-EEAC1B39FAE1</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha" id="F2E037CC-12EC-3C02-6604-65E4A8C6B745">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:26:28 UTC</createdTime>
+<generatorID>B74F4CAA-9BEE-314D-DC00-D73006F3D515</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<referedAttribute>0F4E983A-AF9A-1FE8-FB45-232D26A8A4E0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4D48B10F-990E-04FB-6F5D-42137AA2BBA3" name="Avisos PK">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-28 18:00:45 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<engineerTo>
+<item key="90E03581-FEAC-5F72-EB1D-68B85A18068F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6AF73B86-BD03-72A9-7414-D5C7722D058D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

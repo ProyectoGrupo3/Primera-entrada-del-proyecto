@@ -1,0 +1,289 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B5BA23FF-8927-A171-7579-A76E605660A4" name="Trabajador">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<commentInRDBMS>La categoría de los trabajadores esta definida con una lista de valores con dos posibilidades: Administrador o loglistica.&lt;br&gt;Hemos creado el id_trabajador como campo clave en lugar del campo DNI.</commentInRDBMS>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>0B748B53-A0EE-9FA4-21D4-C020CBB03648</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Trabajador" id="5C34A2CD-64B1-79AD-2D58-1AF116299B51">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>189345BB-141B-5674-A21A-41985F79DA37</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>FA2FD430-28C3-7D50-610D-996D2793E704</domain>
+<checkConstraint>
+<implementationDef dbType="Oracle Database 11g" definition="ID_Trabajador = 1"/>
+</checkConstraint>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNI" id="50231363-2937-8F89-403E-DD529857B201">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>B54080B7-2BBE-CAA1-5EA9-01D4BC602C9D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="DF061A47-0BAD-955E-F5E6-72F8F315D5E1">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>754581FC-3A00-1A20-C350-991FCFA968EE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Apellidos_1" id="BD2CE025-1FD6-D63B-BB83-F6A5A39ADB40">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>FE1982D0-FA53-4297-F549-4BEA075099E7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Apellido_2" id="78A71663-7AC4-67F3-9BAE-A52778FA7217">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>EB5EB48D-C9C6-2431-E908-2A36BBF18E20</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Calle" id="E4ECA1AF-21A3-BA4A-11B6-C837C2667A01">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>81767AE4-8694-9854-91A0-812D009C8814</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Portal" id="67F10C36-3D74-3E9C-B13D-6FAB4D0B1E8D">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>2809441B-CEB5-B198-DD5F-A267B341A515</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>31169B61-7407-2B60-B472-EE8524E75976</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Piso" id="9D7B17B0-B832-8300-7142-585760DCDC55">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>C783B1C5-7705-ED0A-15A9-AA2328759897</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>142D4B6E-5D93-D346-397E-9B9CA69345A3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mano" id="130662CB-42C6-C5DB-265B-042EFC04581A">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>816E9478-FAC6-4EA0-11F0-6E4E22C92050</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>593F7FAE-919D-3EF8-2D76-B5D4EC7636BB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono_personal" id="5119B7CE-1664-E7BC-07F1-8EA708E33680">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>C47BC9BF-08BB-1F5D-BC0A-834D2326D768</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Movil_empresa" id="C1058249-8203-98B3-AA70-FDBAD93B93EF">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>C88B1036-A2C9-3C01-31D6-9FDA0527B4FB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Salario" id="4681BCF0-3B15-B502-8EAE-9592FD3132CD">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>89F961A7-5215-5BFD-CD00-AAFC75FE8BAE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logica="Calle" id="E4ECA1AF-21A3-BA4A-11B6-C837C2667A01">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>81767AE4-8694-9854-91A0-812D009C8814</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC3DD1D2-A8BE-B3D4-7786-2003925EC7F9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Portal" id="67F10C36-3D74-3E9C-B13D-6FAB4D0B1E8D">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>2809441B-CEB5-B198-DD5F-A267B341A515</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>31169B61-7407-2B60-B472-EE8524E75976</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Piso" id="9D7B17B0-B832-8300-7142-585760DCDC55">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>C783B1C5-7705-ED0A-15A9-AA2328759897</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>142D4B6E-5D93-D346-397E-9B9CA69345A3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mano" id="130662CB-42C6-C5DB-265B-042EFC04581A">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>816E9478-FAC6-4EA0-11F0-6E4E22C92050</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>593F7FAE-919D-3EF8-2D76-B5D4EC7636BB</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono_personal" id="5119B7CE-1664-E7BC-07F1-8EA708E33680">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>C47BC9BF-08BB-1F5D-BC0A-834D2326D768</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Movil_empresa" id="C1058249-8203-98B3-AA70-FDBAD93B93EF">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>C88B1036-A2C9-3C01-31D6-9FDA0527B4FB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>1908214F-7A5B-BE66-F42E-4F235462C9E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Salario" id="4681BCF0-3B15-B502-8EAE-9592FD3132CD">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>89F961A7-5215-5BFD-CD00-AAFC75FE8BAE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>FE21DE50-06DD-B2EF-C45A-0AFEB84A3158</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_nacimiento" id="D49B23D0-5BAD-E615-9814-31778F280DB1">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>E837F3CC-14E3-F357-293B-064269A52BB9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>A3093009-D151-5356-20CA-E51D73454561</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Categoría" id="AB99FA71-EC52-9867-A05A-CBC31447C0F0">
+<sourceDDLFile>Scrip de las tablas SQL.ddl</sourceDDLFile>
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:29:56 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<importedID>9EE258BA-EFA7-2AAE-DE57-79455F823FBC</importedID>
+<useDoma
