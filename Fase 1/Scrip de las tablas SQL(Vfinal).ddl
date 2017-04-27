@@ -10,11 +10,11 @@ CREATE
     ID_centro     INTEGER NOT NULL ,
     Nombre        VARCHAR2 (30) NOT NULL ,
     Calle         VARCHAR2 (30) NOT NULL ,
-    Número        INTEGER NOT NULL ,
-    Código_postal VARCHAR2 (5) NOT NULL ,
+    Numero        INTEGER NOT NULL ,
+    Codigo_postal VARCHAR2 (5) NOT NULL ,
     Ciudad        VARCHAR2 (30) NOT NULL ,
     Provincia     VARCHAR2 (30) NOT NULL ,
-    Teléfono      VARCHAR2 (9) NOT NULL
+    Telefono      VARCHAR2 (9) NOT NULL
   ) ;
 
 ALTER TABLE Centro_trabajo ADD CONSTRAINT Centro_trabajo_PK PRIMARY KEY (
@@ -36,14 +36,14 @@ CREATE
     Movil_empresa            VARCHAR2 (9) NOT NULL ,
     Salario                  NUMBER ,
     Fecha_nacimiento         DATE ,
-    Categoría                VARCHAR2 (15) NOT NULL ,
+    Categoria                VARCHAR2 (15) NOT NULL ,
     Centro_trabajo_ID_centro INTEGER NOT NULL
   ) ;
-ALTER TABLE Trabajador ADD CHECK ( Categoría IN ('ADMINISTRADOR', 'LOGISTICA')
+ALTER TABLE Trabajador ADD CHECK ( Categoria IN ('ADMINISTRADOR', 'LOGISTICA')
 ) ;
 COMMENT ON TABLE Trabajador
 IS
-  'La categoría de los trabajadores esta definida con una lista de valores con dos posibilidades: Administrador o loglistica.
+  'La categoria de los trabajadores esta definida con una lista de valores con dos posibilidades: Administrador o loglistica.
 Hemos creado el id_trabajador como campo clave en lugar del campo DNI.'
   ;
 ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_PK PRIMARY KEY ( ID_Trabajador
@@ -54,7 +54,7 @@ CREATE
   (
     ID_Clave                 INTEGER NOT NULL ,
     Usuario                  VARCHAR2 (30) NOT NULL ,
-    Contraseña               VARCHAR2 (30) NOT NULL ,
+    Contrasenya               VARCHAR2 (30) NOT NULL ,
     Fecha                    DATE NOT NULL ,
     Trabajador_ID_Trabajador INTEGER NOT NULL
   ) ;
@@ -79,7 +79,7 @@ CREATE
     Incidencias_posibles     VARCHAR2 (240) ,
     Exceso_Horas             TIMESTAMP ,
     Cerrar_logis             CHAR (1) DEFAULT '0' NOT NULL ,
-    Verificación_admin       CHAR (1) DEFAULT '0' NOT NULL ,
+    Verificacion_admin       CHAR (1) DEFAULT '0' NOT NULL ,
     Trabajador_ID_Trabajador INTEGER NOT NULL ,
     Vehiculo_Matricula       VARCHAR2 (9) NOT NULL
   ) ;
@@ -122,7 +122,7 @@ CREATE
   ) ;
 COMMENT ON TABLE Aviso
 IS
-  'Solo el trabajador con la categoría de Administrador puede crear un aviso' ;
+  'Solo el trabajador con la categoria de Administrador puede crear un aviso' ;
 CREATE UNIQUE INDEX Aviso__IDX ON Aviso
   (
     CP_Fecha ASC , CP_Trabajador_ID_Trabajador ASC
