@@ -38,9 +38,28 @@ public class Trabajador {
         salario=0.0;
         fecha_nac=null;
         categoria="";
-        ct=0;
+        ct=-1;
         
     }
+
+    public Trabajador(int ID_trabajador, String dni, String nombre, String apellido1, String apellido2, String calle, String portal, String piso, String mano, String telef_personal, String movil_empresa, double salario, java.sql.Date fecha_nac, String categoria, int ct) {
+        this.ID_trabajador = ID_trabajador;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.calle = calle;
+        this.portal = portal;
+        this.piso = piso;
+        this.mano = mano;
+        this.telef_personal = telef_personal;
+        this.movil_empresa = movil_empresa;
+        this.salario = salario;
+        this.fecha_nac = fecha_nac;
+        this.categoria = categoria;
+        this.ct = ct;
+    }
+    
 
     public int getCt() {
         return ct;

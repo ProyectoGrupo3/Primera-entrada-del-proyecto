@@ -5,6 +5,9 @@
  */
 package proyectofincurso;
 
+import Modelo.*;
+import java.awt.Event;
+import java.awt.event.ActionEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,14 +25,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 
-
 /**
  *
  * @author 7fbd12
  */
 public class InicioSesion extends javax.swing.JFrame {
 
-    
     public PantLogistica2 getPantallaLogistica2() {
         return pantallaLogistica2;
     }
@@ -59,13 +60,11 @@ public class InicioSesion extends javax.swing.JFrame {
     //La conexion global para todo el programa
     public static Connection conexion;
     public static int id_T;
-    
+
     public void limpiarInicio() {
         nombreText.setText("");
         passwordText.setText("");
     }
-    
-    
 
     /**
      * Creates new form InicioSesion
@@ -89,10 +88,26 @@ public class InicioSesion extends javax.swing.JFrame {
         passwordText = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         entrar = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Nombre");
+
+        nombreText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombreTextKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreTextKeyTyped(evt);
+            }
+        });
+
+        passwordText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordTextKeyPressed(evt);
+            }
+        });
 
         jLabel2.setText("Contraseña");
 
@@ -105,6 +120,13 @@ public class InicioSesion extends javax.swing.JFrame {
         entrar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entrarKeyPressed(evt);
+            }
+        });
+
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
             }
         });
 
@@ -124,8 +146,10 @@ public class InicioSesion extends javax.swing.JFrame {
                             .addComponent(passwordText, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(nombreText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(entrar)))
+                        .addGap(55, 55, 55)
+                        .addComponent(entrar)
+                        .addGap(26, 26, 26)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,7 +164,9 @@ public class InicioSesion extends javax.swing.JFrame {
                     .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(entrar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(entrar)
+                    .addComponent(salir)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,38 +200,53 @@ public class InicioSesion extends javax.swing.JFrame {
             Class.forName("java.sql.DriverManager");
             conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
             Statement sentencia = conexion.createStatement();
-            CallableStatement comprobar = conexion.prepareCall("{call login(?,?,?)}");
-
+            CallableStatement comprobar = conexion.prepareCall("{call LOGIN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             //Los datos del usuario para iniciar sesion
             comprobar.setString(1, String.format(nombre));
             comprobar.setString(2, String.format(password));
-            // la id del trabajador
             comprobar.registerOutParameter(3, Types.NUMERIC);
+            comprobar.registerOutParameter(4, Types.VARCHAR);
+            comprobar.registerOutParameter(5, Types.VARCHAR);
+            comprobar.registerOutParameter(6, Types.DATE);
+            comprobar.registerOutParameter(7, Types.NUMERIC);
+            comprobar.registerOutParameter(8, Types.NUMERIC);
+            comprobar.registerOutParameter(9, Types.VARCHAR);
+            comprobar.registerOutParameter(10, Types.VARCHAR);
+            comprobar.registerOutParameter(11, Types.VARCHAR);
+            comprobar.registerOutParameter(12, Types.VARCHAR);
+            comprobar.registerOutParameter(13, Types.VARCHAR);
+            comprobar.registerOutParameter(14, Types.VARCHAR);
+            comprobar.registerOutParameter(15, Types.VARCHAR);
+            comprobar.registerOutParameter(16, Types.VARCHAR);
+            comprobar.registerOutParameter(17, Types.VARCHAR);
+            comprobar.registerOutParameter(18, Types.VARCHAR);
+            comprobar.registerOutParameter(19, Types.NUMERIC);
+            comprobar.registerOutParameter(20, Types.DATE);
+            comprobar.registerOutParameter(21, Types.VARCHAR);
+            comprobar.registerOutParameter(22, Types.NUMERIC);
+            comprobar.registerOutParameter(23, Types.NUMERIC);
+
+            // Traer y guardar el registro de clave y el trabajador
             comprobar.executeUpdate();
-            id_T = comprobar.getInt(3);
-            
-            if (comprobar.getInt(3) > 0) {
+            if (comprobar.getInt(23) == 1) {
+                Trabajador trabajador;
+                Clave claveTrabajador;
+                claveTrabajador = new Clave(comprobar.getInt(3), comprobar.getString(4), comprobar.getString(5), comprobar.getDate(6), comprobar.getInt(7));
+                trabajador = new Trabajador(comprobar.getInt(8), comprobar.getString(9), comprobar.getString(10), comprobar.getString(11), comprobar.getString(12), comprobar.getString(13), comprobar.getString(14), comprobar.getString(15), comprobar.getString(16), comprobar.getString(17), comprobar.getString(18), comprobar.getInt(19), comprobar.getDate(20), comprobar.getString(21), comprobar.getInt(22));
                 JOptionPane.showMessageDialog(this, "Correcto");
                 //cerrar conexion del sistema y damos paso al trabajador con su usuario
+                comprobar.close();
                 conexion.close();
+                sentencia.close();
                 Class.forName("java.sql.DriverManager");
                 //Aqui pondria el usuario y contraseña del trabajador
-                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", nombre, password);
+                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", claveTrabajador.getUsuario(), claveTrabajador.getContrasenya());
                 sentencia = conexion.createStatement();
 
                 //obtener la categoria del trabajador
-                CallableStatement s = conexion.prepareCall("{call CONSULTA_UN_T(?,?)}");
-                s.setInt(1, id_T);
-                s.registerOutParameter(2, OracleTypes.CURSOR);
-                s.executeUpdate();
-                ResultSet res = (ResultSet) s.getObject(2);
-                
-                res.next();
-                
                 String adm = "ADMINISTRADOR";
                 String logis = "LOGISTICA";
-                String trab = res.getString(14);
-                res.close();
+                String trab = trabajador.getCategoria();
                 if (trab.equals(adm)) {
                     //Abrir pantalla Administrador
                     if (pantallaAdministrador == null) {
@@ -214,16 +255,10 @@ public class InicioSesion extends javax.swing.JFrame {
                     }
                     pantallaAdministrador.setVisible(true);
                     limpiarInicio();
-                    
+
                 } else {
                     //Abrir pantalla Logistica
                     if (getPantallaLogistica2() == null) {
-                        /* if (pantallaLogistica1 == null) {
-                            pantallaLogistica1 = new PantLogistica1();
-                            pantallaLogistica1.setInicioSesion(this);
-                        }
-                        pantallaLogistica1.setVisible(true);
-                    } else {*/
                         setPantallaLogistica2(new PantLogistica2());
                         getPantallaLogistica2().setInicioSesion(this);
                         getPantallaLogistica2().setVisible(true);
@@ -233,11 +268,11 @@ public class InicioSesion extends javax.swing.JFrame {
                 }
                 //esconder ventana
                 this.setVisible(false);
-                
+
             } else {
-                JOptionPane.showMessageDialog(this, "ERROR", "Resultado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "ERROR USUARIO O CONTRASEÑA ERRONEOS", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
-            
+
             comprobar.close();
 
             //sentencia.close();
@@ -248,11 +283,34 @@ public class InicioSesion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_entrarActionPerformed
 
+    public void hacerClick() {
+        System.out.println("click");
+        entrar.doClick();
+    }
     private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
-      if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             // entrar.entrarActionPerformed();
-          }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            hacerClick();
+        }
     }//GEN-LAST:event_entrarKeyPressed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void nombreTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreTextKeyTyped
+    }//GEN-LAST:event_nombreTextKeyTyped
+
+    private void nombreTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreTextKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            hacerClick();
+        }
+    }//GEN-LAST:event_nombreTextKeyPressed
+
+    private void passwordTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordTextKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            hacerClick();
+        }
+    }//GEN-LAST:event_passwordTextKeyPressed
 
     /**
      * @param args the command line arguments
@@ -300,7 +358,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreText;
     private javax.swing.JPasswordField passwordText;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 
-    
 }
