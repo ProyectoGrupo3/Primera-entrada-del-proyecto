@@ -242,6 +242,8 @@ public class InicioSesion extends javax.swing.JFrame {
                 //Aqui pondria el usuario y contraseña del trabajador
                 conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", claveTrabajador.getUsuario(), claveTrabajador.getContrasenya());
                 sentencia = conexion.createStatement();
+                
+                claveTrabajador.comprobarFecha(claveTrabajador.getFecha());
 
                 //obtener la categoria del trabajador
                 String adm = "ADMINISTRADOR";

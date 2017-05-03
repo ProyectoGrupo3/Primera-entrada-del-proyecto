@@ -6,6 +6,13 @@
 package Modelo;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +25,17 @@ public class Clave {
     private String contrasenya;
     private java.sql.Date fecha;
     private int id_trabajador;
+
+    public void comprobarFecha(java.sql.Date fecha) {
+        long año = fecha.getTime();
+        
+        if (año > 30) {
+            JOptionPane.showInputDialog(this, "Tiene que cambiar contraseña."+año);
+
+        } else {
+            JOptionPane.showInputDialog(this, "Han pasado menos dias. "+año);
+        }
+    }
 
     public int getId_clave() {
         return id_clave;
