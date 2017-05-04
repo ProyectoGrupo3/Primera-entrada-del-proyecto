@@ -5,12 +5,32 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectofincurso.InicioSesion;
+import static proyectofincurso.InicioSesion.conexion;
 
 public class Trabajador_CRUD {
 
     Connection accesoDB = InicioSesion.conexion;
 
     public Trabajador_CRUD() {
+    }
+
+    public void crear_usuario_oracle(String nombre) {
+
+        try {
+
+            String sql = "CREATE USER \'" + nombre + "\'	 IDENTIFIED BY 'Himevico12345';\n"
+                    + " GRANT \"DBA\" TO NOMBRE;\n"
+                    + "GRANT \"CONNECT\" TO NOMBRE;\n"
+                    + " GRANT \"RESOURCE\" TO NOMBRE;";
+
+            System.out.println(sql);
+            Statement s = conexion.createStatement();
+            ResultSet rs = s.executeQuery(sql);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Clave.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public String insertTrabajador(int ID, String dni, String nombre, String apellido1, String apellido2, String calle, String portal, String piso, String mano, String telefono_p, String movil_em, double salario, Date fecha_nac, String categoria, int ct) {

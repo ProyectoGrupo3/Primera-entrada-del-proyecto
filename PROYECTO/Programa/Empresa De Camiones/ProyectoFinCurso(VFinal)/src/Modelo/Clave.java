@@ -20,19 +20,15 @@ public class Clave {
     private java.sql.Date fecha;
     private int id_trabajador;
 
+    
     public long comprobarFecha(java.sql.Date fecha) {
         java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
-        //java.sql.Date sqlDateHoy = new java.sql.Date(utilDate.getTime());//aqui se transforma en java.sql.date
-
-        java.util.Date utilDate = null;
         java.sql.Date sqlDate = new java.sql.Date(fecha.getTime());
-        utilDate = new java.util.Date(sqlDate.getTime());
-        //esta vez se mostrará con el formato de java.util.Date
-        int d = utilDate.compareTo(hoy);
 
         long diferencia = Math.round((hoy.getTime() - sqlDate.getTime()) / 100000000);
         return diferencia;
     }
+    
 
     public int getId_clave() {
         return id_clave;

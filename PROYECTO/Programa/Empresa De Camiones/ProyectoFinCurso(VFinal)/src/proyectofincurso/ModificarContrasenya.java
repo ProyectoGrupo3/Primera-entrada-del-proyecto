@@ -5,7 +5,10 @@
  */
 package proyectofincurso;
 
+import Modelo.Clave;
+import Modelo.Alter_contrasenya_oracle_y_tabla_clave;
 import java.awt.event.KeyEvent;
+import java.sql.*;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -34,6 +37,7 @@ public class ModificarContrasenya extends javax.swing.JFrame {
         aceptarYGuardar.doClick();
     }
     private InicioSesion inicioSesion;
+    private Clave claveTrabajador;
 
     /**
      * Creates new form ModificarContraseña
@@ -145,12 +149,32 @@ public class ModificarContrasenya extends javax.swing.JFrame {
         String contra1 = nuevaCText.getText();
         String contraConfirm = vuelvaText.getText();
 
+        claveTrabajador = inicioSesion.getClaveTrabajador();
+
         if (contraConfirm.equals(contra1)) {
 
-            JOptionPane.showMessageDialog(null, "Contraseña cambiada correctamente");
             inicioSesion.getClaveTrabajador().setContrasenya(contraConfirm);
+            java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
+            java.sql.Date sqlDateHoy = new java.sql.Date(hoy.getTime());//aqui se transforma en java.sql.date
+            Alter_contrasenya_oracle_y_tabla_clave ctnya = new Alter_contrasenya_oracle_y_tabla_clave();
+            ctnya.setModificarContrasenya(this);
+
+            int id_clave = inicioSesion.getClaveTrabajador().getId_clave();
+            String nombre = inicioSesion.getClaveTrabajador().getUsuario();
+            String contraseñaNueva = contraConfirm;
+            Date fechaDeHoy = sqlDateHoy;
+
+            //System.out.println(id_clave + ", " + nombre + ", " + contraseñaNueva + ", " + fechaDeHoy);
+            JOptionPane.showMessageDialog(null, "Contraseña cambiada correctamente");
+
+            if (ctnya.Modificar_contra(id_clave, contraseñaNueva, fechaDeHoy, nombre) == true) {
+                JOptionPane.showMessageDialog(null, "Todo ok");
+            } else {
+                JOptionPane.showMessageDialog(null, "Fallo");
+            }
+
             this.setVisible(false);
-            
+
         }
 
 

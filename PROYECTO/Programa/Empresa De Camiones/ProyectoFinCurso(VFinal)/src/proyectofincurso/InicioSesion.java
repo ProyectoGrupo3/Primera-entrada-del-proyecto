@@ -6,24 +6,16 @@
 package proyectofincurso;
 
 import Modelo.*;
-import java.awt.Event;
-import java.awt.event.ActionEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
 import java.sql.SQLException;
-import java.sql.SQLType;
 import java.sql.Statement;
 import java.sql.Types;
 import javax.swing.JOptionPane;
-import oracle.jdbc.OracleTypes;
+
 import java.awt.event.KeyEvent;
-import javax.swing.InputMap;
-import javax.swing.KeyStroke;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.JButton;
 
 /**
  *
@@ -94,8 +86,8 @@ public class InicioSesion extends javax.swing.JFrame {
     }
     private Trabajador trabajador;
     private Clave claveTrabajador;
-    int n = 0;
-
+  
+        
     /**
      * Creates new form InicioSesion
      */
@@ -204,16 +196,16 @@ public class InicioSesion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -278,7 +270,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 String adm = "ADMINISTRADOR";
                 String logis = "LOGISTICA";
                 String trab = getTrabajador().getCategoria();
-                if (seguir < 30) {
+                if (seguir < 30 || claveTrabajador.getContrasenya().equals("Himevico12345")) {
 
                     if (trab.equals(adm)) {
                         //Abrir pantalla Administrador
@@ -303,19 +295,14 @@ public class InicioSesion extends javax.swing.JFrame {
                     this.setVisible(false);
 
                 } else {
-                    JOptionPane.showConfirmDialog(null, "Tienes que cambiar la contraseña. Han pasado mas de 30 dias desde el último cambio");
-                    java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
-                    java.sql.Date sqlDateHoy = new java.sql.Date(hoy.getTime());//aqui se transforma en java.sql.date
-                    Modificar_contrasenya cambiar_contra = new Modificar_contrasenya();
+                    JOptionPane.showConfirmDialog(null, "Tienes que cambiar la contraseña. Han pasado mas de 30 dias desde el último cambio \n O tienes la contraseña por defecto.");
+
                     //crear la nueva contra
                     ModificarContrasenya crear_contra = new ModificarContrasenya();
                     crear_contra.setInicioSesion(this);
                     crear_contra.setVisible(true);
 
-                    if (n == 1) {
-                        cambiar_contra.Modificar_contra(getClaveTrabajador().getId_clave(), getClaveTrabajador().getContrasenya(), sqlDateHoy,getClaveTrabajador().getUsuario());
-                    }
-
+                    //  cambiar_contra.Modificar_contra(getClaveTrabajador().getId_clave(), getClaveTrabajador().getContrasenya(), sqlDateHoy, getClaveTrabajador().getUsuario());
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR USUARIO O CONTRASEÑA ERRONEOS", "Resultado", JOptionPane.ERROR_MESSAGE);
@@ -332,7 +319,6 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarActionPerformed
 
     public void hacerClick() {
-        System.out.println("click");
         entrar.doClick();
     }
     private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
