@@ -5,11 +5,35 @@
  */
 package proyectofincurso;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author 7fbd12
  */
 public class ModificarContrasenya extends javax.swing.JFrame {
+
+    /**
+     * @return the inicioSesion
+     */
+    public InicioSesion getInicioSesion() {
+        return inicioSesion;
+    }
+
+    /**
+     * @param inicioSesion the inicioSesion to set
+     */
+    public void setInicioSesion(InicioSesion inicioSesion) {
+        this.inicioSesion = inicioSesion;
+    }
+
+    public void hacerClick() {
+        aceptarYGuardar.doClick();
+    }
+    private InicioSesion inicioSesion;
 
     /**
      * Creates new form ModificarContraseña
@@ -28,19 +52,36 @@ public class ModificarContrasenya extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        aceptarYGuardar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nuevaCText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        vuelvaText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Aceptar y guardar");
+        aceptarYGuardar.setText("Aceptar y guardar");
+        aceptarYGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarYGuardarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nueva contraseña");
 
+        nuevaCText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nuevaCTextKeyPressed(evt);
+            }
+        });
+
         jLabel3.setText("Vuelve a escribir contraseña");
+
+        vuelvaText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                vuelvaTextKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,18 +91,18 @@ public class ModificarContrasenya extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(jButton1))
+                        .addComponent(aceptarYGuardar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(65, 65, 65)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(nuevaCText, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(vuelvaText, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -70,13 +111,13 @@ public class ModificarContrasenya extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nuevaCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vuelvaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(aceptarYGuardar)
                 .addContainerGap())
         );
 
@@ -99,6 +140,57 @@ public class ModificarContrasenya extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void aceptarYGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarYGuardarActionPerformed
+        String contra1 = nuevaCText.getText();
+        String contraConfirm = vuelvaText.getText();
+
+        if (contraConfirm.equals(contra1)) {
+
+            JOptionPane.showMessageDialog(null, "Contraseña cambiada correctamente");
+            inicioSesion.getClaveTrabajador().setContrasenya(contraConfirm);
+            this.setVisible(false);
+            
+        }
+
+
+    }//GEN-LAST:event_aceptarYGuardarActionPerformed
+
+    private void vuelvaTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vuelvaTextKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            hacerClick();
+        }
+    }//GEN-LAST:event_vuelvaTextKeyPressed
+
+    private void nuevaCTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nuevaCTextKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            hacerClick();
+        }
+    }//GEN-LAST:event_nuevaCTextKeyPressed
+
+    public JButton getAceptarYGuardar() {
+        return aceptarYGuardar;
+    }
+
+    public void setAceptarYGuardar(JButton aceptarYGuardar) {
+        this.aceptarYGuardar = aceptarYGuardar;
+    }
+
+    public JTextField getNuevaCText() {
+        return nuevaCText;
+    }
+
+    public void setNuevaCText(JTextField nuevaCText) {
+        this.nuevaCText = nuevaCText;
+    }
+
+    public JTextField getVuelvaText() {
+        return vuelvaText;
+    }
+
+    public void setVuelvaText(JTextField vuelvaText) {
+        this.vuelvaText = vuelvaText;
+    }
 
     /**
      * @param args the command line arguments
@@ -136,11 +228,11 @@ public class ModificarContrasenya extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton aceptarYGuardar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField nuevaCText;
+    private javax.swing.JTextField vuelvaText;
     // End of variables declaration//GEN-END:variables
 }

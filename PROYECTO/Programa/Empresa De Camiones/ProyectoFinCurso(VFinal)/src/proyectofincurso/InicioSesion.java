@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.sql.SQLException;
 import java.sql.SQLType;
 import java.sql.Statement;
@@ -30,6 +30,34 @@ import javax.swing.JButton;
  * @author 7fbd12
  */
 public class InicioSesion extends javax.swing.JFrame {
+
+    /**
+     * @return the trabajador
+     */
+    public Trabajador getTrabajador() {
+        return trabajador;
+    }
+
+    /**
+     * @param trabajador the trabajador to set
+     */
+    public void setTrabajador(Trabajador trabajador) {
+        this.trabajador = trabajador;
+    }
+
+    /**
+     * @return the claveTrabajador
+     */
+    public Clave getClaveTrabajador() {
+        return claveTrabajador;
+    }
+
+    /**
+     * @param claveTrabajador the claveTrabajador to set
+     */
+    public void setClaveTrabajador(Clave claveTrabajador) {
+        this.claveTrabajador = claveTrabajador;
+    }
 
     public PantLogistica2 getPantallaLogistica2() {
         return pantallaLogistica2;
@@ -59,12 +87,14 @@ public class InicioSesion extends javax.swing.JFrame {
 
     //La conexion global para todo el programa
     public static Connection conexion;
-    public static int id_T;
 
     public void limpiarInicio() {
         nombreText.setText("");
         passwordText.setText("");
     }
+    private Trabajador trabajador;
+    private Clave claveTrabajador;
+    int n = 0;
 
     /**
      * Creates new form InicioSesion
@@ -229,10 +259,9 @@ public class InicioSesion extends javax.swing.JFrame {
             // Traer y guardar el registro de clave y el trabajador
             comprobar.executeUpdate();
             if (comprobar.getInt(23) == 1) {
-                Trabajador trabajador;
-                Clave claveTrabajador;
-                claveTrabajador = new Clave(comprobar.getInt(3), comprobar.getString(4), comprobar.getString(5), comprobar.getDate(6), comprobar.getInt(7));
-                trabajador = new Trabajador(comprobar.getInt(8), comprobar.getString(9), comprobar.getString(10), comprobar.getString(11), comprobar.getString(12), comprobar.getString(13), comprobar.getString(14), comprobar.getString(15), comprobar.getString(16), comprobar.getString(17), comprobar.getString(18), comprobar.getInt(19), comprobar.getDate(20), comprobar.getString(21), comprobar.getInt(22));
+
+                setClaveTrabajador(new Clave(comprobar.getInt(3), comprobar.getString(4), comprobar.getString(5), comprobar.getDate(6), comprobar.getInt(7)));
+                setTrabajador(new Trabajador(comprobar.getInt(8), comprobar.getString(9), comprobar.getString(10), comprobar.getString(11), comprobar.getString(12), comprobar.getString(13), comprobar.getString(14), comprobar.getString(15), comprobar.getString(16), comprobar.getString(17), comprobar.getString(18), comprobar.getInt(19), comprobar.getDate(20), comprobar.getString(21), comprobar.getInt(22)));
                 JOptionPane.showMessageDialog(this, "Correcto");
                 //cerrar conexion del sistema y damos paso al trabajador con su usuario
                 comprobar.close();
@@ -240,42 +269,59 @@ public class InicioSesion extends javax.swing.JFrame {
                 sentencia.close();
                 Class.forName("java.sql.DriverManager");
                 //Aqui pondria el usuario y contraseña del trabajador
-                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", claveTrabajador.getUsuario(), claveTrabajador.getContrasenya());
+                conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", getClaveTrabajador().getUsuario(), getClaveTrabajador().getContrasenya());
                 sentencia = conexion.createStatement();
-                
-                claveTrabajador.comprobarFecha(claveTrabajador.getFecha());
+
+                long seguir = getClaveTrabajador().comprobarFecha(getClaveTrabajador().getFecha());
 
                 //obtener la categoria del trabajador
                 String adm = "ADMINISTRADOR";
                 String logis = "LOGISTICA";
-                String trab = trabajador.getCategoria();
-                if (trab.equals(adm)) {
-                    //Abrir pantalla Administrador
-                    if (pantallaAdministrador == null) {
-                        pantallaAdministrador = new JF_Administrador();
-                        pantallaAdministrador.setInicioSesion(this);
+                String trab = getTrabajador().getCategoria();
+                if (seguir < 30) {
+
+                    if (trab.equals(adm)) {
+                        //Abrir pantalla Administrador
+                        if (pantallaAdministrador == null) {
+                            pantallaAdministrador = new JF_Administrador();
+                            pantallaAdministrador.setInicioSesion(this);
+                        }
+                        pantallaAdministrador.setVisible(true);
+                        limpiarInicio();
+
+                    } else {
+                        //Abrir pantalla Logistica
+                        if (getPantallaLogistica2() == null) {
+                            setPantallaLogistica2(new PantLogistica2());
+                            getPantallaLogistica2().setInicioSesion(this);
+                            getPantallaLogistica2().setVisible(true);
+                        }
+                        getPantallaLogistica2().setVisible(true);
+                        limpiarInicio();
                     }
-                    pantallaAdministrador.setVisible(true);
-                    limpiarInicio();
+                    //esconder ventana
+                    this.setVisible(false);
 
                 } else {
-                    //Abrir pantalla Logistica
-                    if (getPantallaLogistica2() == null) {
-                        setPantallaLogistica2(new PantLogistica2());
-                        getPantallaLogistica2().setInicioSesion(this);
-                        getPantallaLogistica2().setVisible(true);
-                    }
-                    getPantallaLogistica2().setVisible(true);
-                    limpiarInicio();
-                }
-                //esconder ventana
-                this.setVisible(false);
+                    JOptionPane.showConfirmDialog(null, "Tienes que cambiar la contraseña. Han pasado mas de 30 dias desde el último cambio");
+                    java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
+                    java.sql.Date sqlDateHoy = new java.sql.Date(hoy.getTime());//aqui se transforma en java.sql.date
+                    Modificar_contrasenya cambiar_contra = new Modificar_contrasenya();
+                    //crear la nueva contra
+                    ModificarContrasenya crear_contra = new ModificarContrasenya();
+                    crear_contra.setInicioSesion(this);
+                    crear_contra.setVisible(true);
 
+                    if (n == 1) {
+                        cambiar_contra.Modificar_contra(getClaveTrabajador().getId_clave(), getClaveTrabajador().getContrasenya(), sqlDateHoy,getClaveTrabajador().getUsuario());
+                    }
+
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR USUARIO O CONTRASEÑA ERRONEOS", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
 
-            comprobar.close();
+            sentencia.close();
 
             //sentencia.close();
             //conexion.close();
