@@ -8,8 +8,8 @@ package Modelo;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import proyectofincurso.InicioSesion;
-import static proyectofincurso.InicioSesion.conexion;
+import proyectofincurso.Jf_InicioSesion;
+import static proyectofincurso.Jf_InicioSesion.conexion;
 import proyectofincurso.ModificarContrasenya;
 
 /**
@@ -32,7 +32,7 @@ public class Alter_contrasenya_oracle_y_tabla_clave {
         this.modificarContrasenya = modificarContrasenya;
     }
 
-    Connection accesoDB = InicioSesion.conexion;
+    Connection accesoDB = Jf_InicioSesion.conexion;
     private ModificarContrasenya modificarContrasenya;
 
     public Alter_contrasenya_oracle_y_tabla_clave() {

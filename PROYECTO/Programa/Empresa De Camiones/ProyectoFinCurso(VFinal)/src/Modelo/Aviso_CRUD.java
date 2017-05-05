@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import proyectofincurso.InicioSesion;
+import proyectofincurso.Jf_InicioSesion;
 
 public class Aviso_CRUD {
     
-    Connection accesoDB = InicioSesion.conexion;
+    Connection accesoDB = Jf_InicioSesion.conexion;
 
     public Aviso_CRUD() {
     }

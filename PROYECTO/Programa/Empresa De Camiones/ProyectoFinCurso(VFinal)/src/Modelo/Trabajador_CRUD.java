@@ -7,12 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import proyectofincurso.InicioSesion;
+import proyectofincurso.Jf_InicioSesion;
 
 
 public class Trabajador_CRUD {
     
-    Connection accesoDB = InicioSesion.conexion;
+    Connection accesoDB = Jf_InicioSesion.conexion;
    
             
 
@@ -184,7 +184,7 @@ public class Trabajador_CRUD {
                     + " GRANT \"RESOURCE\" TO NOMBRE;";
 
             System.out.println(sql);
-            Statement s = InicioSesion.conexion.createStatement();
+            Statement s = Jf_InicioSesion.conexion.createStatement();
             ResultSet rs = s.executeQuery(sql);
 
         } catch (SQLException ex) {

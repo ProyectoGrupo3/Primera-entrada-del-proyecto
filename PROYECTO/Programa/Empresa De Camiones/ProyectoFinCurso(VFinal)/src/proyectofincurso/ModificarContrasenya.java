@@ -22,21 +22,21 @@ public class ModificarContrasenya extends javax.swing.JFrame {
     /**
      * @return the inicioSesion
      */
-    public InicioSesion getInicioSesion() {
+    public Jf_InicioSesion getInicioSesion() {
         return inicioSesion;
     }
 
     /**
      * @param inicioSesion the inicioSesion to set
      */
-    public void setInicioSesion(InicioSesion inicioSesion) {
+    public void setInicioSesion(Jf_InicioSesion inicioSesion) {
         this.inicioSesion = inicioSesion;
     }
 
     public void hacerClick() {
         aceptarYGuardar.doClick();
     }
-    private InicioSesion inicioSesion;
+    private Jf_InicioSesion inicioSesion;
     private Clave claveTrabajador;
 
     /**

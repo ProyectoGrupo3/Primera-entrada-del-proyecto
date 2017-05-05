@@ -46,13 +46,8 @@
     </Container>
     <Component class="javax.persistence.EntityManager" name="entityManager">
       <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" editor="org.netbeans.modules.form.editors.EnumEditor">
-          <Value id=""/>
-        </Property>
+        <Property name="persistenceUnit" type="java.lang.String" value="jdbc:oracle:thin:@10.10.10.9:1521:db12102PU"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(&quot;jdbc:oracle:thin:@10.10.10.9:1521:db12102&quot;).createEntityManager()"/>
-      </AuxValues>
     </Component>
     <Component class="javax.persistence.Query" name="centroTrabajoQuery">
       <Properties>
@@ -102,6 +97,47 @@
       <Properties>
         <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
           <ComponentRef name="centroTrabajoQuery1"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.CentroTrabajo&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.persistence.EntityManager" name="entityManager0">
+      <Properties>
+        <Property name="persistenceUnit" type="java.lang.String" value="jdbc:oracle:thin:@10.10.10.9:1521:db12102PU"/>
+      </Properties>
+    </Component>
+    <Component class="javax.persistence.Query" name="centroTrabajoQuery2">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT c FROM CentroTrabajo c"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="entityManager0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="centroTrabajoList2">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="centroTrabajoQuery2"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.CentroTrabajo&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.persistence.Query" name="centroTrabajoQuery3">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT c FROM CentroTrabajo c"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="entityManager"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="centroTrabajoList3">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="centroTrabajoQuery3"/>
         </Property>
       </Properties>
       <AuxValues>

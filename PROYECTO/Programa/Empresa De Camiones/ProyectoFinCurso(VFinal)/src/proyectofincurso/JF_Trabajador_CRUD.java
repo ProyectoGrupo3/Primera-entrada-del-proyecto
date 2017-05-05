@@ -22,13 +22,18 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@10.10.10.9:1521:db12102").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@10.10.10.9:1521:db12102PU").createEntityManager();
         centroTrabajoQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CentroTrabajo c");
         centroTrabajoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery.getResultList();
         vehiculoQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT v FROM Vehiculo v");
         vehiculoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : vehiculoQuery.getResultList();
         centroTrabajoQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CentroTrabajo c");
         centroTrabajoList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery1.getResultList();
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@10.10.10.9:1521:db12102PU").createEntityManager();
+        centroTrabajoQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT c FROM CentroTrabajo c");
+        centroTrabajoList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery2.getResultList();
+        centroTrabajoQuery3 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CentroTrabajo c");
+        centroTrabajoList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery3.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -650,9 +655,14 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList;
     private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList1;
+    private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList2;
+    private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList3;
     private javax.persistence.Query centroTrabajoQuery;
     private javax.persistence.Query centroTrabajoQuery1;
+    private javax.persistence.Query centroTrabajoQuery2;
+    private javax.persistence.Query centroTrabajoQuery3;
     private javax.persistence.EntityManager entityManager;
+    private javax.persistence.EntityManager entityManager0;
     public javax.swing.JButton jB_Actualizar;
     public javax.swing.JButton jB_Borrar;
     public javax.swing.JButton jB_Crear;
