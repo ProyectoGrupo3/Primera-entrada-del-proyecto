@@ -12,7 +12,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-//import static javax.swing.text.html.HTML.Attribute.ID;
 
 public class ControladorCRUD_CT implements ActionListener, KeyListener {
 
@@ -36,18 +35,12 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         this.vista_CT_CRUD.jText_6.addKeyListener(this);
         this.vista_CT_CRUD.jText_7.addKeyListener(this);
         this.vista_CT_CRUD.jText_8.addKeyListener(this);
-        this.vista_CT_CRUD.jText_Buscar.addKeyListener(this);
-
     }
 
-    public void Inicializar_CT_CRUD() {
-
-    }
-
+    @SuppressWarnings("unchecked")
     public void LlenarTabla(JTable tablaCT) {
         DefaultTableModel modeloT = new DefaultTableModel();
         tablaCT.setModel(modeloT);
-
 //      PARA PONER DESDE AQUÍ LOS NOMBRES DE LAS COLUMNAS
         modeloT.addColumn("ID");
         modeloT.addColumn("NOMBRE");
@@ -78,14 +71,16 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
             columna[7] = ListaCopia.get(i).getTelefono();
             modeloT.addRow(columna);
         }
+        JOptionPane.showMessageDialog(null, "Listado terminado");
     }
 
     public void limpiar() {
-        vista_CT_CRUD.jText_1.setText("");
+        
+        vista_CT_CRUD.jText_1.setText(null);
         vista_CT_CRUD.jText_1.setEditable(true);
         vista_CT_CRUD.jText_2.setText("");
         vista_CT_CRUD.jText_3.setText("");
-        vista_CT_CRUD.jText_4.setText("");
+        vista_CT_CRUD.jText_4.setText(null);
         vista_CT_CRUD.jText_5.setText("");
         vista_CT_CRUD.jText_6.setText("");
         vista_CT_CRUD.jText_7.setText("");
@@ -94,13 +89,12 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         vista_CT_CRUD.jText_2.requestFocus();
     }
 
+    @SuppressWarnings("unchecked")
     public void actionPerformed(ActionEvent e) {
 
         // CREAR: ALTA de datos nuevos
         if (e.getSource() == vista_CT_CRUD.jB_Crear) {
-
-            // Asigno el valor 0 al ID para que no de error antes de generarlo
-            // con la SECUENCIA de la base de datos
+            // Asigno el valor 0 al ID para que no de error antes de generarlo    
             int ID = 0;
             String Nombre = vista_CT_CRUD.jText_2.getText();
             String Calle = vista_CT_CRUD.jText_3.getText();
@@ -109,16 +103,14 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
             String Ciudad = vista_CT_CRUD.jText_6.getText();
             String Provincia = vista_CT_CRUD.jText_7.getText();
             String Telefono = vista_CT_CRUD.jText_8.getText();
-
             String rptaRegistro = modelo_CT_CRUD.insertCT(ID, Nombre, Calle, Num, cp, Ciudad, Provincia, Telefono);
-
             if (rptaRegistro != null) {
                 JOptionPane.showMessageDialog(null, rptaRegistro);
-                limpiar();
-                vista_CT_CRUD.jB_Leer.doClick();
             } else {
                 JOptionPane.showMessageDialog(null, "Registro incorrecto" + e);
             }
+            limpiar();
+            vista_CT_CRUD.jB_Leer.doClick();
         }
 
         // LECTURA de los datos en la tabla
@@ -161,11 +153,12 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         if (e.getSource() == vista_CT_CRUD.jB_Borrar) {
             int filaInicio = vista_CT_CRUD.jTableDatos.getSelectedRow();
             int numFilas = vista_CT_CRUD.jTableDatos.getSelectedRowCount();
+            @SuppressWarnings("unchecked")
             ArrayList<String> listaNombre = new ArrayList();
             String nombre = "";
             String num = "";
             int id = 0;
-            if (filaInicio > 0) {
+            if (filaInicio >= 0) {
                 for (int i = 0; i < numFilas; i++) {
                     nombre = String.valueOf(vista_CT_CRUD.jTableDatos.getValueAt(i + filaInicio, 1));
                     num = String.valueOf(vista_CT_CRUD.jTableDatos.getValueAt(filaInicio, 0));
@@ -189,66 +182,71 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         }
         // BOTON de Ok
         if (e.getSource() == vista_CT_CRUD.jB_OK) {
-            int ID = Integer.parseInt(vista_CT_CRUD.jText_1.getText());
-            String Nombre = vista_CT_CRUD.jText_2.getText();
-            String Calle = vista_CT_CRUD.jText_3.getText();
-            int Num = Integer.parseInt(vista_CT_CRUD.jText_4.getText());
-            String cp = vista_CT_CRUD.jText_5.getText();
-            String Ciudad = vista_CT_CRUD.jText_6.getText();
-            String Provincia = vista_CT_CRUD.jText_7.getText();
-            String Telefono = vista_CT_CRUD.jText_8.getText();
 
-            String rptaEdit = modelo_CT_CRUD.editarCT(ID, Nombre, Calle, Num, cp, Ciudad, Provincia, Telefono);
+            String nombreBuscado = vista_CT_CRUD.jText_Buscar.getText();
 
-            if (rptaEdit != null) {
-                JOptionPane.showMessageDialog(null, rptaEdit);
-            } else {
-                JOptionPane.showMessageDialog(null, "Registro incorrecto" + e);
-            }
-            // Limpio los datos del formulario
-            limpiar();
-            // Vuelvo a habilitar los botones deshabilitados
-            vista_CT_CRUD.jB_Crear.setEnabled(true);
-            vista_CT_CRUD.jB_Borrar.setEnabled(true);
-            vista_CT_CRUD.jB_Leer.setEnabled(true);
-            vista_CT_CRUD.jB_Salir.setEnabled(true);
-            vista_CT_CRUD.jB_Volver.setEnabled(true);
+            // Cuando SI QUE hay texto en el campo BUSCAR
+            if (!nombreBuscado.equals("")) {
+                nombreBuscado = "%" + nombreBuscado + "%";
+                DefaultTableModel modeloT = new DefaultTableModel();
+                vista_CT_CRUD.jTableDatos.setModel(modeloT);
 
-            // Refresco el listado para que aparezca el cambio hecho
-            vista_CT_CRUD.jB_Leer.doClick();
+                modeloT.addColumn("ID");
+                modeloT.addColumn("NOMBRE");
+                modeloT.addColumn("CALLE");
+                modeloT.addColumn("NUM");
+                modeloT.addColumn("C.P.");
+                modeloT.addColumn("CIUDAD");
+                modeloT.addColumn("PROVINCIA");
+                modeloT.addColumn("TELEFONO");
 
-        }
-        // OPCIÓN DE BUSCAR POR NOMBRE
-        if (e.getSource() == vista_CT_CRUD.jText_Buscar) {
-            String id_ct_text = vista_CT_CRUD.jText_Buscar.getText();
-            int id_ct = Integer.parseInt(id_ct_text);
+                Object[] columna = new Object[8];
+                // CREO UNA copia del ArrayList de la Base de datos
+                // para ahorrar tiempo de búsqueda y conexión                
+                List<CT> ListaCopia = new ArrayList<>();
+                ListaCopia = (List<CT>) modelo_CT_CRUD.buscarCTxNombre(nombreBuscado).clone();
+                int numRegistros = ListaCopia.size();
+                for (int i = 0; i < numRegistros; i++) {
+                    columna[0] = ListaCopia.get(i).getID();
+                    columna[1] = ListaCopia.get(i).getNombre();
+                    columna[2] = ListaCopia.get(i).getCalle();
+                    columna[3] = ListaCopia.get(i).getNumero();
+                    columna[4] = ListaCopia.get(i).getCp();
+                    columna[5] = ListaCopia.get(i).getCiudad();
+                    columna[6] = ListaCopia.get(i).getProvincia();
+                    columna[7] = ListaCopia.get(i).getTelefono();
+                    modeloT.addRow(columna);
+                }
+                JOptionPane.showMessageDialog(null, "Listado terminado");
+                vista_CT_CRUD.jText_Buscar.setText("");
+            } else { // NO HAY QUE BUSCAR NADA, SOLO ACTUALIZAR LOS VALORES
+                int ID = Integer.parseInt(vista_CT_CRUD.jText_1.getText());
+                String Nombre = vista_CT_CRUD.jText_2.getText();
+                String Calle = vista_CT_CRUD.jText_3.getText();
+                int Num = Integer.parseInt(vista_CT_CRUD.jText_4.getText());
+                String cp = vista_CT_CRUD.jText_5.getText();
+                String Ciudad = vista_CT_CRUD.jText_6.getText();
+                String Provincia = vista_CT_CRUD.jText_7.getText();
+                String Telefono = vista_CT_CRUD.jText_8.getText();
 
-            DefaultTableModel modeloT = new DefaultTableModel();
-            vista_CT_CRUD.jTableDatos.setModel(modeloT);
+                String rptaEdit = modelo_CT_CRUD.editarCT(ID, Nombre, Calle, Num, cp, Ciudad, Provincia, Telefono);
 
-            modeloT.addColumn("ID");
-            modeloT.addColumn("NOMBRE");
-            modeloT.addColumn("CALLE");
-            modeloT.addColumn("NUM");
-            modeloT.addColumn("C.P.");
-            modeloT.addColumn("CIUDAD");
-            modeloT.addColumn("PROVINCIA");
-            modeloT.addColumn("TELEFONO");
+                if (rptaEdit != null) {
+                    JOptionPane.showMessageDialog(null, rptaEdit);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Registro incorrecto" + e);
+                }
+                // Limpio los datos del formulario
+                limpiar();
+                // Vuelvo a habilitar los botones deshabilitados
+                vista_CT_CRUD.jB_Crear.setEnabled(true);
+                vista_CT_CRUD.jB_Borrar.setEnabled(true);
+                vista_CT_CRUD.jB_Leer.setEnabled(true);
+                vista_CT_CRUD.jB_Salir.setEnabled(true);
+                vista_CT_CRUD.jB_Volver.setEnabled(true);
 
-            Object[] columna = new Object[8];
-
-            int numRegistros = modelo_CT_CRUD.buscarCTxNombre(id_ct).size();
-
-            for (int i = 0; i < numRegistros; i++) {
-                columna[0] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getID();
-                columna[1] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getNombre();
-                columna[2] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getCalle();
-                columna[3] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getNumero();
-                columna[4] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getCp();
-                columna[5] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getCiudad();
-                columna[6] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getProvincia();
-                columna[7] = modelo_CT_CRUD.buscarCTxNombre(id_ct).get(i).getTelefono();
-                modeloT.addRow(columna);
+                // Refresco el listado para que aparezca el cambio hecho
+                vista_CT_CRUD.jB_Leer.doClick();
             }
         }
     }
