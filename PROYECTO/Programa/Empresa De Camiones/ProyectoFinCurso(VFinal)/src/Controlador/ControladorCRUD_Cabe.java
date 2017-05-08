@@ -75,12 +75,11 @@ public class ControladorCRUD_Cabe implements ActionListener, KeyListener {
             columna[0] = ListaCopia.get(i).getHora_inicio();
             columna[1] = ListaCopia.get(i).getHora_final();
             // ARREGLAR EL FORMATO DE LA FECHA
-            String Fecha_YMD = ListaCopia.get(i).getFecha().toString();
+            String Fecha_YMD = ListaCopia.get(i).getfecha().toString();
             String Fecha_dma = Fecha_YMD.substring(8, 10)+"-"+Fecha_YMD.substring(5, 7)+"-"+Fecha_YMD.substring(0, 4);            
             columna[2] = Fecha_dma;
             columna[3] = ListaCopia.get(i).getId_trabajador();
             columna[4] = ListaCopia.get(i).getNombre();
-            columna[5] = ListaCopia.get(i).getApellido1();
             modeloLP.addRow(columna);
         }
         JOptionPane.showMessageDialog(null, "Listado terminado");

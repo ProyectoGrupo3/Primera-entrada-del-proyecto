@@ -12,7 +12,6 @@ public class Linea_Parte {
     private int id_trabajador;
 
     private String nombre;
-    private String apellido1;
 
     public Linea_Parte() {
         hora_inicio = null;
@@ -20,7 +19,6 @@ public class Linea_Parte {
         fecha = null;
         id_trabajador = 0;
         nombre = "";
-        apellido1 = "";
     }
 
     public Linea_Parte(String hora_inicio, String hora_final, Date fecha, int id_trabajador) {
@@ -70,15 +68,5 @@ public class Linea_Parte {
         this.nombre = nombre;
     }
 
-<<<<<<< HEAD
-=======
-    public String getApellido1() {
-        return apellido1;
-    }
 
-    public void setApellido1(String apellido1) {
-        this.apellido1 = apellido1;
-    }
-
->>>>>>> master
 }
