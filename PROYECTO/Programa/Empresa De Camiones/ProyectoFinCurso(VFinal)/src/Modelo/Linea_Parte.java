@@ -70,4 +70,15 @@ public class Linea_Parte {
         this.nombre = nombre;
     }
 
+<<<<<<< HEAD
+=======
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+
+>>>>>>> master
 }

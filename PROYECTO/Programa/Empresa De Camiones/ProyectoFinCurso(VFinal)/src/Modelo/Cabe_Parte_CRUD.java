@@ -32,8 +32,13 @@ public class Cabe_Parte_CRUD {
                 cabe_parte.setOtros(rs.getInt(7));
                 cabe_parte.setIncidencias(rs.getString(8));
                 cabe_parte.setExceso_horas(rs.getLong(9));
+<<<<<<< HEAD
                 cabe_parte.setCerrar_parte(rs.getString(10));
                 cabe_parte.setVerificar_parte(rs.getString(11));
+=======
+                cabe_parte.setCerrar_parte(rs.getObject(10, Types.CHAR));
+                cabe_parte.setVerificar_parte(rs.getObject(11, Types.CHAR));
+>>>>>>> master
                 cabe_parte.setId_trabajador(rs.getInt(12));
                 cabe_parte.setMatricula(rs.getString(13));                
                 listaCabe_Parte.add(cabe_parte);
