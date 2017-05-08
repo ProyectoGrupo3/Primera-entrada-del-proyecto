@@ -14,8 +14,8 @@ public class Cabe_Parte {
     private int otros;
     private String incidencias;
     private long exceso_horas;
-    private char cerrar_parte;
-    private char verificar_parte;
+    private boolean cerrar_parte;
+    private boolean verificar_parte;
     private int id_trabajador;
     private String matricula;
 
@@ -29,13 +29,13 @@ public class Cabe_Parte {
         otros=0;
         incidencias="";
         exceso_horas=0;
-        cerrar_parte=0;
-        verificar_parte=0;
+        cerrar_parte=false;
+        verificar_parte=false;
         id_trabajador=0;
         matricula="";        
     }
 
-    public Cabe_Parte(Date fecha, int km_in, int km_fin, int gasoil, int autopista, int dietas, int otros, String incidencias, long exceso_horas, char cerrar_parte, char verificar_parte, int id_trabajador, String matricula) {
+    public Cabe_Parte(Date fecha, int km_in, int km_fin, int gasoil, int autopista, int dietas, int otros, String incidencias, long exceso_horas, boolean cerrar_parte, boolean verificar_parte, int id_trabajador, String matricula) {
         this.fecha = fecha;
         this.km_inicio = km_in;
         this.km_fin = km_fin;
@@ -96,19 +96,19 @@ public class Cabe_Parte {
     }
 
 
-    public char isCerrar_parte() {
+    public boolean isCerrar_parte() {
         return cerrar_parte;
     }
 
-    public void setCerrar_parte(char cerrar_parte) {
+    public void setCerrar_parte(boolean cerrar_parte) {
         this.cerrar_parte = cerrar_parte;
     }
 
-    public char isVerificar_parte() {
+    public boolean isVerificar_parte() {
         return verificar_parte;
     }
 
-    public void setVerificar_parte(char verificar_parte) {
+    public void setVerificar_parte(boolean verificar_parte) {
         this.verificar_parte = verificar_parte;
     }
 

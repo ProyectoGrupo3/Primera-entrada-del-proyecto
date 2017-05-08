@@ -56,7 +56,6 @@ public class Linea_Parte_CRUD {
                 linea_parte.setfecha(rs.getDate(3));
                 linea_parte.setId_trabajador(rs.getInt(4));
                 linea_parte.setNombre(rs.getString(5));
-                linea_parte.setApellido1(rs.getString(6));
                 listaLinea_Parte.add(linea_parte);
             }
 
