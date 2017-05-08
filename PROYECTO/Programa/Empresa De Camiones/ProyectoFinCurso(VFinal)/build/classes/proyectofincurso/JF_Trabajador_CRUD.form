@@ -44,106 +44,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.persistence.EntityManager" name="entityManager">
-      <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" value="jdbc:oracle:thin:@10.10.10.9:1521:db12102PU"/>
-      </Properties>
-    </Component>
-    <Component class="javax.persistence.Query" name="centroTrabajoQuery">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT c FROM CentroTrabajo c"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="centroTrabajoList">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="centroTrabajoQuery"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.CentroTrabajo&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.persistence.Query" name="vehiculoQuery">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT v FROM Vehiculo v"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="vehiculoList">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="vehiculoQuery"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.Vehiculo&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.persistence.Query" name="centroTrabajoQuery1">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT c FROM CentroTrabajo c"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="centroTrabajoList1">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="centroTrabajoQuery1"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.CentroTrabajo&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.persistence.EntityManager" name="entityManager0">
-      <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" value="jdbc:oracle:thin:@10.10.10.9:1521:db12102PU"/>
-      </Properties>
-    </Component>
-    <Component class="javax.persistence.Query" name="centroTrabajoQuery2">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT c FROM CentroTrabajo c"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager0"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="centroTrabajoList2">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="centroTrabajoQuery2"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.CentroTrabajo&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.persistence.Query" name="centroTrabajoQuery3">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT c FROM CentroTrabajo c"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="centroTrabajoList3">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="centroTrabajoQuery3"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;proyectofincurso.CentroTrabajo&gt;"/>
-      </AuxValues>
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -712,12 +612,6 @@
                 <Property name="selectionMode" type="int" value="0"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
-              <BindingProperties>
-                <BindingProperty name="elements" source="centroTrabajoList" target="jList_CT" targetPath="elements" updateStrategy="1" immediately="false">
-                  <BindingParameter name="DISPLAY" value="${nombre}"/>
-                  <Property name="name" type="java.lang.String" value="List_CT"/>
-                </BindingProperty>
-              </BindingProperties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -760,19 +654,19 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jB_Leer" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jB_Actualizar" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jText_Buscar" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jB_Crear" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jB_Volver" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jB_Salir" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jB_Borrar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jB_Actualizar" alignment="0" pref="152" max="32767" attributes="0"/>
+                                  <Component id="jB_Leer" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jB_Crear" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -788,9 +682,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Component id="jB_Crear" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jB_Leer" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jB_Actualizar" min="-2" pref="23" max="-2" attributes="0"/>

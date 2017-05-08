@@ -5,12 +5,25 @@
  */
 package proyectofincurso;
 
+import Modelo.Cabe_Parte;
+import Modelo.Linea_Parte;
+import static java.lang.Integer.parseInt;
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import oracle.jdbc.OracleTypes;
+import oracle.jdbc.*;
+import static proyectofincurso.Jf_InicioSesion.conexion;
 
 /**
  *
@@ -31,8 +44,98 @@ public class Jf_Logistica extends javax.swing.JFrame {
     public void setInicioSesion(Jf_InicioSesion inicioSesion) {
         this.inicioSesion = inicioSesion;
     }
-    
+
+    public void rellenarParte(Cabe_Parte cp) {
+        if (cp == null) {
+
+        } else {
+            try {
+                añadirCP(cp);
+                fechaParte.setText(String.valueOf(cp.getFecha()));
+                vehiculoText.setText(cp.getMatricula());
+                kmiText.setText(String.valueOf(cp.getKm_inicio()));
+                kmfText.setText(String.valueOf(cp.getKm_fin()));
+                gAutopista.setText(String.valueOf(cp.getAutopista()));
+                gDietas.setText(String.valueOf(cp.getDietas()));
+                gGasoil.setText(String.valueOf(cp.getGasoil()));
+                gOtros.setText(String.valueOf(cp.getOtros()));
+                incidenciasText.setText(cp.getIncidencias());
+                System.out.println("datos puestos");
+
+                CallableStatement llamada = conexion.prepareCall("{call PASAR_LINEA(?,?,?)}");
+                llamada.setDate(1, cp.getFecha());
+                llamada.setInt(2, cp.getId_trabajador());
+                llamada.registerOutParameter(3, OracleTypes.CURSOR);
+                llamada.executeUpdate();
+                ResultSet resul = (ResultSet) llamada.getObject(3);
+                while (resul.next()) {
+                    System.out.println(resul.getString(1));
+                    System.out.println(resul.getString(2));
+                    System.out.println(resul.getString(3));
+                    System.out.println(resul.getString(4));
+
+                    Linea_Parte lp = new Linea_Parte(resul.getString(1), resul.getString(2), resul.getDate(3), resul.getInt(4));
+                    añadirParte(lp);
+                    ponerEnTabla(lp);
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Jf_Logistica.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    public long calcularMinutosExcesoHoras() {
+        long total = 0;
+        if (lineas_parte != null) {
+
+            for (Linea_Parte linea_Parte : lineas_parte) {
+                String hora_i = linea_Parte.getHora_inicio();//se guardara una hora
+                String hora_f = linea_Parte.getHora_final();//se guardara una hora
+
+                String[] horaInicio = hora_i.split(":");
+                String[] horaFinal = hora_f.split(":");
+
+                LocalDateTime hInicio = LocalDateTime.of(2000, 1, 1, Integer.parseInt(horaInicio[0]), Integer.parseInt(horaInicio[1]), 0);
+                LocalDateTime hFinal = LocalDateTime.of(2000, 1, 1, Integer.parseInt(horaFinal[0]), Integer.parseInt(horaFinal[1]), 0);
+
+                long minutos = hInicio.until(hFinal, ChronoUnit.MINUTES);
+                total = total + minutos;
+            }
+        } else {
+            return 0;
+        }
+        return total;
+    }
+
+    public void ponerEnTabla(Linea_Parte lp) {
+        //Sección 1 
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        //Sección 2
+        Object[] fila = new Object[3];
+        //Sección 3
+        fila[0] = lp.getHora_inicio();
+        fila[1] = lp.getHora_final();
+        //Sección 4
+        modelo.addRow(fila);
+        //Sección 5
+        jTable1.setModel(modelo);
+
+    }
+
+    public void añadirParte(Linea_Parte lp) {
+        lineas_parte.add(lp);
+    }
+
+    public void añadirCP(Cabe_Parte cp) {
+        cabecera_Parte = cp;
+    }
+
+    private Cabe_Parte cabecera_Parte = null;
+    private List<Linea_Parte> lineas_parte = new ArrayList<>();
     private Jf_InicioSesion inicioSesion;
+    private Date sqlDate = null;
 
     /**
      * Creates new form PantLogistica2
@@ -41,9 +144,10 @@ public class Jf_Logistica extends javax.swing.JFrame {
         initComponents();
         java.util.Date utilDate = new java.util.Date(); //fecha actual
         long lnMilisegundos = utilDate.getTime();
-        java.sql.Date sqlDate = new java.sql.Date(lnMilisegundos);
+        sqlDate = new java.sql.Date(lnMilisegundos);
         fechaParte.setText(sqlDate.toString());
 
+        jTable1.removeAll();
     }
 
     /**
@@ -75,19 +179,21 @@ public class Jf_Logistica extends javax.swing.JFrame {
         kmfText = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        incidenciasText = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        guardarYCerrar = new javax.swing.JButton();
+        Jb_borrarLinea = new javax.swing.JButton();
+        Jb_GuardarYcerrarSesion = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        nuevaLinea = new javax.swing.JButton();
+        Jb_InsertarLinea = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        cerrarSesion = new javax.swing.JButton();
-        borrarLinea = new javax.swing.JButton();
+        horaInicioText = new javax.swing.JTextField();
+        horaFinText = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        cerrarParteCheck = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,8 +317,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
         jLabel10.setText("Incidencias:");
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        incidenciasText.setColumns(20);
+        incidenciasText.setRows(5);
+        jScrollPane2.setViewportView(incidenciasText);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -221,10 +328,10 @@ public class Jf_Logistica extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addGap(0, 204, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -233,7 +340,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
 
@@ -241,10 +348,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Hora inicio", "Hora fin"
@@ -253,19 +357,20 @@ public class Jf_Logistica extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         jScrollPane1.setViewportView(jTable1);
+
+        Jb_borrarLinea.setText("Borrar linea");
+        Jb_borrarLinea.setToolTipText("Selecciona una linea de la tabla y haz click en este botón");
+        Jb_borrarLinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jb_borrarLineaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -275,27 +380,37 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Jb_borrarLinea)
+                .addGap(68, 68, 68))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Jb_borrarLinea)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        guardarYCerrar.setText("Guardar y Cerrar Parte");
-        guardarYCerrar.setMaximumSize(new java.awt.Dimension(110, 23));
-        guardarYCerrar.setMinimumSize(new java.awt.Dimension(110, 23));
-        guardarYCerrar.addActionListener(new java.awt.event.ActionListener() {
+        Jb_GuardarYcerrarSesion.setText("Guardar y cerrar sesión");
+        Jb_GuardarYcerrarSesion.setToolTipText("Al dar a este botón, estas cerrando el parte y por la tanto ya no podras volver a editarlo");
+        Jb_GuardarYcerrarSesion.setMaximumSize(new java.awt.Dimension(110, 23));
+        Jb_GuardarYcerrarSesion.setMinimumSize(new java.awt.Dimension(110, 23));
+        Jb_GuardarYcerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarYCerrarActionPerformed(evt);
+                Jb_GuardarYcerrarSesionActionPerformed(evt);
             }
         });
 
-        nuevaLinea.setText("Insertar Linea");
-        nuevaLinea.addActionListener(new java.awt.event.ActionListener() {
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        Jb_InsertarLinea.setText("Insertar Nueva Linea");
+        Jb_InsertarLinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevaLineaActionPerformed(evt);
+                Jb_InsertarLineaActionPerformed(evt);
             }
         });
 
@@ -308,82 +423,64 @@ public class Jf_Logistica extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel11))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel13)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(nuevaLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(horaFinText, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                        .addComponent(horaInicioText))
+                    .addComponent(Jb_InsertarLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(horaInicioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nuevaLinea)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(horaFinText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Jb_InsertarLinea)
+                .addContainerGap())
         );
 
-        cerrarSesion.setText("Guardar y cerrar sesion pero no el parte");
-        cerrarSesion.setMaximumSize(new java.awt.Dimension(110, 23));
-        cerrarSesion.setMinimumSize(new java.awt.Dimension(110, 23));
-        cerrarSesion.setPreferredSize(new java.awt.Dimension(115, 23));
-        cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cerrarSesionActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("Cerrar Parte (si lo activas y guardas no podras volver a editar ni abrir este parte)");
 
-        borrarLinea.setText("<html>Borrar Linea\n<p>\n seleccionada");
-        borrarLinea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borrarLineaActionPerformed(evt);
-            }
-        });
+        cerrarParteCheck.setText("Cerrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(277, 277, 277)
-                        .addComponent(guardarYCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(31, 31, 31)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 110, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(borrarLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cerrarParteCheck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Jb_GuardarYcerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,41 +495,111 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(27, 27, 27))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(borrarLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(126, 126, 126)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarYCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Jb_GuardarYcerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(cerrarParteCheck))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nuevaLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaLineaActionPerformed
+    private void Jb_InsertarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jb_InsertarLineaActionPerformed
+        //Sección 1 
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        //Sección 2
+        Object[] fila = new Object[3];
+        //Sección 3
+        fila[0] = horaInicioText.getText();
+        fila[1] = horaFinText.getText();
+        //Sección 4
+        modelo.addRow(fila);
+        //Sección 5
+        jTable1.setModel(modelo);
+    }//GEN-LAST:event_Jb_InsertarLineaActionPerformed
+
+    private void Jb_GuardarYcerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jb_GuardarYcerrarSesionActionPerformed
+
+        try {
+            //Si no se le ha dado a cerrar el parte y no habia datos de cabecera anteriormente
+
+            if (cabecera_Parte == null) {
+                if (cerrarParteCheck.getSelectedObjects() == null) {
+                    boolean cerrar = false;
+                    long exc_h = calcularMinutosExcesoHoras();
+                    char crar = 0;
+                    char verificacion = 0;
+                    cabecera_Parte = new Cabe_Parte(sqlDate, Integer.parseInt(kmiText.getText()), Integer.parseInt(kmfText.getText()), Integer.parseInt(gGasoil.getText()), Integer.parseInt(gAutopista.getText()), Integer.parseInt(gDietas.getText()), Integer.parseInt(gOtros.getText()), incidenciasText.getText(), exc_h, crar, verificacion, Jf_InicioSesion.trabajador.getID_trabajador(), vehiculoText.getText());
+                    //tenemo la cabecera, ahora a pasarla a la base de datos
+                    //insert o update
+                    CallableStatement llevar = conexion.prepareCall("{call INSERT_UPDATE_CABECERA(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+                    llevar.setDate(1, cabecera_Parte.getFecha());
+                    llevar.setInt(2, cabecera_Parte.getKm_inicio());
+                    llevar.setInt(3, cabecera_Parte.getKm_fin());
+                    llevar.setInt(4, cabecera_Parte.getGasoil());
+                    llevar.setInt(5, cabecera_Parte.getAutopista());
+                    llevar.setInt(6, cabecera_Parte.getDietas());
+                    llevar.setInt(7, cabecera_Parte.getOtros());
+                    llevar.setString(8, cabecera_Parte.getIncidencias());
+                    llevar.setLong(9, cabecera_Parte.getExceso_horas());
+                    llevar.setObject(10, cabecera_Parte.isCerrar_parte(), Types.CHAR);
+                    llevar.setObject(11, cabecera_Parte.isVerificar_parte(), Types.CHAR);
+                    llevar.setInt(12, cabecera_Parte.getId_trabajador());
+                    llevar.setString(13, cabecera_Parte.getMatricula());
+                    llevar.executeUpdate();
+
+                }
+            } else /*si hay una cabecera_parte*/ {
+                long exc_h = calcularMinutosExcesoHoras();
+                if (cerrarParteCheck.getSelectedObjects() != null) {
+                    boolean cerrar = true;
+                    char crar = 1;
+                    char verificacion = 0;
+                    cabecera_Parte = new Cabe_Parte(sqlDate, Integer.parseInt(kmiText.getText()), Integer.parseInt(kmfText.getText()), Integer.parseInt(gGasoil.getText()), Integer.parseInt(gAutopista.getText()), Integer.parseInt(gDietas.getText()), Integer.parseInt(gOtros.getText()), incidenciasText.getText(), exc_h, crar, verificacion, Jf_InicioSesion.trabajador.getID_trabajador(), vehiculoText.getText());
+                    if (exc_h >= 540) {
+                        JOptionPane.showMessageDialog(null, "¡Vaya!Tiene exceso de horas de trabajo. Lo normal es tener 8 horas.");
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(Jf_Logistica.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
-    }//GEN-LAST:event_nuevaLineaActionPerformed
+    }//GEN-LAST:event_Jb_GuardarYcerrarSesionActionPerformed
 
-    private void borrarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarLineaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_borrarLineaActionPerformed
+    private void Jb_borrarLineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jb_borrarLineaActionPerformed
 
-    private void guardarYCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarYCerrarActionPerformed
-
-
-    }//GEN-LAST:event_guardarYCerrarActionPerformed
-
-    private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
-
-
-    }//GEN-LAST:event_cerrarSesionActionPerformed
+        //Sección 1
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        //Sección 2
+        int a = jTable1.getSelectedRow();
+        //Sección 3
+        if (a < 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Debe seleccionar una fila de la tabla");
+        } else {
+            //Sección 4
+            int confirmar = JOptionPane.showConfirmDialog(null,
+                    "Esta seguro que desea Eliminar el registro? ");
+            //Sección 5 
+            if (JOptionPane.OK_OPTION == confirmar) {
+                //Sección 6
+                model.removeRow(a);
+                //Sección 7
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+            }
+        }
+    }//GEN-LAST:event_Jb_borrarLineaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,7 +612,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -473,14 +640,18 @@ public class Jf_Logistica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton borrarLinea;
-    private javax.swing.JButton cerrarSesion;
-    private javax.swing.JLabel fechaParte;
-    private javax.swing.JTextField gAutopista;
-    private javax.swing.JTextField gDietas;
-    private javax.swing.JTextField gGasoil;
-    private javax.swing.JTextField gOtros;
-    private javax.swing.JButton guardarYCerrar;
+    public javax.swing.JButton Jb_GuardarYcerrarSesion;
+    public javax.swing.JButton Jb_InsertarLinea;
+    public javax.swing.JButton Jb_borrarLinea;
+    public javax.swing.JCheckBox cerrarParteCheck;
+    public javax.swing.JLabel fechaParte;
+    public javax.swing.JTextField gAutopista;
+    public javax.swing.JTextField gDietas;
+    public javax.swing.JTextField gGasoil;
+    public javax.swing.JTextField gOtros;
+    public javax.swing.JTextField horaFinText;
+    public javax.swing.JTextField horaInicioText;
+    public javax.swing.JTextArea incidenciasText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -490,6 +661,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -498,15 +670,11 @@ public class Jf_Logistica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField kmfText;
-    private javax.swing.JTextField kmiText;
-    private javax.swing.JButton nuevaLinea;
-    private javax.swing.JTextField vehiculoText;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTextField kmfText;
+    public javax.swing.JTextField kmiText;
+    public javax.swing.JTextField vehiculoText;
     // End of variables declaration//GEN-END:variables
 
-    
 }

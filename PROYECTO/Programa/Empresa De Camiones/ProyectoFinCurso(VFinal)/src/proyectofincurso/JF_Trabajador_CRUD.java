@@ -16,24 +16,11 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@10.10.10.9:1521:db12102PU").createEntityManager();
-        centroTrabajoQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CentroTrabajo c");
-        centroTrabajoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery.getResultList();
-        vehiculoQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT v FROM Vehiculo v");
-        vehiculoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : vehiculoQuery.getResultList();
-        centroTrabajoQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CentroTrabajo c");
-        centroTrabajoList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery1.getResultList();
-        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@10.10.10.9:1521:db12102PU").createEntityManager();
-        centroTrabajoQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager0.createQuery("SELECT c FROM CentroTrabajo c");
-        centroTrabajoList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery2.getResultList();
-        centroTrabajoQuery3 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CentroTrabajo c");
-        centroTrabajoList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : centroTrabajoQuery3.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -337,11 +324,6 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         jList_CT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jList_CT.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList_CT.setToolTipText("");
-
-        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, centroTrabajoList, jList_CT, "List_CT");
-        jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
-        bindingGroup.addBinding(jListBinding);
-
         jScrollPane4.setViewportView(jList_CT);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -445,18 +427,18 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jB_Leer)
-                            .addComponent(jB_Actualizar)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jText_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jB_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jB_Volver, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jB_Salir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jB_Borrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jB_Borrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jB_Actualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                .addComponent(jB_Leer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jB_Crear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jB_OK)))
@@ -465,9 +447,9 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jB_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jB_Leer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jB_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -572,8 +554,6 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
 
         jPanel5.getAccessibleContext().setAccessibleName("Categoria y CT");
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -653,16 +633,6 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList;
-    private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList1;
-    private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList2;
-    private java.util.List<proyectofincurso.CentroTrabajo> centroTrabajoList3;
-    private javax.persistence.Query centroTrabajoQuery;
-    private javax.persistence.Query centroTrabajoQuery1;
-    private javax.persistence.Query centroTrabajoQuery2;
-    private javax.persistence.Query centroTrabajoQuery3;
-    private javax.persistence.EntityManager entityManager;
-    private javax.persistence.EntityManager entityManager0;
     public javax.swing.JButton jB_Actualizar;
     public javax.swing.JButton jB_Borrar;
     public javax.swing.JButton jB_Crear;
@@ -717,8 +687,5 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     public javax.swing.JTextField jText_8;
     public javax.swing.JTextField jText_9;
     public javax.swing.JTextField jText_Buscar;
-    private java.util.List<proyectofincurso.Vehiculo> vehiculoList;
-    private javax.persistence.Query vehiculoQuery;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

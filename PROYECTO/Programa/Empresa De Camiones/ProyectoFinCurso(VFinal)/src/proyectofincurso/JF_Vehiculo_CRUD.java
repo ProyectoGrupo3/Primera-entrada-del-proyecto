@@ -75,6 +75,11 @@ public class JF_Vehiculo_CRUD extends javax.swing.JFrame {
         });
 
         jB_Leer.setText("R - Leer");
+        jB_Leer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_LeerActionPerformed(evt);
+            }
+        });
 
         jB_Actualizar.setText("U - Actualizar");
 
@@ -277,6 +282,10 @@ public class JF_Vehiculo_CRUD extends javax.swing.JFrame {
         Vehiculo_CRUD modelo_Vehiculo = new Vehiculo_CRUD();
         ControladorCRUD_Vehiculo controlador_Vehiculo = new ControladorCRUD_Vehiculo(vista_Vehiculo, modelo_Vehiculo);
     }//GEN-LAST:event_jB_OKActionPerformed
+
+    private void jB_LeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LeerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_LeerActionPerformed
 
     /**
      * @param args the command line arguments

@@ -84,8 +84,8 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         nombreText.setText("");
         passwordText.setText("");
     }
-    private Trabajador trabajador;
-    private Clave claveTrabajador;
+    public static Trabajador trabajador;
+    public static Clave claveTrabajador;
 
     /**
      * Creates new form InicioSesion
@@ -112,6 +112,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Nombre");
 
@@ -269,7 +270,9 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 String adm = "ADMINISTRADOR";
                 String logis = "LOGISTICA";
                 String trab = getTrabajador().getCategoria();
-                if (seguir < 30 || claveTrabajador.getContrasenya().equals("Himevico12345")) {
+                comprobar.close();
+
+                if (seguir < 30 && !claveTrabajador.getContrasenya().equals("Himevico12345")) {
 
                     if (trab.equals(adm)) {
                         //Abrir pantalla Administrador
@@ -282,12 +285,52 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
 
                     } else {
                         //Abrir pantalla Logistica
+                        java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
+                        java.sql.Date sqlDate = new java.sql.Date(hoy.getTime());
+                        //Devolver el parte abierto
+                        sentencia.close();
+                        sentencia = conexion.createStatement();
+                        comprobar = conexion.prepareCall("{call TRAER_PARTE_ABIERTO(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+
+                        comprobar.setInt(1, trabajador.getID_trabajador());
+                        comprobar.registerOutParameter(2, Types.DATE);
+                        comprobar.registerOutParameter(3, Types.NUMERIC);
+                        comprobar.registerOutParameter(4, Types.NUMERIC);
+                        comprobar.registerOutParameter(5, Types.NUMERIC);
+                        comprobar.registerOutParameter(6, Types.NUMERIC);
+                        comprobar.registerOutParameter(7, Types.NUMERIC);
+                        comprobar.registerOutParameter(8, Types.NUMERIC);
+                        comprobar.registerOutParameter(9, Types.VARCHAR);
+                        comprobar.registerOutParameter(10, Types.INTEGER);
+                        comprobar.registerOutParameter(11, Types.CHAR);
+                        comprobar.registerOutParameter(12, Types.CHAR);
+                        comprobar.registerOutParameter(13, Types.NUMERIC);
+                        comprobar.registerOutParameter(14, Types.VARCHAR);
+                        comprobar.registerOutParameter(15, Types.NUMERIC);
+                        comprobar.executeUpdate();
+                        Cabe_Parte cabecera_parte = null;
+                        //char de oracle 
+                        if (comprobar.getInt(15) == 1) {
+                            char crar = 0;
+                            char veri = 0;
+                            System.out.println("hay parte");
+                            if (comprobar.getObject(11).equals('1')) {
+                                crar = 1;
+                            }
+                            if (comprobar.getObject(12).equals('1')) {
+                                veri = 1;
+                            }
+                            cabecera_parte = new Cabe_Parte(comprobar.getDate(2), comprobar.getInt(3), comprobar.getInt(4), comprobar.getInt(5), comprobar.getInt(6), comprobar.getInt(7), comprobar.getInt(8), comprobar.getString(9), comprobar.getInt(10), crar, veri, comprobar.getInt(13), comprobar.getString(14));
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No tienes un parte abierto hoy, se te abrira uno");
+                        }
                         if (getPantallaLogistica2() == null) {
                             setPantallaLogistica2(new Jf_Logistica());
                             getPantallaLogistica2().setInicioSesion(this);
                             getPantallaLogistica2().setVisible(true);
                         }
                         getPantallaLogistica2().setVisible(true);
+                        pantallaLogistica2.rellenarParte(cabecera_parte);
                         limpiarInicio();
                     }
                     //esconder ventana
@@ -307,10 +350,12 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "ERROR USUARIO O CONTRASEÑA ERRONEOS", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
 
-            //sentencia.close();
+            sentencia.close();
+
             //sentencia.close();
             //conexion.close();
         } catch (ClassNotFoundException | SQLException cn) {
+            cn.printStackTrace();
         }
 
     }//GEN-LAST:event_entrarActionPerformed

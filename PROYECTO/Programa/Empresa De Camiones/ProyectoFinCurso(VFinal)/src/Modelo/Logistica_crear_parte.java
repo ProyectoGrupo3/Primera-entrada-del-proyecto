@@ -7,8 +7,10 @@ package Modelo;
 
 /**
  *
- * @author 7fbd12
+ * @author ikitess
  */
 public class Logistica_crear_parte {
+    
+    
     
 }

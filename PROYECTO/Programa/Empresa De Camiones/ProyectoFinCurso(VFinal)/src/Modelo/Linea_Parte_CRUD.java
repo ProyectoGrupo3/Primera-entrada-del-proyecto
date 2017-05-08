@@ -51,8 +51,8 @@ public class Linea_Parte_CRUD {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 linea_parte = new Linea_Parte();
-                linea_parte.setHora_inicio(rs.getDate(1));
-                linea_parte.setHora_final(rs.getDate(2));
+                linea_parte.setHora_inicio(rs.getString(1));
+                linea_parte.setHora_final(rs.getString(2));
                 linea_parte.setfecha(rs.getDate(3));
                 linea_parte.setId_trabajador(rs.getInt(4));
                 linea_parte.setNombre(rs.getString(5));
@@ -120,8 +120,8 @@ public class Linea_Parte_CRUD {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 linea_parte = new Linea_Parte();
-                linea_parte.setHora_inicio(rs.getDate(1));
-                linea_parte.setHora_final(rs.getDate(2));
+                linea_parte.setHora_inicio(rs.getString(1));
+                linea_parte.setHora_final(rs.getString(2));
                 linea_parte.setfecha(rs.getDate(3));
                 linea_parte.setId_trabajador(rs.getInt(4));
 

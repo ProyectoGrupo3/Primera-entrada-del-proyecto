@@ -14,30 +14,28 @@ import proyectofincurso.Jf_Logistica;
 
 /**
  *
- * @author 7fbd12
+ * @author ikitess
  */
-public class Controlador_Logistica_Crear_parte implements ActionListener, KeyListener {
-    //crear la pantalla y el de modelo.
-    Jf_Logistica vista_logistica_crud = new Jf_Logistica();
+public class ControladorCrear_parte_logistica implements ActionListener, KeyListener {
+
+    Jf_Logistica vista_logistica_parte = new Jf_Logistica();
     Logistica_crear_parte modelo_Logistica_crear_parte = new Logistica_crear_parte();
-    
-    
-    public Controlador_Logistica_Crear_parte(Jf_Logistica vista_logistica_crud, Logistica_crear_parte modelo_Logistica_crear_parte) {
-        this.vista_logistica_crud = vista_logistica_crud;
+
+    public ControladorCrear_parte_logistica(Jf_Logistica vista_logistica_parte, Logistica_crear_parte modelo_Logistica_crear_parte) {
         this.modelo_Logistica_crear_parte = modelo_Logistica_crear_parte;
+        this.vista_logistica_parte = vista_logistica_parte;
         
-        //leer los botonoes de la pantalla
-        
+        // "Escucha" los botones pulsados en la pantalla JF_Vehiculo_CRUD
+        this.vista_logistica_parte.Jb_InsertarLinea.addActionListener(this);
+        this.vista_logistica_parte.Jb_GuardarYcerrarSesion.addActionListener(this);
+        this.vista_logistica_parte.cerrarParteCheck.addActionListener(this);
+        //this.vista_logistica_parte.jB_Borrar.addActionListener(this);
+
         
     }
-    
-    
-    
-    
-    
-
     @Override
     public void actionPerformed(ActionEvent e) {
+        
     }
 
     @Override
@@ -51,5 +49,5 @@ public class Controlador_Logistica_Crear_parte implements ActionListener, KeyLis
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    
+
 }
