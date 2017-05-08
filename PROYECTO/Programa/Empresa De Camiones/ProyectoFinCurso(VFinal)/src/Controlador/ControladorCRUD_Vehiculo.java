@@ -2,7 +2,6 @@ package Controlador;
 
 import Modelo.*;
 import proyectofincurso.JF_Vehiculo_CRUD;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;

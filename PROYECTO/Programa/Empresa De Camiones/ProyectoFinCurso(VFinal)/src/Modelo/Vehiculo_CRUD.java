@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import proyectofincurso.InicioSesion;
+import proyectofincurso.Jf_InicioSesion;
 
 public class Vehiculo_CRUD {
     
-    Connection accesoDB = InicioSesion.conexion;
+    Connection accesoDB = Jf_InicioSesion.conexion;
 
     public String insertVehiculo(String matricula, String marca, String modelo, String color, int kms) {
 

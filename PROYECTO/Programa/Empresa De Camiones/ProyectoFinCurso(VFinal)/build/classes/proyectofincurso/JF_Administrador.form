@@ -40,7 +40,7 @@
                           <Component id="jB_Trabajador_CRUD" max="32767" attributes="0"/>
                           <Component id="jB_JF_CT_CRUD" alignment="0" pref="493" max="32767" attributes="0"/>
                           <Component id="jB_JF_Vehiculo_CRUD" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jB_JF_Cabe_Parte_CRUD" max="32767" attributes="0"/>
+                          <Component id="jB_JF_Gestion_Parte_CRUD" max="32767" attributes="0"/>
                           <Component id="jB_JF_Aviso_CRUD" alignment="0" min="-2" pref="485" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -63,7 +63,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jB_JF_Aviso_CRUD" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jB_JF_Cabe_Parte_CRUD" min="-2" max="-2" attributes="0"/>
+              <Component id="jB_JF_Gestion_Parte_CRUD" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="jButton8" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -95,12 +95,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Vehiculo_CRUDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jB_JF_Cabe_Parte_CRUD">
+    <Component class="javax.swing.JButton" name="jB_JF_Gestion_Parte_CRUD">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Partes"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Cabe_Parte_CRUDActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Gestion_Parte_CRUDActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
