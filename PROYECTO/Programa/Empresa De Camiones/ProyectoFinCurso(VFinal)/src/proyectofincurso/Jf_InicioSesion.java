@@ -308,9 +308,9 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         comprobar.registerOutParameter(14, Types.VARCHAR);
                         comprobar.registerOutParameter(15, Types.NUMERIC);
                         comprobar.execute();
-                        
+
                         Cabe_Parte cabecera_parte = null;
-                        
+
                         //si paso un dia, y no ha cerrado el parte abierto
                         int c = 0;
                         //char de oracle 
@@ -320,8 +320,8 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             System.out.println("hay parte");
                             Date dateParte = comprobar.getDate(2);
                             Date dateHoy = sqlDate;
-                           
-                            if (dateParte.getDay() == dateHoy.getDay()) {
+
+                            if (dateParte.getDay() == dateHoy.getDay() && comprobar.getBoolean(11) == true) {
                                 JOptionPane.showMessageDialog(null, "Ya has creado y cerrado hoy un parte, espera a mañana");
                                 System.exit(0);
                             }
@@ -331,9 +331,9 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             if (comprobar.getObject(12).equals('1')) {
                                 veri = true;
                             }
-                            
+
                             cabecera_parte = new Cabe_Parte(comprobar.getDate(2), comprobar.getInt(3), comprobar.getInt(4), comprobar.getInt(5), comprobar.getInt(6), comprobar.getInt(7), comprobar.getInt(8), comprobar.getString(9), comprobar.getInt(10), crar, veri, comprobar.getInt(13), comprobar.getString(14));
-                            if ( crar == false && dateParte.getDay() != dateHoy.getDay() ) {
+                            if (crar == false && dateParte.getDay() != dateHoy.getDay()) {
                                 JOptionPane.showMessageDialog(null, "Aun no has cerrado el parte del otro dia, cierralo");
                                 //abrir el parte con la mayoria de campos en disabled
                                 c = 1;
@@ -347,10 +347,9 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             getPantallaLogistica2().setVisible(true);
                         }
                         getPantallaLogistica2().setVisible(true);
-                        if (c ==1) {
+                        if (c == 1) {
                             noEditable();
-                            pantallaLogistica2.horaInicioText.setEditable(false);
-                            
+
                         }
                         pantallaLogistica2.rellenarParte(cabecera_parte);
                         limpiarInicio();
@@ -449,6 +448,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         //Crear conexion con el servidor oracle 12c
 
     }
+
     public void noEditable() {
         pantallaLogistica2.horaInicioText.setEditable(false);
     }
