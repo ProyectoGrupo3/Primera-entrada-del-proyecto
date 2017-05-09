@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F39E29E2-1CC2-BBC1-3269-F58F2549742D" name="Clave">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>15E48B87-BDA9-4912-8031-BD8EABC08E0C</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Clave" id="9A5553DC-C593-5125-BCED-FCC8CD0BA7FF">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>5C993D9B-04D2-EAD0-9CEC-6A3C22490694</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario" id="0E4C4392-0C9E-6271-A9CA-4000A366C182">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>05D7B25E-C52F-3F21-8F5B-001A38FF2D87</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contraseña" id="FE48B62A-A7F8-CDEA-D68D-AC954973C385">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>0CA3C2CB-F634-D234-A119-1980A17FFAE5</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="5FF1AD8F-14A8-3B46-BC2D-D905C8884517">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>B7C311F7-29B5-EB96-CDB4-06372335B77A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Trabajador_ID_Trabajador" id="4B7B53EC-2F25-5B8A-C407-ACD1AE58261B">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>BE713190-C7F0-3FD2-206F-014EF7DF6A98</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="464A0B75-8D89-EF84-427F-48F623603A24" referredColumn="CE9B38E8-69C9-CC97-411C-11BBB4F2927B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="811A05F7-CC08-61D3-BA50-43FCCE3B339D" name="Clave_PK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>CB1A22FA-3EC9-5F1C-88D0-F7600B52ACDB</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A5553DC-C593-5125-BCED-FCC8CD0BA7FF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74CFFCA3-B3D7-E93F-CBA2-D27D75194CA6" name="Clave__IDX">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>553FE0C0-34DC-A8C7-096D-373D4E1E8E7A</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="4B7B53EC-2F25-5B8A-C407-ACD1AE58261B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="781A444A-0D60-3DF5-83C5-78213FEE73E5" name="Clave_Trabajador_FK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>553FE0C0-34DC-A8C7-096D-373D4E1E8E7A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4B7B53EC-2F25-5B8A-C407-ACD1AE58261B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

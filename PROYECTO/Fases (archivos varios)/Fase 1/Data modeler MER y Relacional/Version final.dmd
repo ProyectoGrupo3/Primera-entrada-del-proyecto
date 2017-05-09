@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Version final" id="7BE013AA-4FAE-66F8-7EB3-CBB8F8E1323A" version="3.5">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-27 18:57:44 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER y Relacional</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>7BE013AA-4FAE-66F8-7EB3-CBB8F8E1323A</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="14FBC8C8-A132-0839-6E93-DDBB722A8CFF">
+<designStoragePath>C:\Scrip de las tablas SQL</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

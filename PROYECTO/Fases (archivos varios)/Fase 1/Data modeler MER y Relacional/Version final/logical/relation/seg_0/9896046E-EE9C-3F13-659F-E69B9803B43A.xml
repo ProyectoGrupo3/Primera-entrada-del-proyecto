@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Cabecera_Parte_Trabajador_FK" directorySegmentName="seg_0" id="9896046E-EE9C-3F13-659F-E69B9803B43A">
+<createdBy>7fprog12</createdBy>
+<createdTime>2017-03-31 19:31:25 UTC</createdTime>
+<generatorID>51DABE2C-EE41-A161-26F1-A45376535916</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<engineerTo>
+<item key="F27E9D9E-7A48-BDFD-5C36-38EB8E448C4C" value="true"/>
+</engineerTo>
+<sourcePk>0E23D33E-2EF4-CBA2-1CFC-4335DC751C18</sourcePk>
+<dominantRole>39296B43-D290-7D41-BF1C-620A2BC4BB4D</dominantRole>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>39296B43-D290-7D41-BF1C-620A2BC4BB4D</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>437D1A80-A89E-C88F-6FA2-F8EB82ED7956</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

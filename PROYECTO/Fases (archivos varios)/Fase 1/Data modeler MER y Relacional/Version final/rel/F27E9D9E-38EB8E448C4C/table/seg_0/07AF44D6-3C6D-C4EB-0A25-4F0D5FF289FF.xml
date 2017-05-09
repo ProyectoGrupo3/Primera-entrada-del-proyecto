@@ -1,0 +1,227 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07AF44D6-3C6D-C4EB-0A25-4F0D5FF289FF" name="Trabajador">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<commentInRDBMS>La categoría de los trabajadores esta definida con una lista de valores con dos posibilidades: Administrador o loglistica.&lt;br&gt;Hemos creado el id_trabajador como campo clave en lugar del campo DNI.</commentInRDBMS>
+<generatorID>39296B43-D290-7D41-BF1C-620A2BC4BB4D</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Trabajador" id="CE9B38E8-69C9-CC97-411C-11BBB4F2927B">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>05669D4F-72D2-5409-EED5-186BC130877E</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNI" id="C522AFDA-A653-4A41-80C4-EDCEE146C554">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>148B67DA-BA4A-A3B7-26A7-DD705BC8D06A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="AC0DA64C-2CD3-C25D-57FC-500DA0B37343">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>BB55338E-8D23-3D2A-DF45-D030DC5F1667</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Apellido_1" id="ABBDE1CF-7A24-0CDC-6687-C4BE0B327851">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>269497AB-0C92-B837-9948-E61E41044075</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Apellido_2" id="2B3C92B2-F064-D085-A70A-C2A98E0669EC">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>B91DE15A-AE00-F5D4-F6F1-558090D2CFB4</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Calle" id="D273652C-DE8E-FD97-B98D-31A8D8E1ED10">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>457122FE-865C-7841-32D9-8F4F8D427CBC</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Portal" id="280C10E7-43E7-DFCD-F954-87C465BB4DB7">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>7D42E167-C270-3A8C-85DF-4A5EC89E38FF</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Piso" id="DA335817-EBA0-07B9-337D-FFE2F157815C">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>F39403EC-EAA3-1C27-7903-427C361B892D</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mano" id="F95B50FB-77A2-0E1E-2B46-DA92FECEFDCB">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>DB25F305-1CB9-3B4F-0ED3-F3678878E32A</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono_personal" id="9F4CC6C4-3016-D48D-8768-8A24C17EB26A">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>5B953C65-C92A-4B44-9655-6DE1DDAC3C65</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Movil_empresa" id="BD0F5168-3050-B71C-8139-FD6A46AF5F1B">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>4CF144CE-5CAF-F7DF-491F-439946CF3587</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Salario" id="869AF0A0-DDA5-9D14-D384-18C76837EB39">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>33FDAB9F-45D0-ADB4-8E84-81AAECEC4EA4</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_nacimiento" id="FD146B5D-F647-B2A2-5F10-CA2125E98931">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>6A35FAC9-CFF9-375C-DE61-58DC250A05A7</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Categoría" id="D90E20D2-D759-CCCD-0E81-8C14260769B4">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>4CE6AED4-5ACA-906B-F420-EDA9B7AE5924</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<listOfValues>
+<valueDef value="Administracion" description=""/>
+<valueDef value="Logistica" description=""/>
+</listOfValues>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Centro_trabajo_ID_centro" id="F87D84BD-32B1-1F9E-1B75-C39DBC68B246">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>2A483EAC-23CC-06FB-7EC3-983FCAADF4AF</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9749DEF-B93A-B838-9109-31B85D31D9AC" referredColumn="04965F85-26E7-B4AD-5389-7C9BF6B7A753"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C6867358-DA24-05BA-1994-A3FC72B011E2" name="Trabajador_PK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>0E23D33E-2EF4-CBA2-1CFC-4335DC751C18</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE9B38E8-69C9-CC97-411C-11BBB4F2927B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="20862297-F770-82CA-8E9E-B3F93AAC8FB9" name="Trabajador_Centro_trabajo_FK">
+<createdBy>Alf</createdBy>
+<createdTime>2017-04-05 19:11:04 UTC</createdTime>
+<generatorID>121B3286-E161-F72C-7A3C-0C0A8CAC5F0B</generatorID>
+<ownerDesignName>Version final</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F87D84BD-32B1-1F9E-1B75-C39DBC68B246"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
