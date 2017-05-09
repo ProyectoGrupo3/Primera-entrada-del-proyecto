@@ -75,7 +75,7 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
     }
 
     public void limpiar() {
-        
+
         vista_CT_CRUD.jText_1.setText(null);
         vista_CT_CRUD.jText_1.setEditable(true);
         vista_CT_CRUD.jText_2.setText("");
@@ -204,7 +204,8 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
                 // CREO UNA copia del ArrayList de la Base de datos
                 // para ahorrar tiempo de búsqueda y conexión                
                 List<CT> ListaCopia = new ArrayList<>();
-                ListaCopia = (List<CT>) modelo_CT_CRUD.buscarCTxNombre(nombreBuscado).clone();
+                ListaCopia = (List<CT>) modelo_CT_CRUD.buscarCTxProcedimiento(
+                        nombreBuscado).clone();
                 int numRegistros = ListaCopia.size();
                 for (int i = 0; i < numRegistros; i++) {
                     columna[0] = ListaCopia.get(i).getID();

@@ -10,13 +10,9 @@ import java.util.logging.Logger;
 import oracle.jdbc.OracleTypes;
 import proyectofincurso.Jf_InicioSesion;
 
-
 public class Trabajador_CRUD {
-    
-    Connection accesoDB = Jf_InicioSesion.conexion;
-   
-            
 
+    Connection accesoDB = Jf_InicioSesion.conexion;
     public String insertTrabajador(int ID, String dni, String nombre, String apellido1, String apellido2, String calle, String portal, String piso, String mano, String telefono_p, String movil_em, double salario, java.sql.Date fecha_nac, String categoria, int ct) throws ParseException {
 
         String rptaRegistro = null;
@@ -25,7 +21,7 @@ public class Trabajador_CRUD {
 
         try {
             // LLAMADA AL PROCEDIMIENTO ALMACENADO EN ORACLE
-            CallableStatement cs = accesoDB.prepareCall("{CALL INSERTAR_UPDATE_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
+            CallableStatement cs = accesoDB.prepareCall("{CALL P_IN_EDIT_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
             // SE RELLENAN TODOS LOS PARAMETROS
             cs.setInt(1, ID);
             cs.setString(2, dni);
@@ -47,6 +43,7 @@ public class Trabajador_CRUD {
             if (numFila > 0) {
                 rptaRegistro = "Registro insertado";
             }
+            cs.close();
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
         }
@@ -58,10 +55,11 @@ public class Trabajador_CRUD {
         Trabajador trabajador;
 
         try {
-            CallableStatement ps = accesoDB.prepareCall("call BUSCAR_TRABAJADORES{?}");
-            ps.registerOutParameter(1, OracleTypes.CURSOR);
-            
-            ResultSet rs = ps.executeQuery();
+            CallableStatement cs = accesoDB.prepareCall("{CALL P_LISTA_TRABAJADOR (?)}");
+            cs.registerOutParameter(1, OracleTypes.CURSOR);
+            cs.execute();
+            ResultSet rs = (ResultSet) cs.getObject(1);
+
             while (rs.next()) {
                 trabajador = new Trabajador();
                 trabajador.setID_trabajador(rs.getInt(1));
@@ -82,6 +80,8 @@ public class Trabajador_CRUD {
 
                 listaTrabajador.add(trabajador);
             }
+            cs.close();
+            rs.close();
 
         } catch (Exception e) {
 
@@ -120,7 +120,7 @@ public class Trabajador_CRUD {
             if (numFil > 0) {
                 rptaEdit = "Registro ACTUALIZAZO";
             }
-
+            cs.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(CT_CRUD.class.getName()).log(Level.SEVERE, null, ex);
@@ -136,6 +136,8 @@ public class Trabajador_CRUD {
             cs.setInt(1, Id);
 
             numFil = cs.executeUpdate();
+            cs.close();
+            Conexion.exitConexion();
 
         } catch (SQLException ex) {
             Logger.getLogger(Trabajador_CRUD.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,9 +149,15 @@ public class Trabajador_CRUD {
         ArrayList<Trabajador> listaTrabajador = new ArrayList();
         Trabajador trabajador;
         try {
-            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM TRABAJADOR WHERE NOMBRE LIKE (?)");
+            /*            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM TRABAJADOR WHERE NOMBRE LIKE (?)");
             ps.setString(1, nombreBuscado);
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();*/
+            CallableStatement cs = accesoDB.prepareCall("{CALL P_SELECT_TRABAJADOR (?,?)}");
+            cs.setString(1, nombreBuscado);
+            cs.registerOutParameter(2, OracleTypes.CURSOR);
+            cs.execute();
+            ResultSet rs = (ResultSet) cs.getObject(2);
+
             while (rs.next()) {
                 trabajador = new Trabajador();
                 trabajador.setID_trabajador(rs.getInt(1));
@@ -171,29 +179,13 @@ public class Trabajador_CRUD {
                 listaTrabajador.add(trabajador);
 
             }
+            cs.close();
+            rs.close();
 
         } catch (Exception e) {
 
         }
         return listaTrabajador;
-    }
-	public void crear_usuario_oracle(String nombre) {
-
-        try {
-
-            String sql = "CREATE USER \'" + nombre + "\'	 IDENTIFIED BY 'Himevico12345';\n"
-                    + " GRANT \"DBA\" TO NOMBRE;\n"
-                    + "GRANT \"CONNECT\" TO NOMBRE;\n"
-                    + " GRANT \"RESOURCE\" TO NOMBRE;";
-
-            System.out.println(sql);
-            Statement s = Jf_InicioSesion.conexion.createStatement();
-            ResultSet rs = s.executeQuery(sql);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Clave.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
     }
 
 }

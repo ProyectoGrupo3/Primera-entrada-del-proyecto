@@ -2,11 +2,13 @@
 package proyectofincurso;
 
 import Controlador.ControladorCRUD_Aviso;
+import Controlador.ControladorCRUD_CT;
 import Modelo.Aviso_CRUD;
+import Modelo.CT_CRUD;
 import java.lang.reflect.Method;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import  proyectofincurso.*;
+//import static proyectofincurso.InicioSesion.con;
 
 public class JF_Aviso_CRUD extends javax.swing.JFrame {
 
@@ -29,25 +31,23 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jText_1 = new javax.swing.JTextField();
+        jT_Fecha_A = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jT_Area_1 = new javax.swing.JTextArea();
-        jText_2 = new javax.swing.JTextField();
-        jB_Crear = new javax.swing.JButton();
+        jT_Area_Aviso = new javax.swing.JTextArea();
         jB_Leer = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableDatos = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jT_BuscarLogis = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jB_Crear1 = new javax.swing.JButton();
         jB_Actualizar = new javax.swing.JButton();
         jB_Borrar = new javax.swing.JButton();
         jB_OK = new javax.swing.JButton();
         jB_Volver = new javax.swing.JButton();
         jB_Salir = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableDate = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jT_BuscarLogis = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jT_BuscarAdmin = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jText_3 = new javax.swing.JTextField();
+        jT_Trabajador = new javax.swing.JTextField();
+        jT_F_Parte = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,69 +57,31 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
 
         jLabel3.setText("Trabajador: ");
 
-        jT_Area_1.setColumns(20);
-        jT_Area_1.setRows(5);
-        jT_Area_1.setText("Texto: ");
-        jScrollPane1.setViewportView(jT_Area_1);
-
-        jText_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jText_2ActionPerformed(evt);
-            }
-        });
-
-        jB_Crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Create.png"))); // NOI18N
-        jB_Crear.setText("C-Crear");
-        jB_Crear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_CrearActionPerformed(evt);
-            }
-        });
+        jT_Area_Aviso.setColumns(20);
+        jT_Area_Aviso.setRows(5);
+        jT_Area_Aviso.setText("Texto: ");
+        jScrollPane1.setViewportView(jT_Area_Aviso);
 
         jB_Leer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Leer.png"))); // NOI18N
         jB_Leer.setText("R - Leer");
+        jB_Leer.setBorderPainted(false);
+        jB_Leer.setContentAreaFilled(false);
+        jB_Leer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Leer.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Leer.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Leer.setIconTextGap(5);
         jB_Leer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_LeerActionPerformed(evt);
             }
         });
-
-        jB_Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
-        jB_Actualizar.setText("U - Actualizar");
-        jB_Actualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_ActualizarActionPerformed(evt);
+        jB_Leer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_LeerPropertyChange(evt);
             }
         });
 
-        jB_Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Borrar.png"))); // NOI18N
-        jB_Borrar.setText("D - Borrar");
-
-        jB_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
-        jB_OK.setText("Ok");
-        jB_OK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_OKActionPerformed(evt);
-            }
-        });
-
-        jB_Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
-        jB_Volver.setText("Volver");
-        jB_Volver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_VolverActionPerformed(evt);
-            }
-        });
-
-        jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
-        jB_Salir.setText("Salir");
-        jB_Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_SalirActionPerformed(evt);
-            }
-        });
-
-        jTableDate.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -130,7 +92,7 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTableDate);
+        jScrollPane2.setViewportView(jTableDatos);
 
         jLabel4.setText("Buscar por T. Logistica: ");
 
@@ -140,163 +102,279 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Buscar por T. Admin.:");
+        jLabel6.setText("Fecha Parte: ");
 
-        jT_BuscarAdmin.addActionListener(new java.awt.event.ActionListener() {
+        jB_Crear1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Create.png"))); // NOI18N
+        jB_Crear1.setText("C- Crear");
+        jB_Crear1.setBorderPainted(false);
+        jB_Crear1.setContentAreaFilled(false);
+        jB_Crear1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Crear1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Crear1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Crear1.setIconTextGap(5);
+        jB_Crear1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jT_BuscarAdminActionPerformed(evt);
+                jB_Crear1ActionPerformed(evt);
+            }
+        });
+        jB_Crear1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_Crear1PropertyChange(evt);
             }
         });
 
-        jLabel6.setText("Fecha Parte: ");
+        jB_Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jB_Actualizar.setText("U - Actualizar");
+        jB_Actualizar.setBorderPainted(false);
+        jB_Actualizar.setContentAreaFilled(false);
+        jB_Actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Actualizar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Actualizar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Actualizar.setIconTextGap(5);
+        jB_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_ActualizarActionPerformed(evt);
+            }
+        });
+        jB_Actualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_ActualizarPropertyChange(evt);
+            }
+        });
+
+        jB_Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Borrar.png"))); // NOI18N
+        jB_Borrar.setText("D - Borrar");
+        jB_Borrar.setBorderPainted(false);
+        jB_Borrar.setContentAreaFilled(false);
+        jB_Borrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Borrar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Borrar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Borrar.setIconTextGap(5);
+        jB_Borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_BorrarActionPerformed(evt);
+            }
+        });
+        jB_Borrar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_BorrarPropertyChange(evt);
+            }
+        });
+
+        jB_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
+        jB_OK.setText("Confirmar");
+        jB_OK.setBorderPainted(false);
+        jB_OK.setContentAreaFilled(false);
+        jB_OK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_OK.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_OK.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_OK.setIconTextGap(5);
+        jB_OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_OKActionPerformed(evt);
+            }
+        });
+        jB_OK.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_OKPropertyChange(evt);
+            }
+        });
+
+        jB_Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
+        jB_Volver.setText("Volver");
+        jB_Volver.setBorderPainted(false);
+        jB_Volver.setContentAreaFilled(false);
+        jB_Volver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Volver.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Volver.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Volver.setIconTextGap(5);
+        jB_Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_VolverActionPerformed(evt);
+            }
+        });
+        jB_Volver.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_VolverPropertyChange(evt);
+            }
+        });
+
+        jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
+        jB_Salir.setText("Salir");
+        jB_Salir.setBorderPainted(false);
+        jB_Salir.setContentAreaFilled(false);
+        jB_Salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Salir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Salir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Salir.setIconTextGap(5);
+        jB_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_SalirActionPerformed(evt);
+            }
+        });
+        jB_Salir.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_SalirPropertyChange(evt);
+            }
+        });
+
+        jT_Trabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_TrabajadorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(jLabel1)
-                .addGap(245, 245, 245)
-                .addComponent(jB_Crear))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2)
-                .addGap(12, 12, 12)
-                .addComponent(jText_1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(6, 6, 6)
-                .addComponent(jText_2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(6, 6, 6)
-                .addComponent(jText_3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(jB_Leer))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jB_Actualizar)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jB_Borrar))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel4)
-                .addGap(12, 12, 12)
-                .addComponent(jT_BuscarLogis, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jT_BuscarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
-                .addComponent(jB_OK, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jB_Volver)
+                        .addGap(300, 300, 300)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jB_Salir))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(355, 355, 355)
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jT_BuscarLogis))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(20, 20, 20)
+                                    .addComponent(jLabel2)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jT_Fecha_A, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jT_Trabajador)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jT_F_Parte, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(25, 25, 25))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jB_Actualizar)
+                                    .addComponent(jB_Borrar)
+                                    .addComponent(jB_Crear1)
+                                    .addComponent(jB_Leer)
+                                    .addComponent(jB_OK)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jB_Volver))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jB_Salir)))))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1))
-                    .addComponent(jB_Crear))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jT_F_Parte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jT_Fecha_A, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jT_Trabajador)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jT_BuscarLogis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jB_OK))
+                        .addGap(7, 7, 7))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jText_1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jText_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jText_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jB_Leer))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jB_Crear1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jB_Leer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jB_Actualizar)
-                        .addGap(6, 6, 6)
-                        .addComponent(jB_Borrar)))
-                .addGap(15, 15, 15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jB_Borrar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jT_BuscarLogis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jT_BuscarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jB_OK))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jB_Volver)
                         .addGap(18, 18, 18)
-                        .addComponent(jB_Salir))))
+                        .addComponent(jB_Salir)
+                        .addGap(27, 27, 27))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jText_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jText_2ActionPerformed
-
-    private void jB_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CrearActionPerformed
-        JF_Aviso_CRUD vista_Aviso = new JF_Aviso_CRUD();
-        Aviso_CRUD modelo_Aviso = new Aviso_CRUD();
-        ControladorCRUD_Aviso controlador_Aviso = new ControladorCRUD_Aviso(vista_Aviso, modelo_Aviso);
-    }//GEN-LAST:event_jB_CrearActionPerformed
-
     private void jB_LeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LeerActionPerformed
-        JF_Aviso_CRUD vista_Aviso = new JF_Aviso_CRUD();
+/*        JF_Aviso_CRUD vista_Aviso = new JF_Aviso_CRUD();
         Aviso_CRUD modelo_Aviso = new Aviso_CRUD();
-        ControladorCRUD_Aviso controlador_Aviso = new ControladorCRUD_Aviso(vista_Aviso, modelo_Aviso);
-
+        ControladorCRUD_Aviso controlador_Aviso = new ControladorCRUD_Aviso(vista_Aviso, modelo_Aviso);*/
     }//GEN-LAST:event_jB_LeerActionPerformed
+
+    private void jT_BuscarLogisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_BuscarLogisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_BuscarLogisActionPerformed
+
+    private void jB_LeerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_LeerPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_LeerPropertyChange
+
+    private void jB_Crear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Crear1ActionPerformed
+ /*       JF_Aviso_CRUD vista_Aviso = new JF_Aviso_CRUD();
+        Aviso_CRUD modelo_Aviso = new Aviso_CRUD();
+        ControladorCRUD_Aviso controlador_Aviso = new ControladorCRUD_Aviso(vista_Aviso, modelo_Aviso);*/
+    }//GEN-LAST:event_jB_Crear1ActionPerformed
+
+    private void jB_Crear1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_Crear1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_Crear1PropertyChange
 
     private void jB_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ActualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jB_ActualizarActionPerformed
 
+    private void jB_ActualizarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_ActualizarPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_ActualizarPropertyChange
+
+    private void jB_BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_BorrarActionPerformed
+
+    private void jB_BorrarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_BorrarPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_BorrarPropertyChange
+
     private void jB_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_OKActionPerformed
-        JF_Aviso_CRUD vista_Aviso = new JF_Aviso_CRUD();
-        Aviso_CRUD modelo_Aviso = new Aviso_CRUD();
-        ControladorCRUD_Aviso controlador_Aviso = new ControladorCRUD_Aviso(vista_Aviso, modelo_Aviso);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jB_OKActionPerformed
+
+    private void jB_OKPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_OKPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_OKPropertyChange
 
     private void jB_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_VolverActionPerformed
         setVisible(false);
@@ -305,17 +383,21 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
         vista_Adm.setLocationRelativeTo(null);
     }//GEN-LAST:event_jB_VolverActionPerformed
 
+    private void jB_VolverPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_VolverPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_VolverPropertyChange
+
     private void jB_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jB_SalirActionPerformed
 
-    private void jT_BuscarLogisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_BuscarLogisActionPerformed
+    private void jB_SalirPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_SalirPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_BuscarLogisActionPerformed
+    }//GEN-LAST:event_jB_SalirPropertyChange
 
-    private void jT_BuscarAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_BuscarAdminActionPerformed
+    private void jT_TrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_TrabajadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jT_BuscarAdminActionPerformed
+    }//GEN-LAST:event_jT_TrabajadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,7 +406,7 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -355,7 +437,7 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jB_Actualizar;
     public javax.swing.JButton jB_Borrar;
-    public javax.swing.JButton jB_Crear;
+    public javax.swing.JButton jB_Crear1;
     public javax.swing.JButton jB_Leer;
     public javax.swing.JButton jB_OK;
     public javax.swing.JButton jB_Salir;
@@ -364,16 +446,14 @@ public class JF_Aviso_CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jT_Area_1;
-    public javax.swing.JTextField jT_BuscarAdmin;
+    public javax.swing.JTextArea jT_Area_Aviso;
     public javax.swing.JTextField jT_BuscarLogis;
-    public javax.swing.JTable jTableDate;
-    public javax.swing.JTextField jText_1;
-    public javax.swing.JTextField jText_2;
-    public javax.swing.JTextField jText_3;
+    public javax.swing.JTextField jT_F_Parte;
+    public javax.swing.JTextField jT_Fecha_A;
+    public javax.swing.JTextField jT_Trabajador;
+    public javax.swing.JTable jTableDatos;
     // End of variables declaration//GEN-END:variables
 }

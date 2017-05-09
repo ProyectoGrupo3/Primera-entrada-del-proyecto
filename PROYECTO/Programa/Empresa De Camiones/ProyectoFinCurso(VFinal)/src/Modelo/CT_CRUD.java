@@ -123,13 +123,16 @@ public class CT_CRUD {
         return numFil;
     }
 
-    public ArrayList<CT> buscarCTxNombre(String nombreBuscado) {
+    public ArrayList<CT> buscarCTxProcedimiento(String nombreBuscado) {
         ArrayList<CT> listaCT = new ArrayList();
         CT ct;
         try {
-            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM CENTRO_TRABAJO WHERE NOMBRE LIKE (?)");
-            ps.setString(1, nombreBuscado);
-            ResultSet rs = ps.executeQuery();
+            CallableStatement cs = accesoDB.prepareCall("{CALL P_SELECT_CT (?,?)}");
+            cs.setString(1, nombreBuscado);
+            cs.registerOutParameter(2, OracleTypes.CURSOR);
+            cs.execute();
+            ResultSet rs = (ResultSet) cs.getObject(2);
+
             while (rs.next()) {
                 ct = new CT();
                 ct.setID(rs.getInt(1));
@@ -142,9 +145,11 @@ public class CT_CRUD {
                 ct.setTelefono(rs.getString(8));
                 listaCT.add(ct);
             }
+            cs.close();
+            rs.close();
 
-        } catch (Exception e) {
-
+        } catch (SQLException ex) {
+            Logger.getLogger(CT_CRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listaCT;
     }
