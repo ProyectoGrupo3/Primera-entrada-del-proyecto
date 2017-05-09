@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import oracle.jdbc.OracleTypes;
 import proyectofincurso.Jf_InicioSesion;
 
 
@@ -24,7 +25,7 @@ public class Trabajador_CRUD {
 
         try {
             // LLAMADA AL PROCEDIMIENTO ALMACENADO EN ORACLE
-            CallableStatement cs = accesoDB.prepareCall("{CALL P_IN_EDIT_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
+            CallableStatement cs = accesoDB.prepareCall("{CALL INSERTAR_UPDATE_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
             // SE RELLENAN TODOS LOS PARAMETROS
             cs.setInt(1, ID);
             cs.setString(2, dni);
@@ -57,7 +58,9 @@ public class Trabajador_CRUD {
         Trabajador trabajador;
 
         try {
-            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM TRABAJADOR");
+            CallableStatement ps = accesoDB.prepareCall("call BUSCAR_TRABAJADORES{?}");
+            ps.registerOutParameter(1, OracleTypes.CURSOR);
+            
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 trabajador = new Trabajador();

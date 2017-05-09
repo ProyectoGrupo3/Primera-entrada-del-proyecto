@@ -80,11 +80,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
                         ponerEnTabla(lp);
                     } else {
                     }
-                    System.out.println(resul.getString(4));
 
-                    Linea_Parte lp = new Linea_Parte(resul.getString(1), resul.getString(2), resul.getDate(3), resul.getInt(4));
-                    añadirParte(lp);
-                    ponerEnTabla(lp);
                 }
 
             } catch (SQLException ex) {
@@ -136,12 +132,10 @@ public class Jf_Logistica extends javax.swing.JFrame {
         lineas_parte.add(lp);
     }
 
-    public void obtenerLPparaGuardarEnBD() {
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        Object[] fila = new Object[2];
+    public void llenarArrayLineas() {
+         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         //borro el contenido por si se ha borrado en la tabla alguno y no dejar rastros.
         lineas_parte.clear();
-
         int cols = modelo.getColumnCount();
         int fils = modelo.getRowCount();
         for (int i = 0; i < fils; i++) {
@@ -156,6 +150,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 }
             }
         }
+    }
+    public void obtenerLPparaGuardarEnBD() {
+       
         //Tenemos las lineas, ahora a guardar en BD
         for (Linea_Parte lp : lineas_parte) {
             String finicio = lp.getHora_inicio();
@@ -198,7 +195,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         long lnMilisegundos = utilDate.getTime();
         sqlDate = new java.sql.Date(lnMilisegundos);
         fechaParte.setText(sqlDate.toString());
-
+        setLocationRelativeTo(null);
         jTable1.removeAll();
     }
 
@@ -601,7 +598,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         }
     }
 
-    
+
     private void Jb_GuardarYcerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jb_GuardarYcerrarSesionActionPerformed
 
         if (cabecera_Parte != null) {
@@ -612,32 +609,32 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
             if (cerrarParteCheck.getSelectedObjects() == null) {
                 boolean cerrar = false;
-                long exc_h = calcularMinutosExcesoHoras();
+
+                long exc_h = 0;
                 boolean verificacion = false;
                 cabecera_Parte = new Cabe_Parte(sqlDate, Integer.parseInt(kmiText.getText()), Integer.parseInt(kmfText.getText()), Integer.parseInt(gGasoil.getText()), Integer.parseInt(gAutopista.getText()), Integer.parseInt(gDietas.getText()), Integer.parseInt(gOtros.getText()), incidenciasText.getText(), exc_h, cerrar, verificacion, Jf_InicioSesion.trabajador.getID_trabajador(), vehiculoText.getText());
                 //tenemo la cabecera, ahora a pasarla a la base de datos
                 //insert o update
+                llenarArrayLineas();
+                cabecera_Parte.setExceso_horas(calcularMinutosExcesoHoras());
                 insertarCabeceraEnBD();
-                System.out.println("insert o update cp");
                 obtenerLPparaGuardarEnBD();
-                System.out.println("insert o update lp");
 
             }
             /*CERRAR is TRUE*/
+            llenarArrayLineas();
             long exc_h = calcularMinutosExcesoHoras();
             if (cerrarParteCheck.getSelectedObjects() != null) {
                 boolean cerrar = true;
                 boolean verificacion = false;
-                cabecera_Parte = new Cabe_Parte(sqlDate, Integer.parseInt(kmiText.getText()), Integer.parseInt(kmfText.getText()), Integer.parseInt(gGasoil.getText()), Integer.parseInt(gAutopista.getText()), Integer.parseInt(gDietas.getText()), Integer.parseInt(gOtros.getText()), incidenciasText.getText(), exc_h, cerrar, verificacion, Jf_InicioSesion.trabajador.getID_trabajador(), vehiculoText.getText());
+                long ex_h = 0;
+                cabecera_Parte = new Cabe_Parte(sqlDate, Integer.parseInt(kmiText.getText()), Integer.parseInt(kmfText.getText()), Integer.parseInt(gGasoil.getText()), Integer.parseInt(gAutopista.getText()), Integer.parseInt(gDietas.getText()), Integer.parseInt(gOtros.getText()), incidenciasText.getText(), ex_h, cerrar, verificacion, Jf_InicioSesion.trabajador.getID_trabajador(), vehiculoText.getText());
                 if (exc_h >= 540) {
                     JOptionPane.showMessageDialog(null, "¡Vaya!Tiene exceso de horas de trabajo. Lo normal es tener 8 horas.");
                 }
-                //guardar en la base de datos la cabecera
+                cabecera_Parte.setExceso_horas(calcularMinutosExcesoHoras());
                 insertarCabeceraEnBD();
-                System.out.println("insert o update cp");
-                //GUARDAR EN LA BD LAS LINEAS
                 obtenerLPparaGuardarEnBD();
-                System.out.println("insert o update lp");
             }
             conexion.close();
             System.exit(0);

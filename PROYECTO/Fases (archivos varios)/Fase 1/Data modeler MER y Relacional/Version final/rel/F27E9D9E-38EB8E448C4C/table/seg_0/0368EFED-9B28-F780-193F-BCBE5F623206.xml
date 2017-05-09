@@ -26,7 +26,7 @@
 <ownerDesignName>Version final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <listOfRanges>
@@ -42,7 +42,7 @@
 <ownerDesignName>Version final</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <listOfRanges>
@@ -140,7 +140,7 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT014</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -214,28 +214,6 @@
 <indexColumnUsage>
 <colUsage columnID="B81154D4-86A6-2F00-F831-A8EA14C93472"/>
 <colUsage columnID="D0192A1F-D33D-2A02-8BE3-8D99B68822D9"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="E55310C4-6789-2595-FD9F-30B92C9156DE" name="CP__IDX">
-<createdBy>Alf</createdBy>
-<createdTime>2017-04-05 19:11:04 UTC</createdTime>
-<ownerDesignName>Version final</ownerDesignName>
-<indexState>Unique Plain Index</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<relationGeneratorID>9896046E-EE9C-3F13-659F-E69B9803B43A</relationGeneratorID>
-<indexColumnUsage>
-<colUsage columnID="D0192A1F-D33D-2A02-8BE3-8D99B68822D9"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="AB369FA6-CD0C-A9EC-6A81-CBF95D18096E" name="CP__IDXv1">
-<createdBy>Alf</createdBy>
-<createdTime>2017-04-05 19:11:04 UTC</createdTime>
-<ownerDesignName>Version final</ownerDesignName>
-<indexState>Unique Plain Index</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<relationGeneratorID>62429AB0-A668-10A1-60BE-27B158B4E2A8</relationGeneratorID>
-<indexColumnUsage>
-<colUsage columnID="74A982E0-01C2-6743-7F58-18A6875B33C0"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="0D5A0618-F772-A57A-CA84-49F15BF909DF" name="CP_Trabajador_FK">

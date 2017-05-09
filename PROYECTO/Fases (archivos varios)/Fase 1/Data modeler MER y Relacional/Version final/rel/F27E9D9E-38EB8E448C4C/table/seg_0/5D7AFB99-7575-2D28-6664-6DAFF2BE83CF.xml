@@ -93,18 +93,6 @@
 <colUsage columnID="81D01AE3-6E47-E7F2-0526-D1A16101B58B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="43E0D36B-B764-29C8-3249-30348BEBFA4E" name="Aviso__IDX">
-<createdBy>Alf</createdBy>
-<createdTime>2017-04-05 19:11:04 UTC</createdTime>
-<ownerDesignName>Version final</ownerDesignName>
-<indexState>Unique Plain Index</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<relationGeneratorID>77BE5CAC-0304-F4AF-0B7D-1BF1542A945B</relationGeneratorID>
-<indexColumnUsage>
-<colUsage columnID="78CC7D13-CCD2-9390-2E27-7A976E385AF1"/>
-<colUsage columnID="2517C48B-7516-DC04-A45A-D96B3BE3F34D"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="13AC0B57-3808-0D87-22EA-F6C8D5273178" name="Aviso_CP_FK">
 <createdBy>Alf</createdBy>
 <createdTime>2017-04-05 19:11:04 UTC</createdTime>

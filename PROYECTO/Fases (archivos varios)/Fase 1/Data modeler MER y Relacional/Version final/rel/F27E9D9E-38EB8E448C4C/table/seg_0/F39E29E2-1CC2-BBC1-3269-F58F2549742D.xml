@@ -83,17 +83,6 @@
 <colUsage columnID="9A5553DC-C593-5125-BCED-FCC8CD0BA7FF"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="74CFFCA3-B3D7-E93F-CBA2-D27D75194CA6" name="Clave__IDX">
-<createdBy>Alf</createdBy>
-<createdTime>2017-04-05 19:11:04 UTC</createdTime>
-<ownerDesignName>Version final</ownerDesignName>
-<indexState>Unique Plain Index</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<relationGeneratorID>553FE0C0-34DC-A8C7-096D-373D4E1E8E7A</relationGeneratorID>
-<indexColumnUsage>
-<colUsage columnID="4B7B53EC-2F25-5B8A-C407-ACD1AE58261B"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="781A444A-0D60-3DF5-83C5-78213FEE73E5" name="Clave_Trabajador_FK">
 <createdBy>Alf</createdBy>
 <createdTime>2017-04-05 19:11:04 UTC</createdTime>
