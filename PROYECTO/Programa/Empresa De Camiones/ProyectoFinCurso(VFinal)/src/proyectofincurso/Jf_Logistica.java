@@ -195,7 +195,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         long lnMilisegundos = utilDate.getTime();
         sqlDate = new java.sql.Date(lnMilisegundos);
         fechaParte.setText(sqlDate.toString());
-
+        setLocationRelativeTo(null);
         jTable1.removeAll();
     }
 

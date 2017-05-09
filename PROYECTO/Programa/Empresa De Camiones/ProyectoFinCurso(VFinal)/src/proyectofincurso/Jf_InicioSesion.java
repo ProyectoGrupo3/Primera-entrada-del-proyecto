@@ -50,15 +50,15 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
     public void setClaveTrabajador(Clave claveTrabajador) {
         this.claveTrabajador = claveTrabajador;
     }
-
+    
     public Jf_Logistica getPantallaLogistica2() {
         return pantallaLogistica2;
     }
-
+    
     public void setPantallaLogistica2(Jf_Logistica pantallaLogistica2) {
         this.pantallaLogistica2 = pantallaLogistica2;
     }
-
+    
     public JF_Administrador getPantallaAdministrador() {
         return pantallaAdministrador;
     }
@@ -79,7 +79,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
 
     //La conexion global para todo el programa
     public static Connection conexion;
-
+    
     public void limpiarInicio() {
         nombreText.setText("");
         passwordText.setText("");
@@ -92,6 +92,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
      */
     public Jf_InicioSesion() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -110,9 +111,12 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         entrar = new javax.swing.JButton();
         salir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Himevico\n");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
 
         jLabel1.setText("Nombre");
 
@@ -191,21 +195,33 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                     .addComponent(salir)))
         );
 
+        jLabel3.setFont(jLabel3.getFont().deriveFont(jLabel3.getFont().getStyle() | java.awt.Font.BOLD, jLabel3.getFont().getSize()+25));
+        jLabel3.setText("<html> Bienvenido a<p> HIMEVICO S.L.");
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel3.setFocusable(false);
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(176, 176, 176)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(167, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(103, 103, 103))
         );
 
         pack();
@@ -251,7 +267,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
             // Traer y guardar el registro de clave y el trabajador
             comprobar.executeUpdate();
             if (comprobar.getInt(23) == 1) {
-
+                
                 setClaveTrabajador(new Clave(comprobar.getInt(3), comprobar.getString(4), comprobar.getString(5), comprobar.getDate(6), comprobar.getInt(7)));
                 setTrabajador(new Trabajador(comprobar.getInt(8), comprobar.getString(9), comprobar.getString(10), comprobar.getString(11), comprobar.getString(12), comprobar.getString(13), comprobar.getString(14), comprobar.getString(15), comprobar.getString(16), comprobar.getString(17), comprobar.getString(18), comprobar.getInt(19), comprobar.getDate(20), comprobar.getString(21), comprobar.getInt(22)));
                 JOptionPane.showMessageDialog(this, "Correcto");
@@ -271,9 +287,9 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 String logis = "LOGISTICA";
                 String trab = getTrabajador().getCategoria();
                 comprobar.close();
-
+                
                 if (seguir < 30 && !claveTrabajador.getContrasenya().equals("Himevico12345")) {
-
+                    
                     if (trab.equals(adm)) {
                         //Abrir pantalla Administrador
                         if (pantallaAdministrador == null) {
@@ -282,7 +298,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         }
                         pantallaAdministrador.setVisible(true);
                         limpiarInicio();
-
+                        
                     } else {
                         //Abrir pantalla Logistica
                         java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
@@ -291,7 +307,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         sentencia.close();
                         sentencia = conexion.createStatement();
                         comprobar = conexion.prepareCall("{call TRAER_PARTE_ABIERTO(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-
+                        
                         comprobar.setInt(1, trabajador.getID_trabajador());
                         comprobar.registerOutParameter(2, Types.DATE);
                         comprobar.registerOutParameter(3, Types.NUMERIC);
@@ -308,7 +324,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         comprobar.registerOutParameter(14, Types.VARCHAR);
                         comprobar.registerOutParameter(15, Types.NUMERIC);
                         comprobar.execute();
-
+                        
                         Cabe_Parte cabecera_parte = null;
 
                         //si paso un dia, y no ha cerrado el parte abierto
@@ -320,7 +336,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             System.out.println("hay parte");
                             Date dateParte = comprobar.getDate(2);
                             Date dateHoy = sqlDate;
-
+                            
                             if (dateParte.getDay() == dateHoy.getDay() && comprobar.getBoolean(11) == true) {
                                 JOptionPane.showMessageDialog(null, "Ya has creado y cerrado hoy un parte, espera a mañana");
                                 System.exit(0);
@@ -331,7 +347,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             if (comprobar.getObject(12).equals('1')) {
                                 veri = true;
                             }
-
+                            
                             cabecera_parte = new Cabe_Parte(comprobar.getDate(2), comprobar.getInt(3), comprobar.getInt(4), comprobar.getInt(5), comprobar.getInt(6), comprobar.getInt(7), comprobar.getInt(8), comprobar.getString(9), comprobar.getInt(10), crar, veri, comprobar.getInt(13), comprobar.getString(14));
                             if (crar == false && dateParte.getDay() != dateHoy.getDay()) {
                                 JOptionPane.showMessageDialog(null, "Aun no has cerrado el parte del otro dia, cierralo");
@@ -349,14 +365,14 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         getPantallaLogistica2().setVisible(true);
                         if (c == 1) {
                             noEditable();
-
+                            
                         }
                         pantallaLogistica2.rellenarParte(cabecera_parte);
                         limpiarInicio();
                     }
                     //esconder ventana
                     this.setVisible(false);
-
+                    
                 } else {
                     JOptionPane.showConfirmDialog(null, "Tienes que cambiar la contraseña. Han pasado mas de 30 dias desde el último cambio \n O tienes la contraseña por defecto.");
 
@@ -370,7 +386,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR USUARIO O CONTRASEÑA ERRONEOS", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
-
+            
             sentencia.close();
 
             //sentencia.close();
@@ -380,7 +396,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_entrarActionPerformed
-
+    
     public void hacerClick() {
         entrar.doClick();
     }
@@ -448,9 +464,20 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         //Crear conexion con el servidor oracle 12c
 
     }
-
+    
     public void noEditable() {
         pantallaLogistica2.horaInicioText.setEditable(false);
+        pantallaLogistica2.horaFinText.setEditable(false);
+        pantallaLogistica2.kmiText.setEditable(false);
+        pantallaLogistica2.kmfText.setEditable(false);
+        pantallaLogistica2.vehiculoText.setEditable(false);
+        pantallaLogistica2.gAutopista.setEditable(false);
+        pantallaLogistica2.gGasoil.setEditable(false);
+        pantallaLogistica2.gDietas.setEditable(false);
+        pantallaLogistica2.gOtros.setEditable(false);
+        pantallaLogistica2.incidenciasText.setEditable(false);
+        pantallaLogistica2.Jb_borrarLinea.setEnabled(false);
+        pantallaLogistica2.Jb_InsertarLinea.setEnabled(false);
     }
 
 
@@ -458,6 +485,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreText;
     private javax.swing.JPasswordField passwordText;

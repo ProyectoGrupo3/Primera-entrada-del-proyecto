@@ -18,6 +18,7 @@ public class JF_Administrador extends javax.swing.JFrame {
     
     public JF_Administrador() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
