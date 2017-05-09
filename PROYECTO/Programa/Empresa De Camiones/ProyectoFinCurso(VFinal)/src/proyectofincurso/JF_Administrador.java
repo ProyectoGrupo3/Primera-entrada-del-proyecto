@@ -3,7 +3,6 @@ package proyectofincurso;
 import Modelo.*;
 import proyectofincurso.*;
 import Controlador.*;
-import static proyectofincurso.Jf_InicioSesion.conexion;
 
 public class JF_Administrador extends javax.swing.JFrame {
 
@@ -18,20 +17,41 @@ public class JF_Administrador extends javax.swing.JFrame {
     
     public JF_Administrador() {
         initComponents();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);    
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jB_Salir = new javax.swing.JButton();
         jB_Trabajador_CRUD = new javax.swing.JButton();
         jB_JF_CT_CRUD = new javax.swing.JButton();
         jB_JF_Vehiculo_CRUD = new javax.swing.JButton();
         jB_JF_Gestion_Parte_CRUD = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jB_JF_Aviso_CRUD = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jB_Volver = new javax.swing.JButton();
+
+        jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
+        jB_Salir.setText("Salir");
+        jB_Salir.setBorderPainted(false);
+        jB_Salir.setContentAreaFilled(false);
+        jB_Salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Salir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Salir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Salir.setIconTextGap(5);
+        jB_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_SalirActionPerformed(evt);
+            }
+        });
+        jB_Salir.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_SalirPropertyChange(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,13 +87,6 @@ public class JF_Administrador extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("HIMEVICO, S.L.");
 
-        jButton8.setLabel("Salir");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
         jB_JF_Aviso_CRUD.setText("Gestión de Avisos");
         jB_JF_Aviso_CRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,14 +94,48 @@ public class JF_Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
+        jButton8.setText("Salir");
+        jButton8.setBorderPainted(false);
+        jButton8.setContentAreaFilled(false);
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton8.setIconTextGap(5);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jButton8.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jButton8PropertyChange(evt);
+            }
+        });
+
+        jB_Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
+        jB_Volver.setText("Volver");
+        jB_Volver.setBorderPainted(false);
+        jB_Volver.setContentAreaFilled(false);
+        jB_Volver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Volver.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Volver.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Volver.setIconTextGap(5);
+        jB_Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_VolverActionPerformed(evt);
+            }
+        });
+        jB_Volver.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_VolverPropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -96,31 +143,41 @@ public class JF_Administrador extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jB_Trabajador_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jB_JF_CT_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
-                            .addComponent(jB_JF_Vehiculo_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jB_JF_Gestion_Parte_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jB_JF_Aviso_CRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jB_Trabajador_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jB_JF_CT_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                                .addComponent(jB_JF_Gestion_Parte_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jB_JF_Aviso_CRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jB_JF_Vehiculo_CRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jB_Volver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(81, 81, 81))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jB_Trabajador_CRUD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jB_JF_CT_CRUD)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jB_JF_Vehiculo_CRUD)
                 .addGap(18, 18, 18)
                 .addComponent(jB_JF_Aviso_CRUD)
                 .addGap(22, 22, 22)
                 .addComponent(jB_JF_Gestion_Parte_CRUD)
-                .addGap(48, 48, 48)
-                .addComponent(jButton8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jB_Volver))
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -137,10 +194,6 @@ public class JF_Administrador extends javax.swing.JFrame {
         vista_Trabajador.jText_2.requestFocus();
 
     }//GEN-LAST:event_jB_Trabajador_CRUDActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jB_JF_CT_CRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_JF_CT_CRUDActionPerformed
         setVisible(false);
@@ -176,7 +229,7 @@ public class JF_Administrador extends javax.swing.JFrame {
         vista_Aviso.setVisible(true);
         vista_Aviso.setLocationRelativeTo(null);
         //vista_CT.jB_Leer.doClick();
-        vista_Aviso.jText_1.requestFocus();
+        vista_Aviso.jT_Fecha_A.requestFocus();
 
     }//GEN-LAST:event_jB_JF_Aviso_CRUDActionPerformed
 
@@ -189,9 +242,36 @@ public class JF_Administrador extends javax.swing.JFrame {
         vista_Gestion_Parte_CRUD.setVisible(true);
         vista_Gestion_Parte_CRUD.setLocationRelativeTo(null);
         //vista_CT.jB_Leer.doClick();
-        //vista_Gestion_Parte_CRUD.jTextField1.requestFocus();
+        vista_Gestion_Parte_CRUD.jTextField1.requestFocus();
         
     }//GEN-LAST:event_jB_JF_Gestion_Parte_CRUDActionPerformed
+
+    private void jB_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_SalirActionPerformed
+
+    private void jB_SalirPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_SalirPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_SalirPropertyChange
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    System.exit(0);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton8PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jButton8PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8PropertyChange
+
+    private void jB_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_VolverActionPerformed
+        setVisible(false);
+        Jf_InicioSesion vista_Inicio = new Jf_InicioSesion();
+        vista_Inicio.setVisible(true);
+        vista_Inicio.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jB_VolverActionPerformed
+
+    private void jB_VolverPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_VolverPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_VolverPropertyChange
 
     /**
      * @param args the command line arguments
@@ -210,8 +290,10 @@ public class JF_Administrador extends javax.swing.JFrame {
     private javax.swing.JButton jB_JF_CT_CRUD;
     private javax.swing.JButton jB_JF_Gestion_Parte_CRUD;
     private javax.swing.JButton jB_JF_Vehiculo_CRUD;
+    public javax.swing.JButton jB_Salir;
     private javax.swing.JButton jB_Trabajador_CRUD;
-    private javax.swing.JButton jButton8;
+    public javax.swing.JButton jB_Volver;
+    public javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

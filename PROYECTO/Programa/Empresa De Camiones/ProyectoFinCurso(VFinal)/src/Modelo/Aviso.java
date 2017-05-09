@@ -7,20 +7,55 @@ public class Aviso {
 
     private java.sql.Date fecha_aviso;
     private String texto;
-    private int id_trabajador;
+    private int id_Admin;
     private java.sql.Date fecha_parte;
-    private int id_trabajador_parte;
+    private int id_Logis;
+
+    public int getId_Admin() {
+        return id_Admin;
+    }
+
+    public void setId_Admin(int id_Admin) {
+        this.id_Admin = id_Admin;
+    }
+
+    public int getId_Logis() {
+        return id_Logis;
+    }
+
+    public void setId_Logis(int id_Logis) {
+        this.id_Logis = id_Logis;
+    }
+    private String nombre;
+    private String apellido1;
 
     public Aviso (){
     
        fecha_aviso = null;
        texto = "";
-       id_trabajador =0;
+       id_Admin = 0;
        fecha_parte = null;
-       id_trabajador_parte =0;
-    
+       id_Logis = 0;
+       nombre = "";
+       apellido1 = "";
     
 }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
 
     public Date getFecha_aviso() {
         return fecha_aviso;
@@ -38,13 +73,7 @@ public class Aviso {
         this.texto = texto;
     }
 
-    public int getId_trabajador() {
-        return id_trabajador;
-    }
-
-    public void setId_trabajador(int id_trabajador) {
-        this.id_trabajador = id_trabajador;
-    }
+ 
 
     public Date getFecha_parte() {
         return fecha_parte;
@@ -54,13 +83,6 @@ public class Aviso {
         this.fecha_parte = fecha_parte;
     }
 
-    public int getId_trabajador_parte() {
-        return id_trabajador_parte;
-    }
-
-    public void setId_trabajador_parte(int id_trabajador_parte) {
-        this.id_trabajador_parte = id_trabajador_parte;
-    }
 
     
 }

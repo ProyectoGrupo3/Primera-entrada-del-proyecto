@@ -5,7 +5,7 @@ import Modelo.CT_CRUD;
 import java.lang.reflect.Method;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import  proyectofincurso.*;
+//import static proyectofincurso.InicioSesion.con;
 
 public class JF_CT_CRUD extends javax.swing.JFrame {
     
@@ -41,13 +41,13 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
         jText_Buscar = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jB_Leer = new javax.swing.JButton();
         jB_Crear = new javax.swing.JButton();
+        jB_Leer = new javax.swing.JButton();
         jB_Actualizar = new javax.swing.JButton();
         jB_Borrar = new javax.swing.JButton();
-        jB_Salir = new javax.swing.JButton();
-        jB_Volver = new javax.swing.JButton();
         jB_OK = new javax.swing.JButton();
+        jB_Volver = new javax.swing.JButton();
+        jB_Salir = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -225,63 +225,145 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
         jLabel9.setText("CRUD de CENTROS DE TRABAJO");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 24, -1, -1));
 
-        jB_Leer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Leer.png"))); // NOI18N
-        jB_Leer.setText("R - Leer");
-        jB_Leer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_LeerActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jB_Leer, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 60, -1, -1));
-
         jB_Crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Create.png"))); // NOI18N
-        jB_Crear.setText("C-Crear");
+        jB_Crear.setText("C- Crear");
+        jB_Crear.setBorderPainted(false);
+        jB_Crear.setContentAreaFilled(false);
+        jB_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Crear.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Crear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Crear.setIconTextGap(5);
         jB_Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_CrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 12, -1, -1));
+        jB_Crear.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_CrearPropertyChange(evt);
+            }
+        });
+        getContentPane().add(jB_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(732, 24, -1, -1));
+
+        jB_Leer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Leer.png"))); // NOI18N
+        jB_Leer.setText("R - Leer");
+        jB_Leer.setBorderPainted(false);
+        jB_Leer.setContentAreaFilled(false);
+        jB_Leer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Leer.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Leer.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Leer.setIconTextGap(5);
+        jB_Leer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_LeerActionPerformed(evt);
+            }
+        });
+        jB_Leer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_LeerPropertyChange(evt);
+            }
+        });
+        getContentPane().add(jB_Leer, new org.netbeans.lib.awtextra.AbsoluteConstraints(732, 72, -1, -1));
 
         jB_Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
         jB_Actualizar.setText("U - Actualizar");
+        jB_Actualizar.setBorderPainted(false);
+        jB_Actualizar.setContentAreaFilled(false);
+        jB_Actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Actualizar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Actualizar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Actualizar.setIconTextGap(5);
         jB_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_ActualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 108, -1, -1));
+        jB_Actualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_ActualizarPropertyChange(evt);
+            }
+        });
+        getContentPane().add(jB_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(732, 120, -1, -1));
 
         jB_Borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Borrar.png"))); // NOI18N
         jB_Borrar.setText("D - Borrar");
-        getContentPane().add(jB_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(744, 156, -1, -1));
-
-        jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
-        jB_Salir.setText("Salir");
-        jB_Salir.addActionListener(new java.awt.event.ActionListener() {
+        jB_Borrar.setBorderPainted(false);
+        jB_Borrar.setContentAreaFilled(false);
+        jB_Borrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Borrar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Borrar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Borrar.setIconTextGap(5);
+        jB_Borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_SalirActionPerformed(evt);
+                jB_BorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 420, -1, -1));
-
-        jB_Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
-        jB_Volver.setText("Volver");
-        jB_Volver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_VolverActionPerformed(evt);
+        jB_Borrar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_BorrarPropertyChange(evt);
             }
         });
-        getContentPane().add(jB_Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 360, -1, -1));
+        getContentPane().add(jB_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(732, 168, -1, -1));
 
         jB_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
-        jB_OK.setText("Ok");
+        jB_OK.setText("Confirmar");
+        jB_OK.setBorderPainted(false);
+        jB_OK.setContentAreaFilled(false);
+        jB_OK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_OK.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_OK.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_OK.setIconTextGap(5);
         jB_OK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_OKActionPerformed(evt);
             }
         });
-        getContentPane().add(jB_OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 216, 72, -1));
+        jB_OK.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_OKPropertyChange(evt);
+            }
+        });
+        getContentPane().add(jB_OK, new org.netbeans.lib.awtextra.AbsoluteConstraints(732, 216, -1, -1));
+
+        jB_Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
+        jB_Volver.setText("Volver");
+        jB_Volver.setBorderPainted(false);
+        jB_Volver.setContentAreaFilled(false);
+        jB_Volver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Volver.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Volver.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Volver.setIconTextGap(5);
+        jB_Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_VolverActionPerformed(evt);
+            }
+        });
+        jB_Volver.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_VolverPropertyChange(evt);
+            }
+        });
+        getContentPane().add(jB_Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 324, -1, -1));
+
+        jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
+        jB_Salir.setText("Salir");
+        jB_Salir.setBorderPainted(false);
+        jB_Salir.setContentAreaFilled(false);
+        jB_Salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Salir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jB_Salir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jB_Salir.setIconTextGap(5);
+        jB_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_SalirActionPerformed(evt);
+            }
+        });
+        jB_Salir.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jB_SalirPropertyChange(evt);
+            }
+        });
+        getContentPane().add(jB_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 420, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -294,16 +376,18 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jText_2ActionPerformed
 
-    private void jB_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_VolverActionPerformed
-        setVisible(false);
-        JF_Administrador vista_Adm = new JF_Administrador();
-        vista_Adm.setVisible(true);
-        vista_Adm.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jB_VolverActionPerformed
-
     private void jText_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jText_3ActionPerformed
+
+    private void jText_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_BuscarActionPerformed
+        
+    }//GEN-LAST:event_jText_BuscarActionPerformed
+
+    private void jText_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_1ActionPerformed
+        // FALTA CARGAR LA SECUENCIA DEL CT_ID PARA EL NÚMERO CORRELATIVO
+
+    }//GEN-LAST:event_jText_1ActionPerformed
 
     private void jB_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CrearActionPerformed
         JF_CT_CRUD vista_CT = new JF_CT_CRUD();
@@ -311,36 +395,64 @@ public class JF_CT_CRUD extends javax.swing.JFrame {
         ControladorCRUD_CT controlador_CT = new ControladorCRUD_CT(vista_CT, modelo_CT);
     }//GEN-LAST:event_jB_CrearActionPerformed
 
-    private void jB_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jB_SalirActionPerformed
+    private void jB_CrearPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_CrearPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_CrearPropertyChange
 
     private void jB_LeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LeerActionPerformed
         JF_CT_CRUD vista_CT = new JF_CT_CRUD();
         CT_CRUD modelo_CT = new CT_CRUD();
         ControladorCRUD_CT controlador_CT = new ControladorCRUD_CT(vista_CT, modelo_CT);
-        
     }//GEN-LAST:event_jB_LeerActionPerformed
 
-    private void jText_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_BuscarActionPerformed
+    private void jB_LeerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_LeerPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jText_BuscarActionPerformed
-
-    private void jB_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_OKActionPerformed
-        JF_CT_CRUD vista_CT = new JF_CT_CRUD();
-        CT_CRUD modelo_CT = new CT_CRUD();
-        ControladorCRUD_CT controlador_CT = new ControladorCRUD_CT(vista_CT, modelo_CT);
-
-    }//GEN-LAST:event_jB_OKActionPerformed
+    }//GEN-LAST:event_jB_LeerPropertyChange
 
     private void jB_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ActualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jB_ActualizarActionPerformed
 
-    private void jText_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_1ActionPerformed
-        // FALTA CARGAR LA SECUENCIA DEL CT_ID PARA EL NÚMERO CORRELATIVO
+    private void jB_ActualizarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_ActualizarPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_ActualizarPropertyChange
 
-    }//GEN-LAST:event_jText_1ActionPerformed
+    private void jB_BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_BorrarActionPerformed
+
+    private void jB_BorrarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_BorrarPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_BorrarPropertyChange
+
+    private void jB_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_OKActionPerformed
+        JF_CT_CRUD vista_CT = new JF_CT_CRUD();
+        CT_CRUD modelo_CT = new CT_CRUD();
+        ControladorCRUD_CT controlador_CT = new ControladorCRUD_CT(vista_CT, modelo_CT);
+    }//GEN-LAST:event_jB_OKActionPerformed
+
+    private void jB_OKPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_OKPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_OKPropertyChange
+
+    private void jB_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_VolverActionPerformed
+        setVisible(false);
+        JF_Administrador vista_Adm = new JF_Administrador();
+        vista_Adm.setVisible(true);
+        vista_Adm.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jB_VolverActionPerformed
+
+    private void jB_VolverPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_VolverPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_VolverPropertyChange
+
+    private void jB_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jB_SalirActionPerformed
+
+    private void jB_SalirPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jB_SalirPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_SalirPropertyChange
 
     public static void main(String args[]) {
 

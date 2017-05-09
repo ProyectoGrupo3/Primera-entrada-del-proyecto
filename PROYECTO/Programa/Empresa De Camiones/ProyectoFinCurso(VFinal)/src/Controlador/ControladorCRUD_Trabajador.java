@@ -52,7 +52,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         this.vista_Trabajador_CRUD.jText_11.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_12.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_13.addKeyListener(this);
-        this.vista_Trabajador_CRUD.jList_CT.addKeyListener(this);
+       // this.vista_Trabajador_CRUD.jList_CT.addKeyListener(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -125,7 +125,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         vista_Trabajador_CRUD.jText_11.setText("");
         vista_Trabajador_CRUD.jText_12.setText(null);
         vista_Trabajador_CRUD.jText_13.setText(null);
-        vista_Trabajador_CRUD.jList_CT.setSelectedIndex(1);
+     //   vista_Trabajador_CRUD.jList_CT.setSelectedIndex(1);
 
         // Para que el cursor se ponga en este campo después de limpiar los datos
         vista_Trabajador_CRUD.jText_2.requestFocus();
