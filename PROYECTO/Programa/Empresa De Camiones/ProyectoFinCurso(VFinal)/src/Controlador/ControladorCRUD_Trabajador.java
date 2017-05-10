@@ -162,7 +162,8 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
             // Recojo el dato del NOMBRE del Centro de Trabajo
-            String Nombre_Centro_Trabajo = vista_Trabajador_CRUD.jList_CT.getSelectedValue().toString();
+            String Nombre_Centro_Trabajo;
+            Nombre_Centro_Trabajo = Integer.parseInt(vista_Trabajador_CRUD.jList_CT.getSelectedRow());
             // Relleno el array con las categorías
             List<CT> ListaCopia = new ArrayList<>();
             ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();

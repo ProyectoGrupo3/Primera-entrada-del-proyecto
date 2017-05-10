@@ -29,12 +29,12 @@ public class Gestion_Parte_CRUD {
                 vista_cp.setFecha(rs.getDate(1));
                 vista_cp.setKm_in(rs.getInt(2));
                 vista_cp.setKm_fin(rs.getInt(3));
-                vista_cp.setGasoil(rs.getDouble(4));
-                vista_cp.setAutopista(rs.getDouble(5));
-                vista_cp.setDietas(rs.getDouble(6));
-                vista_cp.setOtros(rs.getDouble(7));
+                vista_cp.setGasoil(rs.getInt(4));
+                vista_cp.setAutopista(rs.getInt(5));
+                vista_cp.setDietas(rs.getInt(6));
+                vista_cp.setOtros(rs.getInt(7));
                 vista_cp.setIncidencias(rs.getString(8));
-                vista_cp.setExceso_horas(rs.getDate(9));
+                vista_cp.setExceso_horas(rs.getLong(9));
                 vista_cp.setCerrar_parte(rs.getBoolean(10));
                 vista_cp.setVerificar_parte(rs.getBoolean(11));
                 vista_cp.setId_trabajador(rs.getInt(12));
@@ -81,7 +81,7 @@ public class Gestion_Parte_CRUD {
         return listaVehiculo;
     }
 
-    public String editarGestion_Parte(Date fecha, int id, String matricula, int km_ini, int km_fin, double gasoil, double autopista, double dietas, double otros, String incidencias, Boolean crd, Boolean vrf, java.sql.Date he) {
+    public String editarGestion_Parte(Date fecha, int id, String matricula, int km_ini, int km_fin, double gasoil, double autopista, double dietas, double otros, String incidencias, Boolean crd, Boolean vrf, long he) {
 
         String rptaEdit = null;
         int numFil = 0;
@@ -103,7 +103,7 @@ public class Gestion_Parte_CRUD {
             cs.setString(10, incidencias);
             cs.setBoolean(11, crd);
             cs.setBoolean(12, vrf);
-            cs.setDate(13, he);
+            cs.setLong(13, he);
 
             int numFila = cs.executeUpdate();
             if (numFila > 0) {
@@ -153,12 +153,12 @@ public class Gestion_Parte_CRUD {
                     vista_cp.setFecha(rs.getDate(1));
                     vista_cp.setKm_in(rs.getInt(2));
                     vista_cp.setKm_fin(rs.getInt(3));
-                    vista_cp.setGasoil(rs.getDouble(4));
-                    vista_cp.setAutopista(rs.getDouble(5));
-                    vista_cp.setDietas(rs.getDouble(6));
-                    vista_cp.setOtros(rs.getDouble(7));
+                    vista_cp.setGasoil(rs.getInt(4));
+                    vista_cp.setAutopista(rs.getInt(5));
+                    vista_cp.setDietas(rs.getInt(6));
+                    vista_cp.setOtros(rs.getInt(7));
                     vista_cp.setIncidencias(rs.getString(8));
-                    vista_cp.setExceso_horas(rs.getDate(9));
+                    vista_cp.setExceso_horas(rs.getLong(9));
                     vista_cp.setCerrar_parte(rs.getBoolean(10));
                     vista_cp.setVerificar_parte(rs.getBoolean(11));
                     vista_cp.setId_trabajador(rs.getInt(12));
@@ -187,12 +187,12 @@ public class Gestion_Parte_CRUD {
                     vista_cp.setFecha(rs.getDate(1));
                     vista_cp.setKm_in(rs.getInt(2));
                     vista_cp.setKm_fin(rs.getInt(3));
-                    vista_cp.setGasoil(rs.getDouble(4));
-                    vista_cp.setAutopista(rs.getDouble(5));
-                    vista_cp.setDietas(rs.getDouble(6));
-                    vista_cp.setOtros(rs.getDouble(7));
+                    vista_cp.setGasoil(rs.getInt(4));
+                    vista_cp.setAutopista(rs.getInt(5));
+                    vista_cp.setDietas(rs.getInt(6));
+                    vista_cp.setOtros(rs.getInt(7));
                     vista_cp.setIncidencias(rs.getString(8));
-                    vista_cp.setExceso_horas(rs.getDate(9));
+                    vista_cp.setExceso_horas(rs.getLong(9));
                     vista_cp.setCerrar_parte(rs.getBoolean(10));
                     vista_cp.setVerificar_parte(rs.getBoolean(11));
                     vista_cp.setId_trabajador(rs.getInt(12));

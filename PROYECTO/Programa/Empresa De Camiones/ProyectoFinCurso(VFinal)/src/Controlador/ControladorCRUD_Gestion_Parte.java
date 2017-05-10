@@ -333,7 +333,7 @@ public class ControladorCRUD_Gestion_Parte implements ActionListener, KeyListene
                 Boolean cerrado = vista_Gestion_Parte_CRUD.jCE_Cerrado.isSelected();
                 Boolean verificado = vista_Gestion_Parte_CRUD.jCE_Verificado.isSelected();
                 // LAS HORAS EXTRAS ESTAN PENDIENTES
-                Date heEditar = null;
+                long heEditar = Long.parseLong(vista_Gestion_Parte_CRUD.jTE_Hextras.getText());
                 String rptaEdit = modelo_Gestion_Parte_CRUD.editarGestion_Parte(FechaEditar, id_trabajador, matricula, km_ini, km_final, gasoil, autopista, dietas, otros, incidencias, cerrado, verificado, heEditar);
 
                 if (rptaEdit != null) {
