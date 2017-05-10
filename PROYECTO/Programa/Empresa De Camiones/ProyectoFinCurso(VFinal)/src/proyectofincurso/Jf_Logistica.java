@@ -243,6 +243,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         horaFinText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cerrarParteCheck = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -413,8 +414,12 @@ public class Jf_Logistica extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        Jb_borrarLinea.setText("Borrar linea");
+        Jb_borrarLinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Borrar.png"))); // NOI18N
+        Jb_borrarLinea.setText("D - Borrar linea");
         Jb_borrarLinea.setToolTipText("Selecciona una linea de la tabla y haz click en este botón");
+        Jb_borrarLinea.setBorder(null);
+        Jb_borrarLinea.setBorderPainted(false);
+        Jb_borrarLinea.setContentAreaFilled(false);
         Jb_borrarLinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jb_borrarLineaActionPerformed(evt);
@@ -441,11 +446,15 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jb_borrarLinea)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        Jb_GuardarYcerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
         Jb_GuardarYcerrarSesion.setText("Guardar y cerrar sesión");
-        Jb_GuardarYcerrarSesion.setToolTipText("Al dar a este botón, estas cerrando el parte y por la tanto ya no podras volver a editarlo");
+        Jb_GuardarYcerrarSesion.setToolTipText("Click para Guardar el parte actual.");
+        Jb_GuardarYcerrarSesion.setBorder(null);
+        Jb_GuardarYcerrarSesion.setBorderPainted(false);
+        Jb_GuardarYcerrarSesion.setContentAreaFilled(false);
         Jb_GuardarYcerrarSesion.setMaximumSize(new java.awt.Dimension(110, 23));
         Jb_GuardarYcerrarSesion.setMinimumSize(new java.awt.Dimension(110, 23));
         Jb_GuardarYcerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -456,7 +465,11 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        Jb_InsertarLinea.setText("Insertar Nueva Linea");
+        Jb_InsertarLinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Create.png"))); // NOI18N
+        Jb_InsertarLinea.setText("C- Crear nueva Linea");
+        Jb_InsertarLinea.setBorder(null);
+        Jb_InsertarLinea.setBorderPainted(false);
+        Jb_InsertarLinea.setContentAreaFilled(false);
         Jb_InsertarLinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jb_InsertarLineaActionPerformed(evt);
@@ -505,6 +518,18 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
         cerrarParteCheck.setText("Cerrar");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
+        jButton1.setText("Salir");
+        jButton1.setToolTipText("Salir y desechar parte actual.");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -529,7 +554,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
                         .addComponent(cerrarParteCheck)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Jb_GuardarYcerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132))))
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton1)
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -545,16 +572,19 @@ public class Jf_Logistica extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Jb_GuardarYcerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(cerrarParteCheck))
-                        .addContainerGap())
+                            .addComponent(jButton1))
+                        .addContainerGap(29, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(cerrarParteCheck))
+                        .addGap(29, 29, 29))))
         );
 
         pack();
@@ -637,7 +667,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 obtenerLPparaGuardarEnBD();
             }
             conexion.close();
-            System.exit(0);
+            this.setVisible(false);
+            limpiar();
+            inicioSesion.setVisible(true);
 
         } catch (NumberFormatException e) {
 
@@ -671,6 +703,16 @@ public class Jf_Logistica extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jb_borrarLineaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Jf_Logistica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -731,6 +773,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
     public javax.swing.JTextField horaFinText;
     public javax.swing.JTextField horaInicioText;
     public javax.swing.JTextArea incidenciasText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -755,5 +798,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
     public javax.swing.JTextField kmiText;
     public javax.swing.JTextField vehiculoText;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiar() {
+        
+    }
 
 }

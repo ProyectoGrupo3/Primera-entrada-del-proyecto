@@ -69,9 +69,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
     public void setPantallaAdministrador(JF_Administrador pantallaAdministrador) {
         this.pantallaAdministrador = pantallaAdministrador;
     }
-    /**
-     * @return the inisesion
-     */
+    
     private JF_Administrador pantallaAdministrador;
     //private PantLogistica1 pantallaLogistica1;
     private Jf_Logistica pantallaLogistica2;
@@ -137,7 +135,11 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña");
 
+        entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
         entrar.setText("Entrar");
+        entrar.setBorder(null);
+        entrar.setBorderPainted(false);
+        entrar.setContentAreaFilled(false);
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarActionPerformed(evt);
@@ -149,7 +151,11 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
             }
         });
 
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
         salir.setText("Salir");
+        salir.setBorder(null);
+        salir.setBorderPainted(false);
+        salir.setContentAreaFilled(false);
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
@@ -175,7 +181,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         .addGap(55, 55, 55)
                         .addComponent(entrar)
                         .addGap(26, 26, 26)
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(salir)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -189,7 +195,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entrar)
                     .addComponent(salir)))
@@ -221,7 +227,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
+                .addGap(84, 84, 84))
         );
 
         pack();
@@ -303,6 +309,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         //Abrir pantalla Logistica
                         java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
                         java.sql.Date sqlDate = new java.sql.Date(hoy.getTime());
+                        
                         //Devolver el parte abierto
                         sentencia.close();
                         sentencia = conexion.createStatement();
@@ -397,7 +404,11 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_entrarActionPerformed
     
+     /**
+        *  Esto vale para que podamos dar a enter y nos apriete automaticamente el botón de Entrar en lugar de usar el ratón.
+        */
     public void hacerClick() {
+       
         entrar.doClick();
     }
     private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed

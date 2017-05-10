@@ -56,7 +56,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         jComboBox14 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jList_CT = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -336,7 +336,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
 
         jLabel16.setText("Centro");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jList_CT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -352,7 +352,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable4);
+        jScrollPane5.setViewportView(jList_CT);
 
         jButton1.setText("Buscar Centros");
 
@@ -807,6 +807,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JTable jList_CT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -822,7 +823,6 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     public javax.swing.JTable jTableDatos;
     public javax.swing.JTextField jText_1;
     public javax.swing.JTextField jText_10;
