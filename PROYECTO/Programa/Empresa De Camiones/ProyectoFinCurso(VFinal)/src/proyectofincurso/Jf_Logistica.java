@@ -69,11 +69,6 @@ public class Jf_Logistica extends javax.swing.JFrame {
                 llamada.executeUpdate();
                 ResultSet resul = (ResultSet) llamada.getObject(3);
                 while (resul.next()) {
-                    System.out.println(resul.getString(1));
-                    System.out.println(resul.getString(2));
-                    System.out.println(resul.getString(3));
-                    System.out.println(resul.getInt(4));
-
                     if (resul.getString(1) != null) {
                         Linea_Parte lp = new Linea_Parte(resul.getString(1), resul.getString(2), resul.getDate(3), resul.getInt(4));
                         añadirParte(lp);
@@ -133,7 +128,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
     }
 
     public void llenarArrayLineas() {
-         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         //borro el contenido por si se ha borrado en la tabla alguno y no dejar rastros.
         lineas_parte.clear();
         int cols = modelo.getColumnCount();
@@ -151,8 +146,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
             }
         }
     }
+
     public void obtenerLPparaGuardarEnBD() {
-       
+
         //Tenemos las lineas, ahora a guardar en BD
         for (Linea_Parte lp : lineas_parte) {
             String finicio = lp.getHora_inicio();
@@ -711,7 +707,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
             Logger.getLogger(Jf_Logistica.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.exit(0);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -800,7 +796,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void limpiar() {
-        
+
     }
 
 }

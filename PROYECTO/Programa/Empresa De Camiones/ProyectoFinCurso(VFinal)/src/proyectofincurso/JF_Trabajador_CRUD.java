@@ -57,7 +57,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jList_CT = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jB_Buscar_centros = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jText_1 = new javax.swing.JTextField();
@@ -354,7 +354,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jList_CT);
 
-        jButton1.setText("Buscar Centros");
+        jB_Buscar_centros.setText("Buscar Centros");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -368,7 +368,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
                         .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel16))
-                    .addComponent(jButton1))
+                    .addComponent(jB_Buscar_centros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -382,7 +382,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
                     .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(jB_Buscar_centros))
             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -783,12 +783,12 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jB_Actualizar;
     public javax.swing.JButton jB_Borrar;
+    public javax.swing.JButton jB_Buscar_centros;
     public javax.swing.JButton jB_Crear;
     public javax.swing.JButton jB_Leer;
     public javax.swing.JButton jB_OK;
     public javax.swing.JButton jB_Salir;
     public javax.swing.JButton jB_Volver;
-    private javax.swing.JButton jButton1;
     public javax.swing.JComboBox<String> jComboBox14;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -4,13 +4,17 @@ import java.text.*;
 import java.util.*;
 
 import Modelo.*;
-import proyectofincurso.JF_Trabajador_CRUD;
+import proyectofincurso.*;
 import Modelo.CT_CRUD;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -20,6 +24,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import oracle.jdbc.OracleTypes;
 import proyectofincurso.JF_CT_CRUD;
 
 public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
@@ -28,6 +33,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
     Trabajador_CRUD modelo_Trabajador_CRUD = new Trabajador_CRUD();
     JF_CT_CRUD vista_CT_CRUD = new JF_CT_CRUD();
     CT_CRUD modelo_CT_CRUD = new CT_CRUD();
+    Connection accesoDB = Jf_InicioSesion.conexion;
 
     @SuppressWarnings("LeakingThisInConstructor")
     public ControladorCRUD_Trabajador(JF_Trabajador_CRUD vista_Trabajador_CRUD, Trabajador_CRUD modelo_Trabajador_CRUD) {
@@ -52,7 +58,9 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         this.vista_Trabajador_CRUD.jText_11.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_12.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_13.addKeyListener(this);
-       // this.vista_Trabajador_CRUD.jList_CT.addKeyListener(this);
+        // this.vista_Trabajador_CRUD.jList_CT.addKeyListener(this);
+        this.vista_Trabajador_CRUD.jB_Buscar_centros.addKeyListener(this);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -125,7 +133,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         vista_Trabajador_CRUD.jText_11.setText("");
         vista_Trabajador_CRUD.jText_12.setText(null);
         vista_Trabajador_CRUD.jText_13.setText(null);
-     //   vista_Trabajador_CRUD.jList_CT.setSelectedIndex(1);
+        //   vista_Trabajador_CRUD.jList_CT.setSelectedIndex(1);
 
         // Para que el cursor se ponga en este campo después de limpiar los datos
         vista_Trabajador_CRUD.jText_2.requestFocus();
@@ -163,7 +171,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
 
             // Recojo el dato del NOMBRE del Centro de Trabajo
             String Nombre_Centro_Trabajo;
-            Nombre_Centro_Trabajo = Integer.parseInt(vista_Trabajador_CRUD.jList_CT.getSelectedRow());
+            Nombre_Centro_Trabajo = "inventado";
             // Relleno el array con las categorías
             List<CT> ListaCopia = new ArrayList<>();
             ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();
@@ -229,7 +237,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
                 // Recojo el dato del ID del Centro de Trabajo
-                String ID_Centro_Trabajo = vista_Trabajador_CRUD.jList_CT.getSelectedValue().toString();
+                String ID_Centro_Trabajo = "inventado";
                 int CT = Integer.parseInt(ID_Centro_Trabajo);
                 String Centro = "";
                 // Relleno el array con las categorías
@@ -243,7 +251,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     }
                 }
                 // Pongo el valor recogido de la Categoría en su sitio
-                vista_Trabajador_CRUD.jList_CT.setSelectedValue(Centro, true);
+                vista_Trabajador_CRUD.jList_CT.getSelectedRow();
                 // Como el ID es clave lo deshabilito para que no pueda modificarse
                 vista_Trabajador_CRUD.jText_1.setEditable(false);
                 // Deshabilito los botones para que no puedan usarse durante la edición
@@ -370,7 +378,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
                 // Recojo el dato del NOMBRE del Centro de Trabajo
-                String Nombre_Centro_Trabajo = vista_Trabajador_CRUD.jList_CT.getSelectedValue().toString();
+                String Nombre_Centro_Trabajo = "centro inventado";
                 // Relleno el array con las categorías
                 List<CT> ListaCopia = new ArrayList<>();
                 ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();
@@ -383,7 +391,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     }
                 }
                 // Pongo el valor recogido de la Categoría en su sitio
-                vista_Trabajador_CRUD.jList_CT.setSelectedValue(CT, true);
+                vista_Trabajador_CRUD.jList_CT.getSelectedRow();
 
                 int rptaEdit = modelo_Trabajador_CRUD.editarTrabajador(ID, dni, Nombre,
                         Apellido1, Apellido2, Calle, Portal, Piso, Mano, T_P, T_E,
@@ -407,21 +415,64 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             }
 
         }
+        if (e.getSource() == vista_Trabajador_CRUD.jB_Buscar_centros) {
+
+            try {
+                ArrayList listaCT = new ArrayList();
+                CT ct;
+                String sql = "{call CONSULTA_CT.BUSCAR_TOTAL_CT(?)}";
+
+                //Statement sentencia = accesoDB.createStatement();
+                CallableStatement rp = accesoDB.prepareCall(sql);
+                rp.registerOutParameter(1, OracleTypes.CURSOR);
+                rp.executeUpdate();
+                ResultSet res = (ResultSet) rp.getObject(1);
+                while (res.next()) {
+                    ct = new CT();
+                    ct.setID(res.getInt(1));
+                    ct.setNombre(res.getString(2));
+                    ct.setCalle(res.getString(3));
+                    ct.setNumero(res.getInt(4));
+                    ct.setCp(res.getString(5));
+                    ct.setCiudad(res.getString(6));
+                    ct.setProvincia(res.getString(7));
+                    ct.setTelefono(res.getString(8));
+                    listaCT.add(ct);
+                    DefaultTableModel modelo = (DefaultTableModel) vista_Trabajador_CRUD.jList_CT.getModel();
+                    //Sección 2
+                    Object[] fila = new Object[2];
+                    //Sección 3
+                    fila[0] = ct.getNombre();
+                    fila[1] = ct.getID();
+                    //Sección 4
+                    modelo.addRow(fila);
+                    //Sección 5
+                    vista_Trabajador_CRUD.jList_CT.setModel(modelo);
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorCRUD_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
     // OPCIÓN DE BUSCAR POR NOMBRE
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent e
+    ) {
 
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e
+    ) {
 
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e
+    ) {
 
     }
 
