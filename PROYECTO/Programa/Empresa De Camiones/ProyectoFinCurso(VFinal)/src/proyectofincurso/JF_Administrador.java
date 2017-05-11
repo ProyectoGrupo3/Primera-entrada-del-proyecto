@@ -17,7 +17,8 @@ public class JF_Administrador extends javax.swing.JFrame {
     
     public JF_Administrador() {
         initComponents();
-        setLocationRelativeTo(null);    
+        setLocationRelativeTo(null);
+        bienvenido.setText("Bienvenido de nuevo "+Jf_InicioSesion.trabajador.getNombre());
     }
 
     @SuppressWarnings("unchecked")
@@ -25,14 +26,16 @@ public class JF_Administrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jB_Salir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jB_Volver = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jB_Trabajador_CRUD = new javax.swing.JButton();
         jB_JF_CT_CRUD = new javax.swing.JButton();
         jB_JF_Vehiculo_CRUD = new javax.swing.JButton();
-        jB_JF_Gestion_Parte_CRUD = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jB_JF_Aviso_CRUD = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jB_Volver = new javax.swing.JButton();
+        jB_JF_Gestion_Parte_CRUD = new javax.swing.JButton();
+        bienvenido = new javax.swing.JLabel();
 
         jB_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
         jB_Salir.setText("Salir");
@@ -55,44 +58,9 @@ public class JF_Administrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jB_Trabajador_CRUD.setText("Gestión de Trabajadores");
-        jB_Trabajador_CRUD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_Trabajador_CRUDActionPerformed(evt);
-            }
-        });
-
-        jB_JF_CT_CRUD.setText("Gestión de Centros de Trabajo");
-        jB_JF_CT_CRUD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_JF_CT_CRUDActionPerformed(evt);
-            }
-        });
-
-        jB_JF_Vehiculo_CRUD.setText("Gestión de Vehículos");
-        jB_JF_Vehiculo_CRUD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_JF_Vehiculo_CRUDActionPerformed(evt);
-            }
-        });
-
-        jB_JF_Gestion_Parte_CRUD.setText("Gestión de Partes");
-        jB_JF_Gestion_Parte_CRUD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_JF_Gestion_Parte_CRUDActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("HIMEVICO, S.L.");
-
-        jB_JF_Aviso_CRUD.setText("Gestión de Avisos");
-        jB_JF_Aviso_CRUD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_JF_Aviso_CRUDActionPerformed(evt);
-            }
-        });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
         jButton8.setText("Salir");
@@ -132,6 +100,70 @@ public class JF_Administrador extends javax.swing.JFrame {
             }
         });
 
+        jB_Trabajador_CRUD.setText("Gestión de Trabajadores");
+        jB_Trabajador_CRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_Trabajador_CRUDActionPerformed(evt);
+            }
+        });
+
+        jB_JF_CT_CRUD.setText("Gestión de Centros de Trabajo");
+        jB_JF_CT_CRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_JF_CT_CRUDActionPerformed(evt);
+            }
+        });
+
+        jB_JF_Vehiculo_CRUD.setText("Gestión de Vehículos");
+        jB_JF_Vehiculo_CRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_JF_Vehiculo_CRUDActionPerformed(evt);
+            }
+        });
+
+        jB_JF_Aviso_CRUD.setText("Gestión de Avisos");
+        jB_JF_Aviso_CRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_JF_Aviso_CRUDActionPerformed(evt);
+            }
+        });
+
+        jB_JF_Gestion_Parte_CRUD.setText("Gestión de Partes");
+        jB_JF_Gestion_Parte_CRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_JF_Gestion_Parte_CRUDActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jB_Trabajador_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jB_JF_Gestion_Parte_CRUD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jB_JF_Aviso_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jB_JF_Vehiculo_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jB_JF_CT_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jB_Trabajador_CRUD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_JF_CT_CRUD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_JF_Vehiculo_CRUD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_JF_Aviso_CRUD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jB_JF_Gestion_Parte_CRUD)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bienvenido.setText("Bienvenido ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,42 +174,32 @@ public class JF_Administrador extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jB_Trabajador_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jB_JF_CT_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
-                                .addComponent(jB_JF_Gestion_Parte_CRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jB_JF_Aviso_CRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jB_JF_Vehiculo_CRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                        .addGap(110, 110, 110)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(81, 99, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
                 .addComponent(jB_Volver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8)
-                .addGap(81, 81, 81))
+                .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jB_Trabajador_CRUD)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jB_JF_CT_CRUD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jB_JF_Vehiculo_CRUD)
-                .addGap(18, 18, 18)
-                .addComponent(jB_JF_Aviso_CRUD)
-                .addGap(22, 22, 22)
-                .addComponent(jB_JF_Gestion_Parte_CRUD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bienvenido)
+                .addGap(41, 41, 41)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(jB_Volver))
-                .addGap(17, 17, 17))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
@@ -286,6 +308,7 @@ public class JF_Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bienvenido;
     private javax.swing.JButton jB_JF_Aviso_CRUD;
     private javax.swing.JButton jB_JF_CT_CRUD;
     private javax.swing.JButton jB_JF_Gestion_Parte_CRUD;
@@ -295,5 +318,6 @@ public class JF_Administrador extends javax.swing.JFrame {
     public javax.swing.JButton jB_Volver;
     public javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

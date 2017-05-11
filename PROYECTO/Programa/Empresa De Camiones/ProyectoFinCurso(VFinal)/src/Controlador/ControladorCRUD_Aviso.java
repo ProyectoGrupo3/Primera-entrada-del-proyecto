@@ -23,6 +23,12 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
     JF_Aviso_CRUD vista_Aviso_CRUD = new JF_Aviso_CRUD();
     Aviso_CRUD modelo_Aviso_CRUD = new Aviso_CRUD();
 
+    /**
+     * Listener de los botones y campos.
+     *
+     * @param vista_Aviso_CRUD
+     * @param modelo_Aviso_CRUD
+     */
     public ControladorCRUD_Aviso(JF_Aviso_CRUD vista_Aviso_CRUD, Aviso_CRUD modelo_Aviso_CRUD) {
         this.modelo_Aviso_CRUD = modelo_Aviso_CRUD;
         this.vista_Aviso_CRUD = vista_Aviso_CRUD;
@@ -39,6 +45,11 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
         this.vista_Aviso_CRUD.jT_BuscarLogis.addKeyListener(this);
     }
 
+    /**
+     * Llenar la tabla con informacion de las cabecera partes.
+     *
+     * @param tablaCT
+     */
     public void LlenarTabla(JTable tablaCT) {
         DefaultTableModel modeloT = new DefaultTableModel();
         tablaCT.setModel(modeloT);
@@ -74,6 +85,9 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
         JOptionPane.showMessageDialog(null, "Listado terminado");
     }
 
+    /**
+     * Limpiar los campos de la ventana.
+     */
     public void limpiar() {
 
         vista_Aviso_CRUD.jT_Fecha_A.setText("");
@@ -86,7 +100,11 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
         vista_Aviso_CRUD.jT_Fecha_A.setText(hoyString);
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * Todos los eventos que ocasiona presionar los botones.
+     *
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
 
         // CREAR: ALTA de datos nuevos
@@ -94,9 +112,13 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
             // CONVERTIR EL STRING EN DATE     
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             String avisoInString = vista_Aviso_CRUD.jT_Fecha_A.getText();
-            java.sql.Date fecha_A = null;
+            java.util.Date fa = new java.util.Date();
+            java.sql.Date fecha_A = new java.sql.Date(fa.getTime());
             String parteInString = vista_Aviso_CRUD.jT_F_Parte.getText();
-            java.sql.Date fecha_P = null;
+            java.sql.Date fecha_P = new java.sql.Date(fa.getTime());
+            if (avisoInString == null) {
+                avisoInString = fa.toString();
+            }
             try {
                 Date parsed = formatter.parse(avisoInString);
                 fecha_A = new java.sql.Date(parsed.getTime());
@@ -133,8 +155,8 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
 
                 // Subo los valores de la fila a los campos de edición
                 vista_Aviso_CRUD.jT_Fecha_A.setText(String.valueOf(vista_Aviso_CRUD.jTableDatos.getValueAt(filaEditar, 0)));
-    //            vista_Aviso_CRUD.jL_Trabajador.setText(String.valueOf(vista_Aviso_CRUD.jTableDatos.getValueAt(filaEditar, 1)));
-      //          vista_Aviso_CRUD.jL_Fecha_P.setText(String.valueOf(vista_Aviso_CRUD.jTableDatos.getValueAt(filaEditar, 2)));
+                //            vista_Aviso_CRUD.jL_Trabajador.setText(String.valueOf(vista_Aviso_CRUD.jTableDatos.getValueAt(filaEditar, 1)));
+                //          vista_Aviso_CRUD.jL_Fecha_P.setText(String.valueOf(vista_Aviso_CRUD.jTableDatos.getValueAt(filaEditar, 2)));
                 vista_Aviso_CRUD.jT_Area_Aviso.setText(String.valueOf(vista_Aviso_CRUD.jTableDatos.getValueAt(filaEditar, 3)));
 
                 // Deshabilito los campos NO editables: fecha aviso y parte, trabajador
@@ -230,14 +252,13 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
             }
             vista_Aviso_CRUD.jT_BuscarLogis.setText("");
         } else { // NO HAY QUE BUSCAR NADA, SOLO ACTUALIZAR LOS VALORES
-            
-            String Aviso = vista_Aviso_CRUD.jT_Area_Aviso.getText();
-            
- //           int id_Admin = Integer.parseInt(vista_Aviso_CRUD.jTableDatos.get getText());
-   //         int id_Logis = Integer.parseInt(vista_Aviso_CRUD.jText_1.getText());
 
-            int id_Admin=0;
-            int id_Logis=0;
+            String Aviso = vista_Aviso_CRUD.jT_Area_Aviso.getText();
+
+            //           int id_Admin = Integer.parseInt(vista_Aviso_CRUD.jTableDatos.get getText());
+            //         int id_Logis = Integer.parseInt(vista_Aviso_CRUD.jText_1.getText());
+            int id_Admin = 0;
+            int id_Logis = 0;
             java.sql.Date fecha_P = null;
             java.sql.Date fecha_A = null;
 
@@ -260,19 +281,18 @@ public class ControladorCRUD_Aviso implements ActionListener, KeyListener {
         }
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
 
-@Override
-        public void keyTyped(KeyEvent e) {
-        
     }
 
     @Override
-        public void keyPressed(KeyEvent e) {
-        
+    public void keyPressed(KeyEvent e) {
+
     }
 
     @Override
-        public void keyReleased(KeyEvent e) {
-        
+    public void keyReleased(KeyEvent e) {
+
     }
 }

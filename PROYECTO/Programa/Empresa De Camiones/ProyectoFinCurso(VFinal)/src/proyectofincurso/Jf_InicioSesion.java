@@ -50,15 +50,15 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
     public void setClaveTrabajador(Clave claveTrabajador) {
         this.claveTrabajador = claveTrabajador;
     }
-    
+
     public Jf_Logistica getPantallaLogistica2() {
         return pantallaLogistica2;
     }
-    
+
     public void setPantallaLogistica2(Jf_Logistica pantallaLogistica2) {
         this.pantallaLogistica2 = pantallaLogistica2;
     }
-    
+
     public JF_Administrador getPantallaAdministrador() {
         return pantallaAdministrador;
     }
@@ -69,20 +69,31 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
     public void setPantallaAdministrador(JF_Administrador pantallaAdministrador) {
         this.pantallaAdministrador = pantallaAdministrador;
     }
-    
+
     private JF_Administrador pantallaAdministrador;
     //private PantLogistica1 pantallaLogistica1;
     private Jf_Logistica pantallaLogistica2;
     public static Jf_InicioSesion inisesion;
 
-    //La conexion global para todo el programa
+    /**
+     * La conexion global para todo el programa.
+     */
     public static Connection conexion;
-    
+
+    /**
+     * Limpiar el texto de inicio de sesión que ha puesto el usuario.
+     */
     public void limpiarInicio() {
         nombreText.setText("");
         passwordText.setText("");
     }
+    /**
+     * Todos los datos del trabajador para poder usar a lo largo del programa.
+     */
     public static Trabajador trabajador;
+    /**
+     * Los datos de la clave del trabajador que ha iniciado sesión.
+     */
     public static Clave claveTrabajador;
 
     /**
@@ -273,7 +284,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
             // Traer y guardar el registro de clave y el trabajador
             comprobar.executeUpdate();
             if (comprobar.getInt(23) == 1) {
-                
+
                 setClaveTrabajador(new Clave(comprobar.getInt(3), comprobar.getString(4), comprobar.getString(5), comprobar.getDate(6), comprobar.getInt(7)));
                 setTrabajador(new Trabajador(comprobar.getInt(8), comprobar.getString(9), comprobar.getString(10), comprobar.getString(11), comprobar.getString(12), comprobar.getString(13), comprobar.getString(14), comprobar.getString(15), comprobar.getString(16), comprobar.getString(17), comprobar.getString(18), comprobar.getInt(19), comprobar.getDate(20), comprobar.getString(21), comprobar.getInt(22)));
                 JOptionPane.showMessageDialog(this, "Correcto");
@@ -293,9 +304,9 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 String logis = "LOGISTICA";
                 String trab = getTrabajador().getCategoria();
                 comprobar.close();
-                
+
                 if (seguir < 30 && !claveTrabajador.getContrasenya().equals("Himevico12345")) {
-                    
+
                     if (trab.equals(adm)) {
                         //Abrir pantalla Administrador
                         if (pantallaAdministrador == null) {
@@ -304,17 +315,17 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         }
                         pantallaAdministrador.setVisible(true);
                         limpiarInicio();
-                        
+
                     } else {
                         //Abrir pantalla Logistica
                         java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
                         java.sql.Date sqlDate = new java.sql.Date(hoy.getTime());
-                        
+
                         //Devolver el parte abierto
                         sentencia.close();
                         sentencia = conexion.createStatement();
                         comprobar = conexion.prepareCall("{call TRAER_PARTE_ABIERTO(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-                        
+
                         comprobar.setInt(1, trabajador.getID_trabajador());
                         comprobar.registerOutParameter(2, Types.DATE);
                         comprobar.registerOutParameter(3, Types.NUMERIC);
@@ -331,7 +342,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         comprobar.registerOutParameter(14, Types.VARCHAR);
                         comprobar.registerOutParameter(15, Types.NUMERIC);
                         comprobar.execute();
-                        
+
                         Cabe_Parte cabecera_parte = null;
 
                         //si paso un dia, y no ha cerrado el parte abierto
@@ -343,7 +354,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             System.out.println("hay parte");
                             Date dateParte = comprobar.getDate(2);
                             Date dateHoy = sqlDate;
-                            
+
                             if (dateParte.getDay() == dateHoy.getDay() && comprobar.getBoolean(11) == true) {
                                 JOptionPane.showMessageDialog(null, "Ya has creado y cerrado hoy un parte, espera a mañana");
                                 System.exit(0);
@@ -354,7 +365,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                             if (comprobar.getObject(12).equals('1')) {
                                 veri = true;
                             }
-                            
+
                             cabecera_parte = new Cabe_Parte(comprobar.getDate(2), comprobar.getInt(3), comprobar.getInt(4), comprobar.getInt(5), comprobar.getInt(6), comprobar.getInt(7), comprobar.getInt(8), comprobar.getString(9), comprobar.getInt(10), crar, veri, comprobar.getInt(13), comprobar.getString(14));
                             if (crar == false && dateParte.getDay() != dateHoy.getDay()) {
                                 JOptionPane.showMessageDialog(null, "Aun no has cerrado el parte del otro dia, cierralo");
@@ -372,19 +383,19 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                         getPantallaLogistica2().setVisible(true);
                         if (c == 1) {
                             noEditable();
-                            
+
                         }
                         pantallaLogistica2.rellenarParte(cabecera_parte);
                         limpiarInicio();
                     }
                     //esconder ventana
                     this.setVisible(false);
-                    
+
                 } else {
                     JOptionPane.showConfirmDialog(null, "Tienes que cambiar la contraseña. Han pasado mas de 30 dias desde el último cambio \n O tienes la contraseña por defecto.");
 
                     //crear la nueva contra
-                    ModificarContrasenya crear_contra = new ModificarContrasenya();
+                    Jf_ModificarContrasenya crear_contra = new Jf_ModificarContrasenya();
                     crear_contra.setInicioSesion(this);
                     crear_contra.setVisible(true);
 
@@ -393,7 +404,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR USUARIO O CONTRASEÑA ERRONEOS", "Resultado", JOptionPane.ERROR_MESSAGE);
             }
-            
+
             sentencia.close();
 
             //sentencia.close();
@@ -403,12 +414,13 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_entrarActionPerformed
-    
-     /**
-        *  Esto vale para que podamos dar a enter y nos apriete automaticamente el botón de Entrar en lugar de usar el ratón.
-        */
+
+    /**
+     * Esto vale para que podamos dar a enter y nos apriete automaticamente el
+     * botón de Entrar en lugar de usar el ratón.
+     */
     public void hacerClick() {
-       
+
         entrar.doClick();
     }
     private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
@@ -475,7 +487,10 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
         //Crear conexion con el servidor oracle 12c
 
     }
-    
+/**
+ * Inhabilita la posibilidad de edición de un parte cuando lo habre un trabajador
+ * de logistica que no ha cerrado un parte en el día correspondiente.
+ */
     public void noEditable() {
         pantallaLogistica2.horaInicioText.setEditable(false);
         pantallaLogistica2.horaFinText.setEditable(false);

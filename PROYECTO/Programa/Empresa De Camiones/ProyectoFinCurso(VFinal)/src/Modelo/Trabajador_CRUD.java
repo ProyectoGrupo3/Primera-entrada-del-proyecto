@@ -13,6 +13,28 @@ import proyectofincurso.Jf_InicioSesion;
 public class Trabajador_CRUD {
 
     Connection accesoDB = Jf_InicioSesion.conexion;
+
+    /**
+     * Creacion de un trabajador
+     *
+     * @param ID
+     * @param dni
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param calle
+     * @param portal
+     * @param piso
+     * @param mano
+     * @param telefono_p
+     * @param movil_em
+     * @param salario
+     * @param fecha_nac
+     * @param categoria
+     * @param ct
+     * @return
+     * @throws ParseException
+     */
     public String insertTrabajador(int ID, String dni, String nombre, String apellido1, String apellido2, String calle, String portal, String piso, String mano, String telefono_p, String movil_em, double salario, java.sql.Date fecha_nac, String categoria, int ct) throws ParseException {
 
         String rptaRegistro = null;
@@ -21,7 +43,7 @@ public class Trabajador_CRUD {
 
         try {
             // LLAMADA AL PROCEDIMIENTO ALMACENADO EN ORACLE
-            CallableStatement cs = accesoDB.prepareCall("{CALL P_IN_EDIT_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
+            CallableStatement cs = accesoDB.prepareCall("{CALL INSERTAR_UPDATE_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
             // SE RELLENAN TODOS LOS PARAMETROS
             cs.setInt(1, ID);
             cs.setString(2, dni);
@@ -50,6 +72,11 @@ public class Trabajador_CRUD {
         return rptaRegistro;
     }
 
+    /**
+     * Listado de trabajadores.
+     *
+     * @return
+     */
     public ArrayList<Trabajador> listTrabajador() {
         ArrayList listaTrabajador = new ArrayList();
         Trabajador trabajador;
@@ -90,6 +117,26 @@ public class Trabajador_CRUD {
         return listaTrabajador;
     }
 
+    /**
+     * Editar un trabajador.
+     *
+     * @param ID
+     * @param dni
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param calle
+     * @param portal
+     * @param piso
+     * @param mano
+     * @param telefono_p
+     * @param movil_em
+     * @param salario
+     * @param fecha_nac
+     * @param categoria
+     * @param ct
+     * @return
+     */
     public int editarTrabajador(int ID, String dni, String nombre, String apellido1, String apellido2, String calle, String portal, String piso, String mano, String telefono_p, String movil_em, double salario, Date fecha_nac, String categoria, int ct) {
 
         String rptaEdit = null;
@@ -99,7 +146,7 @@ public class Trabajador_CRUD {
         fecha_nac = new java.sql.Date(fecha_nac.getTime());
 
         try {
-            CallableStatement cs = accesoDB.prepareCall("{CALL P_IN_EDIT_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
+            CallableStatement cs = accesoDB.prepareCall("{CALL INSERTAR_UPDATE_TRABAJADOR(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }");
             cs.setInt(1, ID);
             cs.setString(2, dni);
             cs.setString(3, nombre);
@@ -128,11 +175,17 @@ public class Trabajador_CRUD {
         return numFil;
     }
 
+    /**
+     * Eliminación de un trabajador
+     *
+     * @param Id
+     * @return
+     */
     public int eliminarTrabajador(int Id) {
         int numFil = 0;
 
         try {
-            CallableStatement cs = accesoDB.prepareCall("{CALL P_DELETE_TRABAJADOR(?) }");
+            CallableStatement cs = accesoDB.prepareCall("{CALL BORRAR_TRABAJADOR(?) }");
             cs.setInt(1, Id);
 
             numFil = cs.executeUpdate();
@@ -145,6 +198,12 @@ public class Trabajador_CRUD {
         return numFil;
     }
 
+    /**
+     * Busqueda de un trabajador por nombre
+     *
+     * @param nombreBuscado
+     * @return
+     */
     public ArrayList<Trabajador> buscarTrabajadorxNombre(String nombreBuscado) {
         ArrayList<Trabajador> listaTrabajador = new ArrayList();
         Trabajador trabajador;
