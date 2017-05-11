@@ -11,6 +11,17 @@ import proyectofincurso.Jf_InicioSesion;
 public class Vehiculo_CRUD {
 
     Connection accesoDB = Jf_InicioSesion.conexion;
+
+    /**
+     * Crear un nuevo vehículo
+     *
+     * @param matricula
+     * @param marca
+     * @param modelo
+     * @param color
+     * @param kms
+     * @return
+     */
     public String insertVehiculo(String matricula, String marca, String modelo, String color, int kms) {
 
         String rptaRegistro = null;
@@ -38,6 +49,11 @@ public class Vehiculo_CRUD {
         return rptaRegistro;
     }
 
+    /**
+     * Listado de vehículo
+     *
+     * @return
+     */
     public ArrayList<Vehiculo> listVehiculo() {
         ArrayList listaVehiculo = new ArrayList();
         Vehiculo vehiculo;
@@ -68,6 +84,16 @@ public class Vehiculo_CRUD {
         return listaVehiculo;
     }
 
+    /**
+     * Editar los datos de un vehículo ya creado
+     *
+     * @param matricula
+     * @param marca
+     * @param modelo
+     * @param color
+     * @param kms
+     * @return
+     */
     public String editarVehiculo(String matricula, String marca, String modelo, String color, int kms) {
 
         String rptaEdit = null;
@@ -96,6 +122,12 @@ public class Vehiculo_CRUD {
         return rptaEdit;
     }
 
+    /**
+     * Eliminación de un vehículo
+     *
+     * @param matricula
+     * @return
+     */
     public int eliminarVehiculo(String matricula) {
         int numFil = 0;
 
@@ -113,6 +145,12 @@ public class Vehiculo_CRUD {
         return numFil;
     }
 
+    /**
+     * Busqueda de un vehículo por nombre de la matrícula
+     *
+     * @param nombreBuscado
+     * @return
+     */
     public ArrayList<Vehiculo> buscarVehiculoxNombre(String nombreBuscado) {
         ArrayList<Vehiculo> listaVehiculo = new ArrayList();
         Vehiculo vehiculo;

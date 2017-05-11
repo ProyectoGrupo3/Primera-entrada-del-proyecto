@@ -5,7 +5,6 @@
  */
 package proyectofincurso;
 
-import Modelo.Clave;
 import Modelo.Alter_contrasenya_oracle_y_tabla_clave;
 import java.awt.event.KeyEvent;
 import java.sql.*;
@@ -17,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author 7fbd12
  */
-public class ModificarContrasenya extends javax.swing.JFrame {
+public class Jf_ModificarContrasenya extends javax.swing.JFrame {
 
     /**
      * @return the inicioSesion
@@ -33,16 +32,18 @@ public class ModificarContrasenya extends javax.swing.JFrame {
         this.inicioSesion = inicioSesion;
     }
 
+    /**
+     * Atajo para hacer click en el boton aceptar al presionar enter
+     */
     public void hacerClick() {
         aceptarYGuardar.doClick();
     }
     private Jf_InicioSesion inicioSesion;
-    private Clave claveTrabajador;
 
     /**
      * Creates new form ModificarContraseña
      */
-    public ModificarContrasenya() {
+    public Jf_ModificarContrasenya() {
         initComponents();
     }
 
@@ -64,7 +65,11 @@ public class ModificarContrasenya extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        aceptarYGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ok.png"))); // NOI18N
         aceptarYGuardar.setText("Aceptar y guardar");
+        aceptarYGuardar.setBorder(null);
+        aceptarYGuardar.setBorderPainted(false);
+        aceptarYGuardar.setContentAreaFilled(false);
         aceptarYGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarYGuardarActionPerformed(evt);
@@ -94,9 +99,6 @@ public class ModificarContrasenya extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(aceptarYGuardar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -106,7 +108,10 @@ public class ModificarContrasenya extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(vuelvaText, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(vuelvaText, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(aceptarYGuardar)))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,9 +125,9 @@ public class ModificarContrasenya extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(vuelvaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(aceptarYGuardar)
-                .addContainerGap())
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,8 +153,6 @@ public class ModificarContrasenya extends javax.swing.JFrame {
     private void aceptarYGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarYGuardarActionPerformed
         String contra1 = nuevaCText.getText();
         String contraConfirm = vuelvaText.getText();
-
-        claveTrabajador = inicioSesion.getClaveTrabajador();
 
         if (contraConfirm.equals(contra1)) {
 
@@ -233,20 +236,21 @@ public class ModificarContrasenya extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jf_ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jf_ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jf_ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jf_ModificarContrasenya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificarContrasenya().setVisible(true);
+                new Jf_ModificarContrasenya().setVisible(true);
             }
         });
     }

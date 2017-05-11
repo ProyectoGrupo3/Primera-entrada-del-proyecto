@@ -18,7 +18,12 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
     JF_CT_CRUD vista_CT_CRUD = new JF_CT_CRUD();
     CT_CRUD modelo_CT_CRUD = new CT_CRUD();
 
-    @SuppressWarnings("LeakingThisInConstructor")
+    /**
+     * Listener de los botones y campos.
+     *
+     * @param vista_CT_CRUD
+     * @param modelo_CT_CRUD
+     */
     public ControladorCRUD_CT(JF_CT_CRUD vista_CT_CRUD, CT_CRUD modelo_CT_CRUD) {
         this.modelo_CT_CRUD = modelo_CT_CRUD;
         this.vista_CT_CRUD = vista_CT_CRUD;
@@ -37,7 +42,11 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         this.vista_CT_CRUD.jText_8.addKeyListener(this);
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * Llenar la tabla con informacion de las cabecera partes.
+     *
+     * @param tablaCT
+     */
     public void LlenarTabla(JTable tablaCT) {
         DefaultTableModel modeloT = new DefaultTableModel();
         tablaCT.setModel(modeloT);
@@ -74,6 +83,9 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         JOptionPane.showMessageDialog(null, "Listado terminado");
     }
 
+    /**
+     * Limpiar los campos de la ventana.
+     */
     public void limpiar() {
 
         vista_CT_CRUD.jText_1.setText(null);
@@ -89,7 +101,11 @@ public class ControladorCRUD_CT implements ActionListener, KeyListener {
         vista_CT_CRUD.jText_2.requestFocus();
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * Todos los eventos que ocasiona presionar los botones.
+     *
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
 
         // CREAR: ALTA de datos nuevos

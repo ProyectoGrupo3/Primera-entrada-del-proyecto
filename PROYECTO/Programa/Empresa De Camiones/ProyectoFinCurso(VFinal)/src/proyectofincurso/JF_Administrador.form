@@ -55,26 +55,21 @@
                       <Component id="jLabel2" min="-2" pref="475" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jB_Trabajador_CRUD" max="32767" attributes="0"/>
-                              <Component id="jB_JF_CT_CRUD" alignment="0" pref="493" max="32767" attributes="0"/>
-                              <Component id="jB_JF_Gestion_Parte_CRUD" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jB_JF_Aviso_CRUD" alignment="0" min="-2" pref="485" max="-2" attributes="0"/>
-                          <Component id="jB_JF_Vehiculo_CRUD" alignment="0" min="-2" pref="493" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jPanel1" max="32767" attributes="0"/>
+                          <Component id="bienvenido" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace min="81" pref="99" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
               <Component id="jB_Volver" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton8" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,60 +77,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
-              <Component id="jB_Trabajador_CRUD" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="46" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jB_JF_CT_CRUD" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jB_JF_Vehiculo_CRUD" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jB_JF_Aviso_CRUD" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jB_JF_Gestion_Parte_CRUD" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="bienvenido" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_Volver" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <EmptySpace pref="99" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jB_Trabajador_CRUD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Trabajadores"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_Trabajador_CRUDActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jB_JF_CT_CRUD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Centros de Trabajo"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_CT_CRUDActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jB_JF_Vehiculo_CRUD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Veh&#xed;culos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Vehiculo_CRUDActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jB_JF_Gestion_Parte_CRUD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Partes"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Gestion_Parte_CRUDActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -144,14 +101,6 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="HIMEVICO, S.L."/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jB_JF_Aviso_CRUD">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Avisos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Aviso_CRUDActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton8">
       <Properties>
@@ -198,6 +147,85 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jB_Trabajador_CRUD" max="32767" attributes="0"/>
+              <Component id="jB_JF_Gestion_Parte_CRUD" alignment="1" max="32767" attributes="0"/>
+              <Component id="jB_JF_Aviso_CRUD" alignment="0" max="32767" attributes="0"/>
+              <Component id="jB_JF_Vehiculo_CRUD" max="32767" attributes="0"/>
+              <Component id="jB_JF_CT_CRUD" alignment="0" pref="412" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jB_Trabajador_CRUD" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jB_JF_CT_CRUD" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jB_JF_Vehiculo_CRUD" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jB_JF_Aviso_CRUD" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jB_JF_Gestion_Parte_CRUD" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="61" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jB_Trabajador_CRUD">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Trabajadores"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_Trabajador_CRUDActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jB_JF_CT_CRUD">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Centros de Trabajo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_CT_CRUDActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jB_JF_Vehiculo_CRUD">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Veh&#xed;culos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Vehiculo_CRUDActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jB_JF_Aviso_CRUD">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Avisos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Aviso_CRUDActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jB_JF_Gestion_Parte_CRUD">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Partes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Gestion_Parte_CRUDActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="bienvenido">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Bienvenido "/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

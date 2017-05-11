@@ -14,7 +14,12 @@ public class Gestion_Parte_CRUD {
     }
 
     Connection accesoDB = Jf_InicioSesion.conexion;
+
     // UTILIZO una VISTA de las Cabeceras para tener todos los datos
+    /**
+     *Listado de cabeceras de partes.
+     * @return
+     */
     public ArrayList<Vista_CP> listVista_CP() {
         ArrayList listaVista_CP = new ArrayList();
         Vista_CP vista_cp;
@@ -53,6 +58,10 @@ public class Gestion_Parte_CRUD {
         return listaVista_CP;
     }
 
+    /**
+     * Listado de vehículos
+     * @return 
+     */
     public ArrayList<Vehiculo> listVehiculo() {
         ArrayList listaVehiculo = new ArrayList();
         Vehiculo vehiculo;
@@ -60,8 +69,8 @@ public class Gestion_Parte_CRUD {
             CallableStatement cs = accesoDB.prepareCall("{CALL P_LISTA_VEHICULO (?)}");
             cs.registerOutParameter(1, OracleTypes.CURSOR);
             cs.execute();
-            ResultSet rs = (ResultSet) cs.getObject(1);            
-            
+            ResultSet rs = (ResultSet) cs.getObject(1);
+
             while (rs.next()) {
                 vehiculo = new Vehiculo();
                 vehiculo.setMatricula(rs.getString(1));
@@ -81,6 +90,23 @@ public class Gestion_Parte_CRUD {
         return listaVehiculo;
     }
 
+    /**
+     * Editar una cabecera parte
+     * @param fecha
+     * @param id
+     * @param matricula
+     * @param km_ini
+     * @param km_fin
+     * @param gasoil
+     * @param autopista
+     * @param dietas
+     * @param otros
+     * @param incidencias
+     * @param crd
+     * @param vrf
+     * @param he
+     * @return 
+     */
     public String editarGestion_Parte(Date fecha, int id, String matricula, int km_ini, int km_fin, double gasoil, double autopista, double dietas, double otros, String incidencias, Boolean crd, Boolean vrf, long he) {
 
         String rptaEdit = null;
@@ -117,6 +143,13 @@ public class Gestion_Parte_CRUD {
         return rptaEdit;
     }
 
+    /**
+     * Eliminar una cabecera parte. (Al borrar una, las lineas se borran en cascada)
+     * @param fecha
+     * @param matricula
+     * @param id
+     * @return 
+     */
     public int eliminarGestion_Parte(Date fecha, String matricula, int id) {
         int numFil = 0;
 
@@ -134,7 +167,13 @@ public class Gestion_Parte_CRUD {
         }
         return numFil;
     }
-
+/**
+ * Busqueda de una cabecera parte por fecha o por cerrados y fecha.
+ * @param fechaBuscado
+ * @param cerrado
+ * @param verificado
+ * @return 
+ */
     public ArrayList<Vista_CP> buscarGestion_PartexFecha(java.sql.Date fechaBuscado, String cerrado, String verificado) {
         ArrayList<Vista_CP> listaGestion_Parte = new ArrayList();
         Vista_CP vista_cp;

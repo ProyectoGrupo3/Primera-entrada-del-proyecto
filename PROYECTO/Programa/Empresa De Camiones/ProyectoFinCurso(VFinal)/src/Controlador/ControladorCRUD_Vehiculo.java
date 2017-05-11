@@ -18,6 +18,9 @@ public class ControladorCRUD_Vehiculo implements ActionListener, KeyListener {
     Vehiculo_CRUD modelo_Vehiculo_CRUD = new Vehiculo_CRUD();
 
     @SuppressWarnings("LeakingThisInConstructor")
+    /**
+     * Listener de los botones, etc. utilizados en la ventana de vehiculo
+     */
     public ControladorCRUD_Vehiculo(JF_Vehiculo_CRUD vista_Vehiculo_CRUD, Vehiculo_CRUD modelo_Vehiculo_CRUD) {
         this.modelo_Vehiculo_CRUD = modelo_Vehiculo_CRUD;
         this.vista_Vehiculo_CRUD = vista_Vehiculo_CRUD;
@@ -36,6 +39,9 @@ public class ControladorCRUD_Vehiculo implements ActionListener, KeyListener {
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * Llenar la tabla con la información de los vehículos
+     */
     public void LlenarTabla(JTable tablaV) {
         DefaultTableModel modeloV = new DefaultTableModel();
         tablaV.setModel(modeloV);
@@ -67,6 +73,9 @@ public class ControladorCRUD_Vehiculo implements ActionListener, KeyListener {
         JOptionPane.showMessageDialog(null, "Listado terminado");
     }
 
+    /**
+     * Limpiar el texto de la ventana
+     */
     public void limpiar() {
 
         vista_Vehiculo_CRUD.jText_2.setEditable(true);
@@ -81,6 +90,9 @@ public class ControladorCRUD_Vehiculo implements ActionListener, KeyListener {
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * Todos los eventos que ocasiona presionar los botones.
+     */
     public void actionPerformed(ActionEvent e) {
 
         // CREAR: ALTA de datos nuevos
@@ -227,6 +239,9 @@ public class ControladorCRUD_Vehiculo implements ActionListener, KeyListener {
     }
 
     @Override
+    /**
+     * Que sea un numero entre 0 y 9 de longitud.
+     */
     public void keyTyped(KeyEvent e
     ) {
         // Para controlar el texto que se pone en el campo "número" sea un número

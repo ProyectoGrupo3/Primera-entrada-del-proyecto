@@ -7,12 +7,11 @@ package proyectofincurso;
 
 import Modelo.Cabe_Parte;
 import Modelo.Linea_Parte;
-import static java.lang.Integer.parseInt;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import oracle.jdbc.OracleTypes;
-import oracle.jdbc.*;
 import static proyectofincurso.Jf_InicioSesion.conexion;
 
 /**
@@ -45,6 +43,14 @@ public class Jf_Logistica extends javax.swing.JFrame {
         this.inicioSesion = inicioSesion;
     }
 
+    /**
+     * Pasamos un objeto de la clase Cabecera y ponemos los datos en la Ventana.
+     * Tambien hace una llamada a la base de datos para obtener las lineas de
+     * parte asociadas a este y las añade a un ArrayList en esta clase y los
+     * pone en la tabla.
+     *
+     * @param cp cabecera del parte
+     */
     public void rellenarParte(Cabe_Parte cp) {
         if (cp == null) {
 
@@ -85,6 +91,13 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Calculo de los minutos en base a las horas puestas en las lineas con
+     * formato "00:00".
+     *
+     * @return numero long que nos devuelve los minutos totales trabajados según
+     * las horas puestas en las lineas.
+     */
     public long calcularMinutosExcesoHoras() {
         long total = 0;
         if (lineas_parte != null) {
@@ -108,6 +121,11 @@ public class Jf_Logistica extends javax.swing.JFrame {
         return total;
     }
 
+    /**
+     * Colocacion de nueva linea para el parte
+     *
+     * @param lp linea del parte
+     */
     public void ponerEnTabla(Linea_Parte lp) {
         //Sección 1 
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
@@ -123,10 +141,19 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Metodo para añadir una linea al array de lineas del parte.
+     *
+     * @param lp linea del parte
+     */
     public void añadirParte(Linea_Parte lp) {
         lineas_parte.add(lp);
     }
 
+    /**
+     * Con este metodo obtenemos las lineas de la tabla para luego guardarla en
+     * el arrayList con el anterior metodo añadirParte(lp)
+     */
     public void llenarArrayLineas() {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         //borro el contenido por si se ha borrado en la tabla alguno y no dejar rastros.
@@ -147,6 +174,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *Conseguimos todas las lineas del parte y las insertamos en la base de datos
+     */
     public void obtenerLPparaGuardarEnBD() {
 
         //Tenemos las lineas, ahora a guardar en BD
@@ -188,9 +218,10 @@ public class Jf_Logistica extends javax.swing.JFrame {
     public Jf_Logistica() {
         initComponents();
         java.util.Date utilDate = new java.util.Date(); //fecha actual
-        long lnMilisegundos = utilDate.getTime();
-        sqlDate = new java.sql.Date(lnMilisegundos);
-        fechaParte.setText(sqlDate.toString());
+        sqlDate = new java.sql.Date(utilDate.getTime());
+        SimpleDateFormat hoy = new SimpleDateFormat("dd-MM-yyyy");
+        String sqlDate1 = hoy.format(sqlDate.getTime());
+        fechaParte.setText(sqlDate1);
         setLocationRelativeTo(null);
         jTable1.removeAll();
     }
@@ -239,7 +270,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         horaFinText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cerrarParteCheck = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -514,15 +545,15 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
         cerrarParteCheck.setText("Cerrar");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
-        jButton1.setText("Salir");
-        jButton1.setToolTipText("Salir y desechar parte actual.");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit.png"))); // NOI18N
+        salir.setText("Salir");
+        salir.setToolTipText("Salir y desechar parte actual.");
+        salir.setBorder(null);
+        salir.setBorderPainted(false);
+        salir.setContentAreaFilled(false);
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
 
@@ -551,7 +582,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Jb_GuardarYcerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
-                        .addComponent(jButton1)
+                        .addComponent(salir)
                         .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
@@ -571,16 +602,15 @@ public class Jf_Logistica extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Jb_GuardarYcerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
-                        .addContainerGap(29, Short.MAX_VALUE))
+                            .addComponent(salir)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(cerrarParteCheck))
-                        .addGap(29, 29, 29))))
+                            .addComponent(cerrarParteCheck))))
+                .addContainerGap())
         );
 
         pack();
@@ -599,7 +629,9 @@ public class Jf_Logistica extends javax.swing.JFrame {
         //Sección 5
         jTable1.setModel(modelo);
     }//GEN-LAST:event_Jb_InsertarLineaActionPerformed
-
+/**
+ * Guardamos la cabecera en la base de datos
+ */
     public void insertarCabeceraEnBD() {
 
         try {
@@ -664,7 +696,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
             }
             conexion.close();
             this.setVisible(false);
-            limpiar();
+            limpiarTabla();
             inicioSesion.setVisible(true);
 
         } catch (NumberFormatException e) {
@@ -700,7 +732,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jb_borrarLineaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         try {
             conexion.close();
         } catch (SQLException ex) {
@@ -708,7 +740,7 @@ public class Jf_Logistica extends javax.swing.JFrame {
         }
         System.exit(0);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -769,7 +801,6 @@ public class Jf_Logistica extends javax.swing.JFrame {
     public javax.swing.JTextField horaFinText;
     public javax.swing.JTextField horaInicioText;
     public javax.swing.JTextArea incidenciasText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -792,11 +823,21 @@ public class Jf_Logistica extends javax.swing.JFrame {
     public javax.swing.JTable jTable1;
     public javax.swing.JTextField kmfText;
     public javax.swing.JTextField kmiText;
+    private javax.swing.JButton salir;
     public javax.swing.JTextField vehiculoText;
     // End of variables declaration//GEN-END:variables
 
-    private void limpiar() {
+    /**
+     * Cuando se guarda y cierra sesion, se limpia la tabla.
+     */
+    private void limpiarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        System.out.println(modelo.getRowCount() + " " + modelo.getValueAt(0, 1));
+        for (int j = 0; j < modelo.getRowCount(); j++) {
+            modelo.removeRow(j);
+        }
 
+        jTable1.setModel(modelo);
     }
 
 }

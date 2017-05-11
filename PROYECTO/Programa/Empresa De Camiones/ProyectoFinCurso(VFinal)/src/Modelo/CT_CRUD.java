@@ -16,7 +16,9 @@ public class CT_CRUD {
     }
 
     @SuppressWarnings("UseSpecificCatch")
-
+    /**
+     * Insert de un centro de trabajo en la base de datos.
+     */
     public String insertCT(int Id, String P_CT_nombre, String calle, int numero, String cp, String ciudad, String provincia, String telefono) {
 
         String rptaRegistro = null;
@@ -40,7 +42,6 @@ public class CT_CRUD {
                 rptaRegistro = "Registro ACTUALIZADO";
             }
 
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -48,6 +49,11 @@ public class CT_CRUD {
         return rptaRegistro;
     }
 
+    /**
+     * Listado de todos los centros de trabajo
+     *
+     * @return todos los centros de trabajo
+     */
     public ArrayList<CT> listCT() {
         ArrayList listaCT = new ArrayList();
         CT ct;
@@ -77,6 +83,19 @@ public class CT_CRUD {
         return listaCT;
     }
 
+    /**
+     * Si se ha modificado un registro de centros de trabajo se actualiza
+     *
+     * @param Id
+     * @param nombre
+     * @param calle
+     * @param numero
+     * @param cp
+     * @param ciudad
+     * @param provincia
+     * @param telefono
+     * @return
+     */
     public String editarCT(int Id, String nombre, String calle, int numero, String cp, String ciudad, String provincia, String telefono) {
 
         String rptaEdit = null;
@@ -101,13 +120,18 @@ public class CT_CRUD {
                 rptaEdit = "Registro ACTUALIZAZO";
             }
 
-
         } catch (Exception e) {
         }
 
         return rptaEdit;
     }
 
+    /**
+     * Eliminacion de un centro de trabajo elegido por ID
+     *
+     * @param Id el centro de trabajo a eliminar
+     * @return
+     */
     public int eliminarCT(int Id) {
         int numFil = 0;
 
@@ -123,6 +147,12 @@ public class CT_CRUD {
         return numFil;
     }
 
+    /**
+     * Busqueda de un centro de trabajo por nombre
+     *
+     * @param nombreBuscado
+     * @return
+     */
     public ArrayList<CT> buscarCTxProcedimiento(String nombreBuscado) {
         ArrayList<CT> listaCT = new ArrayList();
         CT ct;

@@ -22,6 +22,12 @@ public class ControladorCRUD_Gestion_Parte implements ActionListener, KeyListene
     JF_Gestion_Parte_CRUD vista_Gestion_Parte_CRUD = new JF_Gestion_Parte_CRUD();
     Gestion_Parte_CRUD modelo_Gestion_Parte_CRUD = new Gestion_Parte_CRUD();
 
+    /**
+     * Listener de los botones y campos.
+     *
+     * @param vista_Gestion_Parte_CRUD
+     * @param modelo_Gestion_Parte_CRUD
+     */
     public ControladorCRUD_Gestion_Parte(JF_Gestion_Parte_CRUD vista_Gestion_Parte_CRUD, Gestion_Parte_CRUD modelo_Gestion_Parte_CRUD) {
 
         this.modelo_Gestion_Parte_CRUD = modelo_Gestion_Parte_CRUD;
@@ -52,6 +58,11 @@ public class ControladorCRUD_Gestion_Parte implements ActionListener, KeyListene
         this.vista_Gestion_Parte_CRUD.jTableDatos.addKeyListener(this);
     }
 
+    /**
+     * Llenar la tabla con informacion de las cabecera partes.
+     *
+     * @param tablaLinea_Parte
+     */
     public void LlenarTabla(JTable tablaLinea_Parte) {
         DefaultTableModel modeloLP = new DefaultTableModel();
         tablaLinea_Parte.setModel(modeloLP);
@@ -108,6 +119,9 @@ public class ControladorCRUD_Gestion_Parte implements ActionListener, KeyListene
         JOptionPane.showMessageDialog(null, "Listado terminado");
     }
 
+    /**
+     * Limpiar los campos de la ventana.
+     */
     public void limpiar() {
         vista_Gestion_Parte_CRUD.jTE_Autopista.setText(null);
         vista_Gestion_Parte_CRUD.jTE_Dietas.setText(null);
@@ -133,6 +147,9 @@ public class ControladorCRUD_Gestion_Parte implements ActionListener, KeyListene
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * Todos los eventos que ocasiona presionar los botones.
+     */
     public void actionPerformed(ActionEvent e) {
 
         // LECTURA de los datos en la tabla

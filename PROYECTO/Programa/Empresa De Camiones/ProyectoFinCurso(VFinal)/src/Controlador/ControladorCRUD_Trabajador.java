@@ -15,8 +15,6 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -36,6 +34,9 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
     Connection accesoDB = Jf_InicioSesion.conexion;
 
     @SuppressWarnings("LeakingThisInConstructor")
+    /**
+     * Listener de los botones y campos.
+     */
     public ControladorCRUD_Trabajador(JF_Trabajador_CRUD vista_Trabajador_CRUD, Trabajador_CRUD modelo_Trabajador_CRUD) {
 
         this.modelo_Trabajador_CRUD = modelo_Trabajador_CRUD;
@@ -58,12 +59,13 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         this.vista_Trabajador_CRUD.jText_11.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_12.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_13.addKeyListener(this);
-        // this.vista_Trabajador_CRUD.jList_CT.addKeyListener(this);
-        this.vista_Trabajador_CRUD.jB_Buscar_centros.addKeyListener(this);
-
+        this.vista_Trabajador_CRUD.jComboBox1.addKeyListener(this);
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * Llenar la tabla con informacion de los trabajadores
+     */
     public void LlenarTabla(JTable tablaTrabajador) {
         DefaultTableModel modeloTr = new DefaultTableModel();
         tablaTrabajador.setModel(modeloTr);
@@ -118,6 +120,9 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         JOptionPane.showMessageDialog(null, "Listado terminado");
     }
 
+    /**
+     * Limpiar los datos de la ventana.
+     */
     public void limpiar() {
         vista_Trabajador_CRUD.jText_1.setText(null);
         vista_Trabajador_CRUD.jText_1.setEditable(true);
@@ -133,13 +138,16 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         vista_Trabajador_CRUD.jText_11.setText("");
         vista_Trabajador_CRUD.jText_12.setText(null);
         vista_Trabajador_CRUD.jText_13.setText(null);
-        //   vista_Trabajador_CRUD.jList_CT.setSelectedIndex(1);
+        vista_Trabajador_CRUD.jComboBox1.setSelectedIndex(1);
 
         // Para que el cursor se ponga en este campo después de limpiar los datos
         vista_Trabajador_CRUD.jText_2.requestFocus();
     }
 
     @SuppressWarnings("unchecked")
+    /**
+     * Todos los eventos que ocasiona presionar los botones.
+     */
     public void actionPerformed(ActionEvent e) {
 
         // BOTON AÑADIR-CREAR
@@ -170,8 +178,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
             // Recojo el dato del NOMBRE del Centro de Trabajo
-            String Nombre_Centro_Trabajo;
-            Nombre_Centro_Trabajo = "inventado";
+            String Nombre_Centro_Trabajo = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
             // Relleno el array con las categorías
             List<CT> ListaCopia = new ArrayList<>();
             ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();
@@ -222,7 +229,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 vista_Trabajador_CRUD.jText_11.setText(String.valueOf(vista_Trabajador_CRUD.jTableDatos.getValueAt(filaEditar, 10)));
                 vista_Trabajador_CRUD.jText_12.setText(String.valueOf(vista_Trabajador_CRUD.jTableDatos.getValueAt(filaEditar, 11)));
                 vista_Trabajador_CRUD.jText_13.setText(String.valueOf(vista_Trabajador_CRUD.jTableDatos.getValueAt(filaEditar, 12)));
-                // CONVERTIR EL STRING EN DATE     
+                // CONVERTIR EL STRING DE FECHA EN DATE     
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 String dateInString = vista_Trabajador_CRUD.jText_13.getText();
                 java.sql.Date FeNac = null;
@@ -237,7 +244,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
                 // Recojo el dato del ID del Centro de Trabajo
-                String ID_Centro_Trabajo = "inventado";
+                String ID_Centro_Trabajo = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
                 int CT = Integer.parseInt(ID_Centro_Trabajo);
                 String Centro = "";
                 // Relleno el array con las categorías
@@ -251,7 +258,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     }
                 }
                 // Pongo el valor recogido de la Categoría en su sitio
-                vista_Trabajador_CRUD.jList_CT.getSelectedRow();
+                vista_Trabajador_CRUD.jComboBox1.setSelectedItem(Centro);
                 // Como el ID es clave lo deshabilito para que no pueda modificarse
                 vista_Trabajador_CRUD.jText_1.setEditable(false);
                 // Deshabilito los botones para que no puedan usarse durante la edición
@@ -378,7 +385,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
                 // Recojo el dato del NOMBRE del Centro de Trabajo
-                String Nombre_Centro_Trabajo = "centro inventado";
+                String Nombre_Centro_Trabajo = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
                 // Relleno el array con las categorías
                 List<CT> ListaCopia = new ArrayList<>();
                 ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();
@@ -391,7 +398,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     }
                 }
                 // Pongo el valor recogido de la Categoría en su sitio
-                vista_Trabajador_CRUD.jList_CT.getSelectedRow();
+                vista_Trabajador_CRUD.jComboBox1.setSelectedItem(CT);
 
                 int rptaEdit = modelo_Trabajador_CRUD.editarTrabajador(ID, dni, Nombre,
                         Apellido1, Apellido2, Calle, Portal, Piso, Mano, T_P, T_E,
@@ -415,48 +422,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             }
 
         }
-        if (e.getSource() == vista_Trabajador_CRUD.jB_Buscar_centros) {
-
-            try {
-                ArrayList listaCT = new ArrayList();
-                CT ct;
-                String sql = "{call CONSULTA_CT.BUSCAR_TOTAL_CT(?)}";
-
-                //Statement sentencia = accesoDB.createStatement();
-                CallableStatement rp = accesoDB.prepareCall(sql);
-                rp.registerOutParameter(1, OracleTypes.CURSOR);
-                rp.executeUpdate();
-                ResultSet res = (ResultSet) rp.getObject(1);
-                while (res.next()) {
-                    ct = new CT();
-                    ct.setID(res.getInt(1));
-                    ct.setNombre(res.getString(2));
-                    ct.setCalle(res.getString(3));
-                    ct.setNumero(res.getInt(4));
-                    ct.setCp(res.getString(5));
-                    ct.setCiudad(res.getString(6));
-                    ct.setProvincia(res.getString(7));
-                    ct.setTelefono(res.getString(8));
-                    listaCT.add(ct);
-                    DefaultTableModel modelo = (DefaultTableModel) vista_Trabajador_CRUD.jList_CT.getModel();
-                    //Sección 2
-                    Object[] fila = new Object[2];
-                    //Sección 3
-                    fila[0] = ct.getNombre();
-                    fila[1] = ct.getID();
-                    //Sección 4
-                    modelo.addRow(fila);
-                    //Sección 5
-                    vista_Trabajador_CRUD.jList_CT.setModel(modelo);
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorCRUD_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
     }
-    // OPCIÓN DE BUSCAR POR NOMBRE
 
     @Override
     public void keyTyped(KeyEvent e

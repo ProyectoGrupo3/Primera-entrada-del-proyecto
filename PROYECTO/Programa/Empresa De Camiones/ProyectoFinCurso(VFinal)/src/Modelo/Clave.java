@@ -20,7 +20,12 @@ public class Clave {
     private java.sql.Date fecha;
     private int id_trabajador;
 
-    
+    /**
+     * Con esto conseguimos la diferencia entre dos fechas en dias de forma APROXIMADA.
+     * Es usado para averiguar cuantos dias han pasado desde el último cambio de fecha de un trabajador
+     * @param fecha fecha que se le pasa
+     * @return la diferencia de dias
+     */
     public long comprobarFecha(java.sql.Date fecha) {
         java.util.Date hoy = new java.util.Date();//dia actual en java.util no java.sql
         java.sql.Date sqlDate = new java.sql.Date(fecha.getTime());
