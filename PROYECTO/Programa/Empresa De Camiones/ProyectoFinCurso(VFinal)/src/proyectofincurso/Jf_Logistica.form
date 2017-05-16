@@ -582,11 +582,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="horaInicioText">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Formato 00:00 hasta 23:59"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="horaFinText">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Formato 00:00 hasta 23:59 superior al de hora inicio"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

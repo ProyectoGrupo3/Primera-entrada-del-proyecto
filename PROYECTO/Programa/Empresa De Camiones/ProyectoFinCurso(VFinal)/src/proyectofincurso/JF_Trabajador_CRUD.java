@@ -110,6 +110,8 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
 
         jLabel13.setText("F. Nac.:");
 
+        jText_13.setToolTipText("Fecha de este formato  01-01-1999");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
