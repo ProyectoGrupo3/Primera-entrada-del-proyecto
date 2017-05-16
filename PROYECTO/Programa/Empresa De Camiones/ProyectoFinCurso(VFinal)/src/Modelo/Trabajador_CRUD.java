@@ -190,7 +190,6 @@ public class Trabajador_CRUD {
 
             numFil = cs.executeUpdate();
             cs.close();
-            Conexion.exitConexion();
 
         } catch (SQLException ex) {
             Logger.getLogger(Trabajador_CRUD.class.getName()).log(Level.SEVERE, null, ex);

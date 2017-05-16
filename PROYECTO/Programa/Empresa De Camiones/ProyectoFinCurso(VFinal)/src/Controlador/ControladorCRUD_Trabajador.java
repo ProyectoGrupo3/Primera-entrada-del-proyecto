@@ -112,8 +112,14 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             columna[10] = ListaCopia.get(i).getMovil_empresa();
             columna[11] = ListaCopia.get(i).getSalario();
             // ARREGLAR EL FORMATO DE LA FECHA
-            String Fecha_YMD = ListaCopia.get(i).getFecha_nac().toString();
-            String Fecha_dma = Fecha_YMD.substring(8, 10) + "-" + Fecha_YMD.substring(5, 7) + "-" + Fecha_YMD.substring(0, 4);
+            String Fecha_YMD = null;
+            if (ListaCopia.get(i).getFecha_nac() != null) {
+                Fecha_YMD = ListaCopia.get(i).getFecha_nac().toString();
+            }
+            String Fecha_dma = null;
+            if (Fecha_YMD != null) {
+                Fecha_dma = Fecha_YMD.substring(8, 10) + "-" + Fecha_YMD.substring(5, 7) + "-" + Fecha_YMD.substring(0, 4);
+            }
             columna[12] = Fecha_dma;
             columna[13] = ListaCopia.get(i).getCategoria();
             columna[14] = ListaCopia.get(i).getCt();
@@ -331,7 +337,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                         try {
                             modelo_Trabajador_CRUD.eliminarTrabajador(id);
                             //sentencia borrar usuario oracle
-                            String nombre1 = nombre;
+                            String nombre1 = nombre.toUpperCase();
                             String sql = "DROP USER " + nombre1 + "";
                             System.out.println(sql);
                             Statement s = conexion.createStatement();
