@@ -152,7 +152,7 @@ ALTER TABLE CP ADD CONSTRAINT CP_Trabajador_FK FOREIGN KEY (
 Trabajador_ID_Trabajador ) REFERENCES Trabajador ( ID_Trabajador ) ;
 
 ALTER TABLE CP ADD CONSTRAINT CP_Vehiculo_FK FOREIGN KEY ( Vehiculo_Matricula )
-REFERENCES Vehiculo ( Matricula ) ;
+REFERENCES Vehiculo ( Matricula ) ON delete set null;
 
 ALTER TABLE Clave ADD CONSTRAINT Clave_Trabajador_FK FOREIGN KEY (
 Trabajador_ID_Trabajador ) REFERENCES Trabajador ( ID_Trabajador ) ON

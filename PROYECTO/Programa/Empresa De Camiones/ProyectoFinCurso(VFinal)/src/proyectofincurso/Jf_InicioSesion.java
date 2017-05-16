@@ -305,7 +305,7 @@ public class Jf_InicioSesion extends javax.swing.JFrame {
                 String trab = getTrabajador().getCategoria();
                 comprobar.close();
 
-                if (seguir < 30 && !claveTrabajador.getContrasenya().equals("Himevico12345")) {
+                if (seguir < 30 && !claveTrabajador.getContrasenya().equals("himevico12345")) {
 
                     if (trab.equals(adm)) {
                         //Abrir pantalla Administrador

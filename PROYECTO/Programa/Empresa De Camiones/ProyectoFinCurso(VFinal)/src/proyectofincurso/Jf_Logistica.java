@@ -507,6 +507,10 @@ public class Jf_Logistica extends javax.swing.JFrame {
 
         jLabel13.setText("Hora fin");
 
+        horaInicioText.setToolTipText("Formato 00:00 hasta 23:59");
+
+        horaFinText.setToolTipText("Formato 00:00 hasta 23:59 superior al de hora inicio");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(

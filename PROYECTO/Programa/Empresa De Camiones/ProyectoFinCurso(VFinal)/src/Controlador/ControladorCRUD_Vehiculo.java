@@ -162,7 +162,7 @@ public class ControladorCRUD_Vehiculo implements ActionListener, KeyListener {
                     listaNombre.add(matricula);
                 }
                 for (int i = 0; i < numFilas; i++) {
-                    int rptaUsuario = JOptionPane.showConfirmDialog(null, "¿Quieres borrar el registro " + matricula + " ?");
+                    int rptaUsuario = JOptionPane.showConfirmDialog(null, "¿Quieres borrar el registro " + matricula + " ?, si se elimina, se vaciaran los Partes con este vehiculo.");
                     // Esta pregunta tiene 3 posibles respuestas:
                     // SI=0  -- NO=1 -- CANCELAR =2
                     if (rptaUsuario == 0) {

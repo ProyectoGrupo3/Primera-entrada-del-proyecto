@@ -221,7 +221,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     JOptionPane.showMessageDialog(null, rptaRegistro);
                     //si se ha registrado correctamente, crear su usuario de oracle
                     String nombre = vista_Trabajador_CRUD.jText_3.getText();
-                    String contra = "Himevico12345";
+                    String contra = "himevico12345";
                     String sql = "CREATE USER " + nombre + " IDENTIFIED BY " + contra + "";
                     String grant1 = "GRANT \"DBA\" TO " + nombre + "";
                     String grant2 = "GRANT \"CONNECT\" TO " + nombre + "";
