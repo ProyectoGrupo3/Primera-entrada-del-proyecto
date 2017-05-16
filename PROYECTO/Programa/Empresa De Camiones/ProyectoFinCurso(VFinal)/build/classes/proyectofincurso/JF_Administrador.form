@@ -170,10 +170,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jB_JF_Vehiculo_CRUD" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jB_JF_Aviso_CRUD" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jB_JF_Gestion_Parte_CRUD" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jB_JF_Aviso_CRUD" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -205,7 +205,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jB_JF_Aviso_CRUD">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Avisos"/>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de Avisos (WIP)"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_JF_Aviso_CRUDActionPerformed"/>

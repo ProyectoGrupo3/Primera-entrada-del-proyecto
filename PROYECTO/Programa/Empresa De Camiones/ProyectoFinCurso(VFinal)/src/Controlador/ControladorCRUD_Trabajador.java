@@ -15,6 +15,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oracle.jdbc.OracleTypes;
 import proyectofincurso.JF_CT_CRUD;
+import static proyectofincurso.Jf_InicioSesion.conexion;
 
 public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
 
@@ -60,6 +62,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         this.vista_Trabajador_CRUD.jText_12.addKeyListener(this);
         this.vista_Trabajador_CRUD.jText_13.addKeyListener(this);
         this.vista_Trabajador_CRUD.jComboBox1.addKeyListener(this);
+        this.vista_Trabajador_CRUD.botonComboBox.addActionListener(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -138,10 +141,25 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
         vista_Trabajador_CRUD.jText_11.setText("");
         vista_Trabajador_CRUD.jText_12.setText(null);
         vista_Trabajador_CRUD.jText_13.setText(null);
-        vista_Trabajador_CRUD.jComboBox1.setSelectedIndex(1);
+        vista_Trabajador_CRUD.jComboBox1.setSelectedIndex(0);
 
         // Para que el cursor se ponga en este campo después de limpiar los datos
         vista_Trabajador_CRUD.jText_2.requestFocus();
+    }
+
+    public void llenarComboBox(List<CT> cts) {
+        //tenemos la List, ahora a pasar items
+        eliminarItemsComboBox();
+        int tamañoBoxBox = 0;
+
+        for (CT centroTrabajo : cts) {
+            vista_Trabajador_CRUD.jComboBox1.addItem(centroTrabajo.toString());
+            tamañoBoxBox++;
+        }
+    }
+
+    public void eliminarItemsComboBox() {
+        vista_Trabajador_CRUD.jComboBox1.removeAllItems();
     }
 
     @SuppressWarnings("unchecked")
@@ -181,7 +199,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             String Nombre_Centro_Trabajo = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
             // Relleno el array con las categorías
             List<CT> ListaCopia = new ArrayList<>();
-            ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();
+            ListaCopia = (List<CT>) modelo_Trabajador_CRUD.listCT().clone();
             int CT = 0;
             int numRegistros = ListaCopia.size();
             // Busco el ID correspondiente a ese nombre de categoría
@@ -199,7 +217,25 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
             }
 
             if (rptaRegistro != null) {
-                JOptionPane.showMessageDialog(null, rptaRegistro);
+                try {
+                    JOptionPane.showMessageDialog(null, rptaRegistro);
+                    //si se ha registrado correctamente, crear su usuario de oracle
+                    String nombre = vista_Trabajador_CRUD.jText_3.getText();
+                    String contra = "Himevico12345";
+                    String sql = "CREATE USER " + nombre + " IDENTIFIED BY " + contra + "";
+                    String grant1 = "GRANT \"DBA\" TO " + nombre + "";
+                    String grant2 = "GRANT \"CONNECT\" TO " + nombre + "";
+                    String grant3 = "GRANT \"RESOURCE\" TO " + nombre + "";
+                    System.out.println(sql);
+                    Statement s = conexion.createStatement();
+                    ResultSet rs = s.executeQuery(sql);
+                    ResultSet r1 = s.executeQuery(grant1);
+                    ResultSet r2 = s.executeQuery(grant2);
+                    ResultSet r3 = s.executeQuery(grant3);
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorCRUD_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Registro incorrecto");
             }
@@ -241,10 +277,10 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 }
                 vista_Trabajador_CRUD.jComboBox14.setSelectedItem(String.valueOf(vista_Trabajador_CRUD.jTableDatos.getValueAt(filaEditar, 13)));
 
-                String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
-
+                //No funciona bien 
+                // String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
                 // Recojo el dato del ID del Centro de Trabajo
-                String ID_Centro_Trabajo = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
+                /*String ID_Centro_Trabajo = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
                 int CT = Integer.parseInt(ID_Centro_Trabajo);
                 String Centro = "";
                 // Relleno el array con las categorías
@@ -256,9 +292,10 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     if (ListaCopia.get(i).getID() == CT) {
                         Centro = ListaCopia.get(i).getNombre();
                     }
-                }
+                }*/
                 // Pongo el valor recogido de la Categoría en su sitio
-                vista_Trabajador_CRUD.jComboBox1.setSelectedItem(Centro);
+                String cat = String.valueOf(vista_Trabajador_CRUD.jTableDatos.getValueAt(filaEditar, 14));
+                vista_Trabajador_CRUD.jComboBox14.setSelectedItem(cat);
                 // Como el ID es clave lo deshabilito para que no pueda modificarse
                 vista_Trabajador_CRUD.jText_1.setEditable(false);
                 // Deshabilito los botones para que no puedan usarse durante la edición
@@ -291,7 +328,17 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     // Esta pregunta tiene 3 posibles respuestas:
                     // SI=0  -- NO=1 -- CANCELAR =2
                     if (rptaUsuario == 0) {
-                        modelo_Trabajador_CRUD.eliminarTrabajador(id);
+                        try {
+                            modelo_Trabajador_CRUD.eliminarTrabajador(id);
+                            //sentencia borrar usuario oracle
+                            String nombre1 = nombre;
+                            String sql = "DROP USER " + nombre1 + "";
+                            System.out.println(sql);
+                            Statement s = conexion.createStatement();
+                            ResultSet rs = s.executeQuery(sql);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ControladorCRUD_Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
                 LlenarTabla(vista_Trabajador_CRUD.jTableDatos);
@@ -380,7 +427,7 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 } catch (ParseException ex) {
                     Logger.getLogger(ControladorCRUD_Trabajador.class
                             .getName()).log(Level.SEVERE, null, ex);
-                }
+                }/*
                 // Recojo el dato de la Categoría el NOMBRE
                 String Categoria = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
 
@@ -396,13 +443,24 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                     if (ListaCopia.get(i).getNombre().equals(Nombre_Centro_Trabajo)) {
                         CT = ListaCopia.get(i).getID();
                     }
-                }
+                }*/
                 // Pongo el valor recogido de la Categoría en su sitio
-                vista_Trabajador_CRUD.jComboBox1.setSelectedItem(CT);
-
+                String cat = vista_Trabajador_CRUD.jComboBox1.getSelectedItem().toString();
+                vista_Trabajador_CRUD.jComboBox1.setSelectedItem(cat);
+                String ct = vista_Trabajador_CRUD.jComboBox14.getSelectedItem().toString();
+                List<CT> ListaCopia = new ArrayList<>();
+                ListaCopia = (List<CT>) modelo_CT_CRUD.listCT().clone();
+                int CT = 0;
+                int numRegistros = ListaCopia.size();
+                // Busco el ID correspondiente a ese nombre de categoría
+                for (int i = 0; i < numRegistros; i++) {
+                    if (ListaCopia.get(i).getNombre().equals(ct)) {
+                        CT = ListaCopia.get(i).getID();
+                    }
+                }
                 int rptaEdit = modelo_Trabajador_CRUD.editarTrabajador(ID, dni, Nombre,
                         Apellido1, Apellido2, Calle, Portal, Piso, Mano, T_P, T_E,
-                        Salario, FeNac, Categoria, CT);
+                        Salario, FeNac, cat, CT);
                 if (rptaEdit > 0) {
                     JOptionPane.showMessageDialog(null, "Edición Correcta");
                 } else {
@@ -419,8 +477,14 @@ public class ControladorCRUD_Trabajador implements ActionListener, KeyListener {
                 vista_Trabajador_CRUD.jB_Volver.setEnabled(true);
                 // Refresco el listado para que se vea la modificación
                 vista_Trabajador_CRUD.jB_Leer.doClick();
+
             }
 
+        }
+        if (e.getSource() == vista_Trabajador_CRUD.botonComboBox) {
+            List<CT> ListaCopia = new ArrayList<>();
+            ListaCopia = (List<CT>) modelo_Trabajador_CRUD.listCT().clone();
+            llenarComboBox(ListaCopia);
         }
     }
 
