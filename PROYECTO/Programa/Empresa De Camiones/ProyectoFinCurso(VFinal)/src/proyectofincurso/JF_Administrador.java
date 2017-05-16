@@ -18,7 +18,8 @@ public class JF_Administrador extends javax.swing.JFrame {
     public JF_Administrador() {
         initComponents();
         setLocationRelativeTo(null);
-        bienvenido.setText("Bienvenido de nuevo "+Jf_InicioSesion.trabajador.getNombre());
+        String nombre = Jf_InicioSesion.trabajador.getNombre().toUpperCase();
+        bienvenido.setText("Bienvenido de nuevo "+nombre);
     }
 
     @SuppressWarnings("unchecked")
@@ -121,7 +122,7 @@ public class JF_Administrador extends javax.swing.JFrame {
             }
         });
 
-        jB_JF_Aviso_CRUD.setText("Gestión de Avisos");
+        jB_JF_Aviso_CRUD.setText("Gestión de Avisos (WIP)");
         jB_JF_Aviso_CRUD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jB_JF_Aviso_CRUDActionPerformed(evt);
@@ -155,10 +156,10 @@ public class JF_Administrador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jB_JF_Vehiculo_CRUD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jB_JF_Aviso_CRUD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jB_JF_Gestion_Parte_CRUD)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jB_JF_Aviso_CRUD)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

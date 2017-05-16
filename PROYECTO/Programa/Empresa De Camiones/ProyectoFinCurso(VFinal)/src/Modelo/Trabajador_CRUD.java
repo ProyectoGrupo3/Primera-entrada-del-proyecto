@@ -247,4 +247,33 @@ public class Trabajador_CRUD {
         return listaTrabajador;
     }
 
+    public ArrayList<CT> listCT() {
+        ArrayList listaCT = new ArrayList();
+        CT ct;
+        String sql = "{call CONSULTA_CT.BUSCAR_TOTAL_CT(?)}";
+        try {
+            //Statement sentencia = accesoDB.createStatement();
+            CallableStatement rp = accesoDB.prepareCall(sql);
+            rp.registerOutParameter(1, OracleTypes.CURSOR);
+            rp.executeUpdate();
+            ResultSet res = (ResultSet) rp.getObject(1);
+            while (res.next()) {
+                ct = new CT();
+                ct.setID(res.getInt(1));
+                ct.setNombre(res.getString(2));
+                ct.setCalle(res.getString(3));
+                ct.setNumero(res.getInt(4));
+                ct.setCp(res.getString(5));
+                ct.setCiudad(res.getString(6));
+                ct.setProvincia(res.getString(7));
+                ct.setTelefono(res.getString(8));
+                listaCT.add(ct);
+            }
+
+        } catch (Exception e) {
+
+        }
+        return listaCT;
+    }
+
 }

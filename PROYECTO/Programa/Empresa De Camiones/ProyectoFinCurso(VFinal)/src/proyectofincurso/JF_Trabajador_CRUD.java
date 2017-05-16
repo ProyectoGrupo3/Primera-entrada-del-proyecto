@@ -12,6 +12,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
 
     public JF_Trabajador_CRUD() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -55,6 +56,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         jComboBox14 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        botonComboBox = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jText_1 = new javax.swing.JTextField();
@@ -321,7 +323,12 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
 
         jLabel16.setText("Centro");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CentroTrabajo, ID: 1", "Item 2", "Item 3", "Item 4" }));
+        botonComboBox.setText("Cargar centros de trabajo");
+        botonComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -334,7 +341,11 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, 0, 212, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(botonComboBox)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, 0, 212, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +356,8 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
                     .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel15.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -751,6 +763,12 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jB_SalirPropertyChange
 
+    private void botonComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComboBoxActionPerformed
+       JF_Trabajador_CRUD vista_Trabajador = new JF_Trabajador_CRUD();
+        Trabajador_CRUD modelo_Trabajador = new Trabajador_CRUD();
+        ControladorCRUD_Trabajador controlador_Trabajador = new ControladorCRUD_Trabajador(vista_Trabajador, modelo_Trabajador);
+    }//GEN-LAST:event_botonComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -764,6 +782,7 @@ public class JF_Trabajador_CRUD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton botonComboBox;
     public javax.swing.JButton jB_Actualizar;
     public javax.swing.JButton jB_Borrar;
     public javax.swing.JButton jB_Crear;

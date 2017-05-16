@@ -24,6 +24,12 @@ public class CT {
         telefono="";
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+    
+
     public int getID() {
         return ID;
     }
