@@ -163,7 +163,7 @@ public class Jf_ModificarContrasenya extends javax.swing.JFrame {
             ctnya.setModificarContrasenya(this);
 
             int id_clave = inicioSesion.getClaveTrabajador().getId_clave();
-            String nombre = inicioSesion.getClaveTrabajador().getUsuario();
+            String nombre = inicioSesion.getClaveTrabajador().getUsuario().toUpperCase();
             String contraseñaNueva = contraConfirm;
             Date fechaDeHoy = sqlDateHoy;
 
